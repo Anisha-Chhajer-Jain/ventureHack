@@ -5,7 +5,6 @@ import { Link, usePathname } from "@/i18n/routing";
 import { UserButton, useUser } from "@clerk/nextjs";
 import {
   Leaf,
-  CloudRain,
   Menu,
   X,
   Bell,
@@ -91,7 +90,6 @@ export function Navbar() {
     { name: t("yieldAi"), href: "/dashboard/yield-predictor", icon: <Sprout className="w-5 h-5 text-emerald-500" /> },
     { name: t("products"), href: "/products", icon: <Sprout className="w-5 h-5" /> },
     { name: t("communities"), href: "/communities", icon: <Users className="w-5 h-5" /> },
-    { name: t("weather"), href: "/weather", icon: <CloudRain className="w-5 h-5" /> },
   ];
 
   const temp = weatherData ? Math.round(weatherData.current.temp_c) : null;
