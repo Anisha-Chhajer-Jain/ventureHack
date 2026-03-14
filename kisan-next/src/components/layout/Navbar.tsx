@@ -16,6 +16,8 @@ import {
   RefreshCw,
   ExternalLink,
   Sprout,
+  Sparkles,
+  User as UserIcon,
 } from "lucide-react";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { cn } from "@/lib/utils";
@@ -89,6 +91,7 @@ export function Navbar() {
 
   const navItems = [
     { name: t("home"), href: "/", icon: <Home className="w-5 h-5" /> },
+    { name: t("ai"), href: "/dashboard/profit-predictor", icon: <Sparkles className="w-5 h-5 text-amber-500" /> },
     { name: t("diseases"), href: "/diseases", icon: <ScanEye className="w-5 h-5" /> },
     { name: t("calculator"), href: "/fertilizer-calculator", icon: <Calculator className="w-5 h-5" /> },
     { name: t("weather"), href: "/weather", icon: <CloudRain className="w-5 h-5" /> },

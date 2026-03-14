@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, useRouter } from "@/i18n/routing";
 import { CROPS, CropData, TranslationMap } from "@/data/crops";
-import { Leaf, Activity, Droplets, ArrowRight, Calculator } from "lucide-react";
+import { Leaf, Activity, Droplets, ArrowRight, Calculator, IndianRupee } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
@@ -40,7 +40,7 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="space-y-8 animate-in fade-in pb-12">
+    <div className="space-y-8 animate-in fade-in pt-28 pb-12">
       {/* Hero Banner */}
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary to-primary/80 shadow-xl p-6 sm:p-10 text-white">
         <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -74,6 +74,31 @@ export default function DashboardPage() {
           <Leaf className="w-6 h-6 text-primary" />
           {t("chooseCrop")}
         </h2>
+
+        {/* AI Profit Intelligence Quick Access */}
+        <div className="mb-8">
+          <Link href="/dashboard/profit-predictor">
+            <div className="group relative overflow-hidden bg-gradient-to-br from-emerald-600 to-teal-700 rounded-3xl p-8 text-white shadow-lg hover:shadow-2xl transition-all duration-300">
+              <div className="relative z-10 flex flex-col md:flex-row items-center gap-6">
+                <div className="p-4 bg-white/10 rounded-2xl backdrop-blur-md">
+                  <IndianRupee className="w-10 h-10" />
+                </div>
+                <div className="text-center md:text-left space-y-2">
+                  <h3 className="text-2xl font-bold">AI Profit Intelligence</h3>
+                  <p className="text-white/80 max-w-md">Predict your crop yield and estimate profits based on real-time APMC market prices.</p>
+                </div>
+                <div className="md:ml-auto">
+                  <Button variant="secondary" className="rounded-xl font-bold group-hover:scale-105 transition-transform">
+                    Try Predictor <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </div>
+              </div>
+              {/* Decorative elements */}
+              <div className="absolute top-0 right-0 -mr-8 -mt-8 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 -ml-8 -mb-8 w-48 h-48 bg-black/10 rounded-full blur-2xl" />
+            </div>
+          </Link>
+        </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {CROPS.map((crop) => (
