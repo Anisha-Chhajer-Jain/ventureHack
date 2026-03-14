@@ -21,6 +21,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { CROPS, CropData, CropDisease, TranslationMap } from "@/data/crops";
 import { cn } from "@/lib/utils";
+import { ChatWidget } from "@/components/chat/ChatWidget";
 
 export default function Home() {
   const t = useTranslations("Index");
@@ -322,6 +323,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <ChatWidget />
     </div>
   );
 }

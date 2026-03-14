@@ -1,5 +1,7 @@
 "use client";
 
+import { ChatWidget } from "@/components/chat/ChatWidget";
+
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-col min-h-screen bg-[#F7FDF9]">
@@ -8,7 +10,8 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           {children}
         </div>
       </main>
+      {/* AI Farmer Chatbot - floats on all app pages */}
+      <ChatWidget />
     </div>
   );
 }
-
