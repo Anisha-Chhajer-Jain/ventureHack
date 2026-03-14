@@ -52,9 +52,13 @@ KisanDost is a professional, multilingual Progressive Web App (PWA) designed to 
 
 The application employs several data science and mathematical models to provide precision agricultural advice:
 
-### 1. Yield Prediction Regression Model (AI Profit Intelligence)
-The application uses a Random Forest-inspired multiple linear regression simulation to determine the per-acre yield. The formula considers NPK soil levels, rainfall, and fertilizer usage.
-$$Yield_{pred} = Base + (N \times 0.05) + (P \times 0.03) + (K \times 0.02) + (Rain \times 0.01)$$
+### 1. Yield Prediction (ML Microservice)
+KisanDost includes a state-of-the-art **AI Profit Intelligence Tool** powered by a dedicated Python/FastAPI microservice. Instead of hardcoded formulas, the application utilizes a **Random Forest Regressor** (via `scikit-learn`) trained on datasets containing historical crop environmental requirements and yields.
+
+**Architecture Flow:**
+1. The Next.js frontend collects data via the Profit Predictor form.
+2. The Python service runs inference against the trained `yield_model.pkl` and returns the predicted yield (per hectare) and a calculated confidence score.
+3. Total predicted yield is calculated as: `Predicted Yield (Per Hectare/Acre) × Land Area`.
 
 ### 2. Nutrient Prediction (Linear Regression)
 The **Fertilizer Calculator** maps input variables such as Crop Type, Soil Characteristic ($S$), and Current Soil Saturation ($N_{curr}$) to a predicted target dosage ($Y$):
@@ -64,10 +68,10 @@ $$Y = (R_{crop} \times S_{coeff}) - N_{curr}$$
 The apps health monitoring is based on the **Spectral Reflectance** of chlorophyll. By calculating the ratio between Near-Infrared (NIR) and Red light, the app identifies plant vigor.
 $$NDVI = \frac{NIR - Red}{NIR + Red}$$
 
-### 4. Live Market Prices & Profit Computations
-We fetch the latest crop market prices using a dedicated database schema.
-- **Estimated Revenue**: `Predicted Yield × Market Price`
-- **Net Profit**: `Estimated Revenue - Estimated Input Costs`
+### 4. Profit Computations & Benchmarking
+- **Estimated Revenue**: `Predicted Yield × Market Price`.
+- **Net Profit**: `Estimated Revenue - Estimated Input Costs`.
+- **Visualization**: Using **Recharts**, the UI maps the predicted yield against State and National benchmarks.
 
 ---
 

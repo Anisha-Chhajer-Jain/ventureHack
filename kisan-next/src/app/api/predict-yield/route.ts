@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 import dbConnect from "@/lib/mongodb";
 import PredictionHistory from "@/models/PredictionHistory";
-import { predictYield } from "@/lib/ai/yieldPredictor";
+
 import { getMarketPrice } from "@/lib/apmc/marketData";
 
 export async function POST(req: Request) {
@@ -51,17 +51,44 @@ export async function POST(req: Request) {
       mandi = "Chittorgarh"
     } = body;
 
-    // 1. Get AI Prediction
-    console.log("Running yield predictor...");
-    const { predictedYield, confidenceScore } = predictYield({
-      cropType,
-      landArea: Number(landArea),
-      soilNitrogen: Number(soilNitrogen),
-      soilPhosphorus: Number(soilPhosphorus),
-      soilPotassium: Number(soilPotassium),
-      rainfall: Number(rainfall),
-      fertilizerUsed: Number(fertilizerUsed),
-    });
+    // 1. Get AI Prediction from FastAPI Microservice
+    console.log("Calling FastAPI Yield Predictor...");
+    try {
+      const mlResponse = await fetch("http://127.0.0.1:8000/predict-yield", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          crop: cropType,
+          nitrogen: Number(soilNitrogen),
+          phosphorus: Number(soilPhosphorus),
+          potassium: Number(soilPotassium),
+          rainfall: Number(rainfall),
+          temperature: 25.0, // Default for now, can be updated in form
+          soil_ph: 6.5,      // Default for now, can be updated in form
+          state: "Rajasthan" // Default
+        })
+      });
+      
+      if (!mlResponse.ok) {
+        throw new Error(`ML API Error: ${mlResponse.statusText}`);
+      }
+      
+      const mlData = await mlResponse.json();
+      
+      // The ML model predicts per hectare yield. 
+      // Calculate total yield based on land area.
+      var predictedYield = mlData.predicted_yield * Number(landArea);
+      var confidenceScore = mlData.confidence;
+      
+      console.log(`ML Prediction: ${predictedYield} (Confidence: ${confidenceScore})`);
+      
+    } catch (mlErr: any) {
+      console.error("FastAPI Prediction Error:", mlErr);
+      return NextResponse.json({ 
+        error: "AI Service Error", 
+        details: mlErr.message 
+      }, { status: 503 });
+    }
 
     // 2. Get Market Price
     console.log("Connecting to DB and fetching price...");
