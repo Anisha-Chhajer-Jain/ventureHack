@@ -1,0 +1,39 @@
+{
+  "Index": {
+    "title": "KisanDost માં આપનું સ્વાગત છે",
+    "subtitle": "વધુ સારી ખેતી માટે તમારો ડિજિટલ સાથી.",
+    "login": "Google સાથે લોગિન કરો",
+    "getStarted": "શરૂઆત કરો"
+  },
+  "Dashboard": {
+    "greeting": "નમસ્તે {name}! આજે તમારું ખેતર {health} છે",
+    "chooseCrop": "તમારો પાક પસંદ કરો",
+    "calculateFertilizer": "ખાતરની ગણતરી કરો",
+    "healthStatus": {
+      "healthy": "સ્વસ્થ",
+      "moderate": "મધ્યમ",
+      "stress": "તણાવ"
+    }
+  },
+  "Navigation": {
+    "home": "હોમ",
+    "diseases": "રોગ ઓળખ",
+    "calculator": "ખાતર કેલ્ક્યુલેટર",
+    "weather": "હવામાન",
+    "crops": "પાક",
+    "profile": "પ્રોફાઇલ"
+  },
+  "Fertilizer": {
+    "title": "ખાતર કેલ્ક્યુલેટર",
+    "crop": "પાક પસંદ કરો",
+    "area": "ખેતરનો વિસ્તાર (એકર)",
+    "soilType": "માટીનો પ્રકાર",
+    "soilDesc": "ગોરાડુ / રેતાળ / કાંપવાળી",
+    "calculate": "ગણતરી કરો",
+    "save": "મારા ખેતરમાં સાચવો",
+    "recommended": "ભલામણ કરેલ NPK",
+    "totalBags": "કુલ બેગની જરૂર",
+    "cost": "અંદાજિત ખર્ચ",
+    "profit": "સંભવિત નફો"
+  }
+}

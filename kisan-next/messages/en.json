@@ -1,0 +1,39 @@
+{
+  "Index": {
+    "title": "Welcome to KisanDost",
+    "subtitle": "Your digital companion for better farming.",
+    "login": "Login with Google",
+    "getStarted": "Get Started"
+  },
+  "Dashboard": {
+    "greeting": "Namaste {name}! Your farm is {health} today",
+    "chooseCrop": "Choose Your Crop",
+    "calculateFertilizer": "Calculate Fertilizer",
+    "healthStatus": {
+      "healthy": "Healthy",
+      "moderate": "Moderate",
+      "stress": "Stress"
+    }
+  },
+  "Navigation": {
+    "home": "Home",
+    "diseases": "Diseases",
+    "calculator": "Calculator",
+    "weather": "Weather",
+    "crops": "Crops",
+    "profile": "Profile"
+  },
+  "Fertilizer": {
+    "title": "Fertilizer Calculator",
+    "crop": "Select Crop",
+    "area": "Farm area (acres)",
+    "soilType": "Soil Type",
+    "soilDesc": "Loamy / Sandy / Clay",
+    "calculate": "Calculate",
+    "save": "Save to My Farm",
+    "recommended": "Recommended NPK",
+    "totalBags": "Total Bags Needed",
+    "cost": "Cost Estimate",
+    "profit": "Profit Gain"
+  }
+}

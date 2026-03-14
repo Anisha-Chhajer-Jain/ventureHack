@@ -1,0 +1,39 @@
+{
+  "Index": {
+    "title": "KisanDost में आपका स्वागत है",
+    "subtitle": "बेहतर खेती के लिए आपका डिजिटल साथी।",
+    "login": "Google से लॉगिन करें",
+    "getStarted": "शुरू करें"
+  },
+  "Dashboard": {
+    "greeting": "नमस्ते {name}! आज आपका खेत {health} है",
+    "chooseCrop": "अपनी फसल चुनें",
+    "calculateFertilizer": "उर्वरक की गणना करें",
+    "healthStatus": {
+      "healthy": "स्वस्थ",
+      "moderate": "मध्यम",
+      "stress": "तनाव"
+    }
+  },
+  "Navigation": {
+    "home": "होम",
+    "diseases": "रोग पहचान",
+    "calculator": "खाद कैलकुलेटर",
+    "weather": "मौसम",
+    "crops": "फसलें",
+    "profile": "प्रोफ़ाइल"
+  },
+  "Fertilizer": {
+    "title": "उर्वरक कैलकुलेटर",
+    "crop": "फसल चुनें",
+    "area": "खेत का क्षेत्रफल (एकड़)",
+    "soilType": "मिट्टी का प्रकार",
+    "soilDesc": "दोमट / बलुई / चिकनी",
+    "calculate": "गणना करें",
+    "save": "खेत में सेव करें",
+    "recommended": "अनुशंसित NPK",
+    "totalBags": "कुल बोरी",
+    "cost": "अनुमानित लागत",
+    "profit": "अपेक्षित लाभ"
+  }
+}
