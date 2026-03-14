@@ -2,10 +2,10 @@
 
 import { useTranslations } from "next-intl";
 import { useState } from "react";
-import { 
-  Sprout, 
-  ExternalLink, 
-  Play, 
+import {
+  Sprout,
+  ExternalLink,
+  Play,
   ChevronDown,
   Calendar,
   Rocket,
@@ -15,36 +15,21 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const VIDEOS = [
-  {
-    id: "fuE750JhA2U",
-    title: "PM Kisan Scheme - Farmer Benefits",
-    date: "2 days ago",
-  },
-  {
-    id: "0ZTcuWp0eXA",
-    title: "How to Check PM Kisan Status Online",
-    date: "1 week ago",
-  },
-  {
-    id: "flBkER1gsQI",
-    title: "PM Kisan 12th Installment Release",
-    date: "2 weeks ago",
-  },
-  {
-    id: "fuE750JhA2U", // Repeated for demonstration as ID wasn't provided for dynamic list
-    title: "PM Kisan Scheme - Complete Guide",
-    date: "3 weeks ago",
-  },
-  {
-    id: "0ZTcuWp0eXA",
-    title: "Farmers Welfare Schemes 2024",
-    date: "1 month ago",
-  },
-  {
-    id: "flBkER1gsQI",
-    title: "PM Kisan Helpline Numbers",
-    date: "1 month ago",
-  },
+  { id: "fuE750JhA2U", title: "PM Kisan Scheme - Farmer Benefits", date: "2 days ago" },
+  { id: "0ZTcuWp0eXA", title: "How to Check PM Kisan Status Online", date: "1 week ago" },
+  { id: "flBkER1gsQI", title: "PM Kisan 12th Installment Release", date: "2 weeks ago" },
+  { id: "fuE750JhA2U", title: "PM Kisan Scheme - Complete Guide", date: "3 weeks ago" },
+  { id: "0ZTcuWp0eXA", title: "Farmers Welfare Schemes 2024", date: "1 month ago" },
+  { id: "flBkER1gsQI", title: "PM Kisan Helpline Numbers", date: "1 month ago" },
+  { id: "fuE750JhA2U", title: "Direct Benefit Transfer (DBT) Explained", date: "2 months ago" },
+  { id: "0ZTcuWp0eXA", title: "E-KYC Registration Tutorial", date: "2 months ago" },
+  { id: "flBkER1gsQI", title: "PMAY and PM Kisan Synergy", date: "3 months ago" },
+  { id: "fuE750JhA2U", title: "Annual Farmer Convention Highlights", date: "3 months ago" },
+  { id: "0ZTcuWp0eXA", title: "New Crop Insurance via PM Kisan", date: "4 months ago" },
+  { id: "flBkER1gsQI", title: "Fertilizer Subsidy Updates", date: "4 months ago" },
+  { id: "fuE750JhA2U", title: "Organic Farming Initiative 2024", date: "5 months ago" },
+  { id: "0ZTcuWp0eXA", title: "Success Stories: Small Scale Farmers", date: "5 months ago" },
+  { id: "flBkER1gsQI", title: "Technology in Indian Agriculture", date: "6 months ago" },
 ];
 
 export default function CommunitiesPage() {
@@ -88,11 +73,11 @@ export default function CommunitiesPage() {
                 </div>
 
                 <h3 className="text-4xl font-black leading-none text-slate-800">
-                  🌱 Official YouTube Channel
+                  Official YouTube Channel
                 </h3>
 
                 <p className="text-lg font-medium text-slate-600 leading-relaxed bg-[#e8f0fe]/50 p-6 rounded-3xl border-l-[6px] border-orange-400 italic">
-                  &quot;Launched on 24th February 2019 by Hon&apos;ble Prime Minister, Shri Narendra Modi. 
+                  &quot;Launched on 24th February 2019 by Hon&apos;ble Prime Minister, Shri Narendra Modi.
                   Became operational on 1st December 2018. Provides income support to eligible farmer families.&quot;
                 </p>
 
@@ -129,9 +114,9 @@ export default function CommunitiesPage() {
               <Play className="w-6 h-6 text-[#2e6b3b]" />
               LATEST VIDEOS
             </h3>
-            <a 
-              href="https://www.youtube.com/@pmkisanofficial" 
-              target="_blank" 
+            <a
+              href="https://www.youtube.com/@pmkisanofficial"
+              target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-2 text-[#2e6b3b] font-black text-sm hover:underline"
             >
@@ -141,12 +126,12 @@ export default function CommunitiesPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {visibleVideos.map((video, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="bg-white rounded-[32px] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 group"
               >
                 <div className="aspect-video relative bg-slate-100">
-                  <iframe 
+                  <iframe
                     src={`https://www.youtube.com/embed/${video.id}`}
                     className="absolute inset-0 w-full h-full"
                     allowFullScreen
@@ -168,7 +153,7 @@ export default function CommunitiesPage() {
 
           {!showAllVideos && (
             <div className="text-center pt-8">
-              <Button 
+              <Button
                 onClick={() => setShowAllVideos(true)}
                 className="h-14 px-12 rounded-full bg-white border-2 border-[#2e6b3b] text-[#2e6b3b] hover:bg-[#2e6b3b] hover:text-white font-black transition-all group shadow-lg active:scale-95"
               >
