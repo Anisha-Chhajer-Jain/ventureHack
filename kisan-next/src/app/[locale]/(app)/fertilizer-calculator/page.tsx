@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter } from "@/i18n/routing";
 import { CROPS, TranslationMap } from "@/data/crops";
@@ -22,7 +22,7 @@ function getLocalizedText(translationObj: TranslationMap | undefined, currentLoc
   return translationObj[currentLocale] || translationObj.en;
 }
 
-export default function FertilizerCalculatorPage() {
+function FertilizerCalculatorContent() {
   const searchParams = useSearchParams();
   const defaultCrop = searchParams.get("crop") || "";
   const t = useTranslations("Fertilizer");
@@ -282,5 +282,13 @@ export default function FertilizerCalculatorPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function FertilizerCalculatorPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center pt-20"><div className="w-10 h-10 border-4 border-primary border-t-transparent flex items-center justify-center rounded-full animate-spin"></div></div>}>
+      <FertilizerCalculatorContent />
+    </Suspense>
   );
 }
