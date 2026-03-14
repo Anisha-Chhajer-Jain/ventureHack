@@ -74,13 +74,10 @@ export default function Home() {
   return (
     <div className="space-y-32 pb-32">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-36">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="relative overflow-hidden pt-36 ">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ">
           <div className="space-y-10 animate-in slide-in-from-left duration-1000">
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#8bc34a]/10 border border-[#8bc34a]/20 text-[#2e6b3b]">
-              <Trophy className="w-4 h-4" />
-              <span className="font-bold tracking-tight uppercase text-xs">Winner of Agri-Tech Innovation Award</span>
-            </div>
+          
             
             <h1 className="text-6xl md:text-8xl font-black text-[#2e6b3b] tracking-tighter leading-[0.85]">
               किसान की हर <br />
@@ -99,10 +96,7 @@ export default function Home() {
                 </Button>
               </Link>
               <div className="flex items-center gap-4 px-6 border-l-4 border-orange-400">
-                <div>
-                  <p className="text-2xl font-black text-[#2e6b3b]">1M+</p>
-                  <p className="text-sm font-bold text-muted-foreground">Trusted Farmers</p>
-                </div>
+               
               </div>
             </div>
           </div>
@@ -110,7 +104,7 @@ export default function Home() {
           <div className="relative animate-in slide-in-from-right duration-1000">
             <div className="absolute -inset-10 bg-[#8bc34a]/20 rounded-[100px] blur-3xl -z-10 animate-pulse" />
             <img
-              src="https://rupiya.app/wp-content/uploads/2025/03/Farmer-Banner-2.jpg"
+              src="https://rupiya.app/wp-content/uploads/2025/03/Layer-19-copy.png"
               alt="Farmer using digital tools"
               className="w-full aspect-[4/5] object-cover rounded-[60px] shadow-2xl border-8 border-white"
             />

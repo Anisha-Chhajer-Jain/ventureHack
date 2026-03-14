@@ -2,11 +2,11 @@
   "Index": {
     "title": "KisanDost में आपका स्वागत है",
     "subtitle": "बेहतर खेती के लिए आपका डिजिटल साथी।",
-    "login": "Google से लॉगिन करें",
+    "login": "Google के साथ लॉगिन करें",
     "getStarted": "शुरू करें"
   },
   "Dashboard": {
-    "greeting": "नमस्ते {name}! आज आपका खेत {health} है",
+    "greeting": "नमस्ते {name}! आपका खेत आज {health} है",
     "chooseCrop": "अपनी फसल चुनें",
     "calculateFertilizer": "उर्वरक की गणना करें",
     "healthStatus": {
@@ -17,8 +17,8 @@
   },
   "Navigation": {
     "home": "होम",
-    "diseases": "रोग पहचान",
-    "calculator": "खाद कैलकुलेटर",
+    "diseases": "बीमारियाँ",
+    "calculator": "कैलकुलेटर",
     "weather": "मौसम",
     "crops": "फसलें",
     "profile": "प्रोफ़ाइल"
@@ -26,14 +26,593 @@
   "Fertilizer": {
     "title": "उर्वरक कैलकुलेटर",
     "crop": "फसल चुनें",
-    "area": "खेत का क्षेत्रफल (एकड़)",
-    "soilType": "मिट्टी का प्रकार",
-    "soilDesc": "दोमट / बलुई / चिकनी",
+    "area": "खेत का क्षेत्र (एकड़)",
+    "soilType": "मिट्टी के प्रकार",
+    "soilDesc": "दोमट / बालू / चिकनी",
     "calculate": "गणना करें",
-    "save": "खेत में सेव करें",
+    "save": "मेरे खेत में सहेजें",
     "recommended": "अनुशंसित NPK",
-    "totalBags": "कुल बोरी",
+    "totalBags": "कुल बोरी चाहिए",
     "cost": "अनुमानित लागत",
-    "profit": "अपेक्षित लाभ"
+    "profit": "लाभ लाभ"
+  },
+  "DiseasesPage": {
+    "title": "फसल रोग एवं कीट प्रबंधन",
+    "subtitle": "8 फसलों तक का चयन करके आम बीमारियों, कीटों और निवारक उपायों को देखें। विशेषज्ञ मार्गदर्शन के साथ अपनी फसल को सुरक्षित रखें।",
+    "selected": "आपने 8 में से {count} फसलें चुनी हैं",
+    "filters": {
+      "all": "सभी फसलें",
+      "fruits": "फल",
+      "vegetables": "सब्जियां",
+      "cereals": "अनाज",
+      "cashCrops": "नकदी फसलें"
+    },
+    "reset": "चयन रीसेट करें",
+    "symptoms": "SYMPTOMS (लक्षण)",
+    "favorableConditions": "FAVORABLE CONDITIONS",
+    "impact": "प्रभाव",
+    "prevention": "रोकथाम और नियंत्रण",
+    "pestControl": "PEST CONTROL (इलाज)",
+    "generalPrecaution": "GENERAL PRECAUTION:",
+    "viewStoreProducts": "View Store Products",
+    "care": "{crop} CARE",
+    "bestSeason": "Best Season: Kharif (Monsoon)"
+  },
+  "Crops": {
+    "wheat": {
+      "name": "गेहूँ",
+      "diseases": {
+        "wheat-rust": {
+          "name": "गेरूई (Rust)",
+          "description": "तने, पत्तियों और दानों को प्रभावित करने वाला फफूंद रोग।",
+          "symptoms": [
+            "जंग के रंग के दाने",
+            "पत्तियों का पीला पड़ना",
+            "रूका हुआ विकास"
+          ],
+          "favorableConditions": "गर्म दिन और ठंडी रातें ओस के साथ।",
+          "impact": "पैदावार में 20-50% तक की कमी।",
+          "prevention": [
+            "प्रतिरोधी किस्में",
+            "फफूंदनाशक",
+            "समय पर बुवाई"
+          ]
+        }
+      }
+    },
+    "rice": {
+      "name": "धान (चावल)",
+      "diseases": {
+        "rice-blast": {
+          "name": "झोंका रोग (Blast)",
+          "description": "धान के ऊपरी हिस्सों को प्रभावित करने वाला फफूंद संक्रमण।",
+          "symptoms": [
+            "हीरे के आकार के धब्बे",
+            "गर्दन सड़न"
+          ],
+          "favorableConditions": "उच्च आर्द्रता और लगातार बारिश।",
+          "impact": "पूरी फसल नष्ट हो सकती है।",
+          "prevention": [
+            "प्रतिरोधी किस्में",
+            "संतुलित नाइट्रोजन",
+            "उचित दूरी"
+          ]
+        }
+      }
+    },
+    "corn": {
+      "name": "मक्का",
+      "diseases": {
+        "corn-smut": {
+          "name": "कांगियारी (Smut)",
+          "description": "पौधों पर गांठे बनाने वाला फफूंद रोग।",
+          "symptoms": [
+            "सफेद/काले गॉल",
+            "विकृत भुट्टे"
+          ],
+          "favorableConditions": "गर्म, शुष्क मौसम के बाद बारिश।",
+          "impact": "उपज और दाने की गुणवत्ता कम करता है।",
+          "prevention": [
+            "फसल चक्र",
+            "चोट से बचें",
+            "बीज उपचार"
+          ]
+        }
+      }
+    },
+    "banana": {
+      "name": "केला",
+      "diseases": {
+        "panama-disease": {
+          "name": "पनामा विल्ट",
+          "description": "मिट्टी से पैदा होने वाला फफूंद रोग।",
+          "symptoms": [
+            "पत्तियों के किनारों का पीला पड़ना",
+            "मुरझाना",
+            "तने का फटना"
+          ],
+          "favorableConditions": "अम्लीय मिट्टी और खराब जल निकासी।",
+          "impact": "बागानों का स्थायी नुकसान।",
+          "prevention": [
+            "स्वच्छ पौधे",
+            "प्रतिरोधी किस्में"
+          ]
+        }
+      }
+    },
+    "grapes": {
+      "name": "अंगूर",
+      "diseases": {
+        "downy-mildew-grapes": {
+          "name": "डाउनी मिल्ड्यू",
+          "description": "बेलों का आक्रामक फफूंद रोग।",
+          "symptoms": [
+            "तेल के धब्बे",
+            "नीचे सफेद फफूंद"
+          ],
+          "favorableConditions": "गीला मौसम, मध्यम तापमान।",
+          "impact": "गंभीर पत्ती और फल झड़ना।",
+          "prevention": [
+            "कैनोपी प्रबंधन",
+            "तांबा का छिड़काव"
+          ]
+        }
+      }
+    },
+    "pineapple": {
+      "name": "अनानास",
+      "diseases": {
+        "heart-rot": {
+          "name": "हार्ट रॉट",
+          "description": "भीतरी पत्तियों का फफूंद से सड़ना।",
+          "symptoms": [
+            "बीच का पीला पड़ना",
+            "पत्तियां आसानी से बाहर निकल आना"
+          ],
+          "favorableConditions": "जलभराव वाली भारी मिट्टी।",
+          "impact": "पौधे की मृत्यु।",
+          "prevention": [
+            "जल निकासी",
+            "फफूंदनाशक डुबकी"
+          ]
+        }
+      }
+    },
+    "orange": {
+      "name": "संतरा",
+      "diseases": {
+        "citrus-canker": {
+          "name": "सिट्रस कैंकर",
+          "description": "फलों और पत्तियों पर जीवाणु धब्बे।",
+          "symptoms": [
+            "उभरे हुए भूरे घाव",
+            "पीले घेरे"
+          ],
+          "favorableConditions": "हवा से चलने वाली बारिश।",
+          "impact": "उपज और गुणवत्ता कम करता है।",
+          "prevention": [
+            "प्रमाणीकरण",
+            "तांबा का छिड़काव"
+          ]
+        }
+      }
+    },
+    "pomegranate": {
+      "name": "अनार",
+      "diseases": {
+        "bacterial-blight-pom": {
+          "name": "बैक्टीरियल ब्लाइट",
+          "description": "गहरे पानी से लथपथ घाव।",
+          "symptoms": [
+            "फलों पर धब्बे",
+            "फलों का फटना"
+          ],
+          "favorableConditions": "बरसात का मौसम।",
+          "impact": "बाजार का भारी नुकसान।",
+          "prevention": [
+            "कांट-छांट",
+            "एंटीबायोटिक्स"
+          ]
+        }
+      }
+    },
+    "plum": {
+      "name": "बेर",
+      "diseases": {
+        "black-knot": {
+          "name": "ब्लैक नॉट",
+          "description": "शाखाओं पर फफूंद की सूजन।",
+          "symptoms": [
+            "मस्सेदार काले गॉल",
+            "शाखाओं का सूखना"
+          ],
+          "favorableConditions": "गीले वसंत ऋतु।",
+          "impact": "पेड़ को मार सकता है।",
+          "prevention": [
+            "गांठों की छंटाई",
+            "संक्रमण नष्ट करें"
+          ]
+        }
+      }
+    },
+    "pear": {
+      "name": "नाशपाती",
+      "diseases": {
+        "fire-blight-pear": {
+          "name": "फायर ब्लाइट",
+          "description": "जीवाणु झुलसा रोग।",
+          "symptoms": [
+            "काली टहनियाँ",
+            "रिसने वाले कैंकर"
+          ],
+          "favorableConditions": "गर्म, गीला फूल।",
+          "impact": "पेड़ की तेजी से मौत।",
+          "prevention": [
+            "स्वच्छ छंटाई",
+            "जीवाणुनाशक"
+          ]
+        }
+      }
+    },
+    "peach": {
+      "name": "आड़ू",
+      "diseases": {
+        "leaf-curl-peach": {
+          "name": "पत्ती मुड़ना",
+          "description": "पत्तियों का फफूंद से विकृत होना।",
+          "symptoms": [
+            "सिकुड़ी हुई लाल पत्तियाँ",
+            "समय से पहले गिरना"
+          ],
+          "favorableConditions": "ठंडा, गीला वसंत।",
+          "impact": "पेड़ की जीवन शक्ति कमजोर करता है।",
+          "prevention": [
+            "सुप्त अवस्था में तांबा का छिड़काव"
+          ]
+        }
+      }
+    },
+    "strawberry": {
+      "name": "स्ट्रॉबेरी",
+      "diseases": {
+        "gray-mold-strawberry": {
+          "name": "ग्रे मोल्ड",
+          "description": "आम बेरी फफूंद।",
+          "symptoms": [
+            "रोएंदार भूरी फफूंद",
+            "नरम सड़न"
+          ],
+          "favorableConditions": "उच्च आर्द्रता।",
+          "impact": "कटाई के बाद सड़न।",
+          "prevention": [
+            "मल्चिंग",
+            "हवा का प्रवाह",
+            "जल्दी तोड़ना"
+          ]
+        }
+      }
+    },
+    "papaya": {
+      "name": "पपीता",
+      "diseases": {
+        "ringspot-papaya": {
+          "name": "रिंगस्पॉट",
+          "description": "फलों की पत्तियों पर वायरल छल्ले।",
+          "symptoms": [
+            "फलों पर छल्ले",
+            "पत्ती के आकार में कमी"
+          ],
+          "favorableConditions": "माहू की गतिविधि।",
+          "impact": "पौधों की वृद्धि रोकता है।",
+          "prevention": [
+            "प्रतिरोधी बीज",
+            "वेक्टर नियंत्रण"
+          ]
+        }
+      }
+    },
+    "watermelon": {
+      "name": "तरबूज",
+      "diseases": {
+        "fusarium-wilt-wm": {
+          "name": "फ्यूजेरियम विल्ट",
+          "description": "मिट्टी से होने वाला रोगजनक।",
+          "symptoms": [
+            "लताओं का मुरझाना",
+            "तने का भूरा होना"
+          ],
+          "favorableConditions": "गर्म मिट्टी।",
+          "impact": "पूरी फसल खराब।",
+          "prevention": [
+            "फसल चक्र",
+            "ग्राफ्टिंग"
+          ]
+        }
+      }
+    },
+    "apple": {
+      "name": "सेब",
+      "diseases": {
+        "apple-scab": {
+          "name": "ऐप्पल स्कैब",
+          "description": "फलों पर मखमली धब्बे।",
+          "symptoms": [
+            "खुरदरे फल के घाव",
+            "पत्ती गिरना"
+          ],
+          "favorableConditions": "बरसात का वसंत।",
+          "impact": "बाजार का नुकसान।",
+          "prevention": [
+            "प्रतिरोधी किस्में",
+            "नियमित छिड़काव"
+          ]
+        }
+      }
+    },
+    "soyabean": {
+      "name": "सोयाबीन",
+      "diseases": {
+        "soybean-rust": {
+          "name": "सोयाबीन रस्ट",
+          "description": "आक्रामक पत्ती फफूंद।",
+          "symptoms": [
+            "पत्ती पर भूरे धब्बे",
+            "जल्दी पझड़"
+          ],
+          "favorableConditions": "उच्च नमी।",
+          "impact": "80% तक का नुकसान।",
+          "prevention": [
+            "प्रारंभिक निगरानी",
+            "फफूंदनाशक"
+          ]
+        }
+      }
+    },
+    "carrot": {
+      "name": "गाजर",
+      "diseases": {
+        "carrot-leaf-blight": {
+          "name": "अल्टरनेरिया ब्लाइट",
+          "description": "आम गाजर पत्ती की सड़न।",
+          "symptoms": [
+            "गहरे धब्बे",
+            "पीले किनारे"
+          ],
+          "favorableConditions": "नम गर्मी।",
+          "impact": "जड़ का आकार कम करता है।",
+          "prevention": [
+            "बीज उपचार",
+            "फसल चक्र"
+          ]
+        }
+      }
+    },
+    "pepper": {
+      "name": "मिर्च",
+      "diseases": {
+        "bacterial-spot-pepper": {
+          "name": "बैक्टीरियल स्पॉट",
+          "description": "नुकसानदायक जीवाणु संक्रमण।",
+          "symptoms": [
+            "पत्ती पर धब्बे",
+            "फलों के कैंकर"
+          ],
+          "favorableConditions": "बारिश और गर्मी।",
+          "impact": "सनस्कैल्ड और उपज में गिरावट।",
+          "prevention": [
+            "रोगमुक्त बीज",
+            "तांबा का छिड़काव"
+          ]
+        }
+      }
+    },
+    "potato": {
+      "name": "आलू",
+      "diseases": {
+        "late-blight-potato": {
+          "name": "झुलसा रोग",
+          "description": "विनाशकारी फफूंद सड़न।",
+          "symptoms": [
+            "पत्ती के गहरे घाव",
+            "कंद की सड़न"
+          ],
+          "favorableConditions": "नम ठंडा मौसम।",
+          "impact": "पौधे का पूर्ण नुकसान।",
+          "prevention": [
+            "प्रमाणित बीज",
+            "सुरक्षात्मक मिट्टी चढ़ाना"
+          ]
+        }
+      }
+    },
+    "broccoli": {
+      "name": "ब्रोकोली",
+      "diseases": {
+        "clubroot-broccoli": {
+          "name": "क्लबरोट",
+          "description": "मिट्टी से पैदा होने वाली जड़ विकृति।",
+          "symptoms": [
+            "सूजी हुई जड़ें",
+            "रूका हुआ विकास"
+          ],
+          "favorableConditions": "अम्लीय मिट्टी की नमी।",
+          "impact": "छोटे सिर, पौधे की मृत्यु।",
+          "prevention": [
+            "मिट्टी का पीएच प्रबंधन"
+          ]
+        }
+      }
+    },
+    "cucumber": {
+      "name": "खीरा",
+      "diseases": {
+        "powdery-mildew-cuc": {
+          "name": "पाउडरी मिल्ड्यू",
+          "description": "सफेद पत्ती पाउडर फफूंद।",
+          "symptoms": [
+            "सफेद पाउडर",
+            "पत्ती का सूखना"
+          ],
+          "favorableConditions": "आर्द्रता।",
+          "impact": "फसल का जीवन कम।",
+          "prevention": [
+            "प्रतिरोधी किस्में",
+            "सल्फर"
+          ]
+        }
+      }
+    },
+    "lettuce": {
+      "name": "लेट्यूस",
+      "diseases": {
+        "downy-mildew-lettuce": {
+          "name": "डाउनी मिल्ड्यू",
+          "description": "लेट्यूस की पत्ती की सड़न।",
+          "symptoms": [
+            "पीले कोणीय धब्बे",
+            "सफेद मोल्ड"
+          ],
+          "favorableConditions": "ठंडा और गीला।",
+          "impact": "बाजार योग्य सिरों को नष्ट करता है।",
+          "prevention": [
+            "फसल चक्र",
+            "शाम को सूखने देना"
+          ]
+        }
+      }
+    },
+    "spinach": {
+      "name": "पालक",
+      "diseases": {
+        "spinach-downy-mildew": {
+          "name": "डाउनी मिल्ड्यू",
+          "description": "गंभीर पालक सड़न।",
+          "symptoms": [
+            "पीले पैच",
+            "नीचे की तरफ मोल्ड"
+          ],
+          "favorableConditions": "नम ठंडा मौसम।",
+          "impact": "फसल का तेजी से विनाश।",
+          "prevention": [
+            "प्रतिरोधी संकर",
+            "उचित दूरी"
+          ]
+        }
+      }
+    },
+    "cauliflower": {
+      "name": "फूलगोभी",
+      "diseases": {
+        "black-rot-cauli": {
+          "name": "ब्लैक रॉट",
+          "description": "जीवाणु क्षय।",
+          "symptoms": [
+            "वी-आकार का पीला किनारा",
+            "काली नसें"
+          ],
+          "favorableConditions": "गर्म बारिश।",
+          "impact": "गंभीर सिर का सड़ना।",
+          "prevention": [
+            "स्वच्छ बीज",
+            "फसल चक्र"
+          ]
+        }
+      }
+    },
+    "cabbage": {
+      "name": "पत्तागोभी",
+      "diseases": {
+        "alternaria-leaf-spot-cab": {
+          "name": "अल्टरनेरिया स्पॉट",
+          "description": "भद्दा हेड फंगस।",
+          "symptoms": [
+            "धब्बे",
+            "सिर का भूरा होना"
+          ],
+          "favorableConditions": "गर्म और नम।",
+          "impact": "शेल्फ-लाइफ और मूल्य कम करता है।",
+          "prevention": [
+            "ड्रिप सिंचाई",
+            "स्वच्छता"
+          ]
+        }
+      }
+    },
+    "onion": {
+      "name": "प्याज",
+      "diseases": {
+        "purple-blotch-onion": {
+          "name": "पर्पल ब्लोच",
+          "description": "बल्ब को रोकने वाली फंगस।",
+          "symptoms": [
+            "बैंगनी धब्बे",
+            "पत्ती सूखना"
+          ],
+          "favorableConditions": "नमी।",
+          "impact": "गुणवत्ता और भंडारण को प्रभावित करता है।",
+          "prevention": [
+            "लम्बा फसल चक्र",
+            "जल निकासी"
+          ]
+        }
+      }
+    },
+    "tomato": {
+      "name": "टमाटर",
+      "diseases": {
+        "early-blight-tom": {
+          "name": "अर्ली ब्लाइट (झुलसा)",
+          "description": "आम पर्ण सड़न।",
+          "symptoms": [
+            "संकेंद्रित पत्ती के घेरे",
+            "फल सड़न"
+          ],
+          "favorableConditions": "नम दिन।",
+          "impact": "पत्ते को नुकसान पहुंचाकर उपज कम करता है।",
+          "prevention": [
+            "मल्चिंग",
+            "निचली पत्तियों की छंटाई"
+          ]
+        }
+      }
+    },
+    "cotton": {
+      "name": "कपास",
+      "diseases": {
+        "boll-rot-cotton": {
+          "name": "बॉल रॉट",
+          "description": "कपास के गोलार्ध का सड़ना।",
+          "symptoms": [
+            "पानी से सने गोलार्ध के धब्बे",
+            "रंग बदलना"
+          ],
+          "favorableConditions": "बारिश और घनत्व।",
+          "impact": "লিন্ট उपज और गुणवत्ता कम करता है।",
+          "prevention": [
+            "जल निकासी",
+            "कीट नियंत्रण"
+          ]
+        }
+      }
+    },
+    "sugarcane": {
+      "name": "गन्ना",
+      "diseases": {
+        "red-rot-sugarcane": {
+          "name": "लाल सड़न (Red Rot)",
+          "description": "गन्ने की गंभीर सड़न।",
+          "symptoms": [
+            "लाल डंठल का अंदरूनी हिस्सा",
+            "अल्कोहल जैसी गंध"
+          ],
+          "favorableConditions": "बारिश और जलभराव।",
+          "impact": "चीनी की वसूली और वजन कम करता है।",
+          "prevention": [
+            "स्वच्छ बीज",
+            "रोग प्रतिरोधक क्षमता"
+          ]
+        }
+      }
+    }
   }
 }

@@ -35,5 +35,584 @@
     "totalBags": "Total Bags Needed",
     "cost": "Cost Estimate",
     "profit": "Profit Gain"
+  },
+  "DiseasesPage": {
+    "title": "Crop Disease & Pest Management",
+    "subtitle": "Select up to 8 crops to view common diseases, pests, and preventive measures. Protect your harvest with expert guidance.",
+    "selected": "You've selected {count} out of 8 crops",
+    "filters": {
+      "all": "All Crops",
+      "fruits": "Fruits",
+      "vegetables": "Vegetables",
+      "cereals": "Cereals",
+      "cashCrops": "Cash Crops"
+    },
+    "reset": "Reset Selection",
+    "symptoms": "SYMPTOMS (लक्षण)",
+    "favorableConditions": "FAVORABLE CONDITIONS",
+    "impact": "Impact",
+    "prevention": "Prevention & Control",
+    "pestControl": "PEST CONTROL (इलाज)",
+    "generalPrecaution": "GENERAL PRECAUTION:",
+    "viewStoreProducts": "View Store Products",
+    "care": "{crop} CARE",
+    "bestSeason": "Best Season: Kharif (Monsoon)"
+  },
+  "Crops": {
+    "wheat": {
+      "name": "Wheat",
+      "diseases": {
+        "wheat-rust": {
+          "name": "Wheat Rust",
+          "description": "Fungal disease affecting wheat stems, leaves, and grains.",
+          "symptoms": [
+            "Rust-colored pustules",
+            "Yellowing of leaves",
+            "Stunted growth"
+          ],
+          "favorableConditions": "Warm days and cool nights with dew.",
+          "impact": "Reduces yield by 20-50%.",
+          "prevention": [
+            "Resistant varieties",
+            "Fungicides",
+            "Timely planting"
+          ]
+        }
+      }
+    },
+    "rice": {
+      "name": "Rice",
+      "diseases": {
+        "rice-blast": {
+          "name": "Rice Blast",
+          "description": "Fungal infection affecting above-ground parts.",
+          "symptoms": [
+            "Diamond-shaped spots",
+            "Neck rot"
+          ],
+          "favorableConditions": "High humidity and continuous rain.",
+          "impact": "Severe destruction of the entire crop.",
+          "prevention": [
+            "Resistant varieties",
+            "Balanced nitrogen",
+            "Proper spacing"
+          ]
+        }
+      }
+    },
+    "corn": {
+      "name": "Corn",
+      "diseases": {
+        "corn-smut": {
+          "name": "Common Smut",
+          "description": "Fungal disease causing galls on plants.",
+          "symptoms": [
+            "White/black galls",
+            "Distorted ears"
+          ],
+          "favorableConditions": "Hot, dry weather followed by rain.",
+          "impact": "Reduces yield and grain quality.",
+          "prevention": [
+            "Rotation",
+            "Avoid injury",
+            "Seed treatment"
+          ]
+        }
+      }
+    },
+    "banana": {
+      "name": "Banana",
+      "diseases": {
+        "panama-disease": {
+          "name": "Panama Disease",
+          "description": "Soil-borne fungal disease.",
+          "symptoms": [
+            "Yellow leaf margins",
+            "Wilting",
+            "Split pseudostem"
+          ],
+          "favorableConditions": "Acidic soil and poor drainage.",
+          "impact": "Permanent loss of plantations.",
+          "prevention": [
+            "Clean planting material",
+            "Resistant varieties"
+          ]
+        }
+      }
+    },
+    "grapes": {
+      "name": "Grapes",
+      "diseases": {
+        "downy-mildew-grapes": {
+          "name": "Downy Mildew",
+          "description": "Aggressive fungal disease of vines.",
+          "symptoms": [
+            "Oil spots",
+            "White mold underside"
+          ],
+          "favorableConditions": "Wet weather, moderate temps.",
+          "impact": "Severe defoliation and fruit loss.",
+          "prevention": [
+            "Canopy management",
+            "Copper sprays"
+          ]
+        }
+      }
+    },
+    "pineapple": {
+      "name": "Pineapple",
+      "diseases": {
+        "heart-rot": {
+          "name": "Heart Rot",
+          "description": "Fungal decay of the inner leaves.",
+          "symptoms": [
+            "Yellowing center",
+            "Leaves pull out easily"
+          ],
+          "favorableConditions": "Waterlogged heavy soils.",
+          "impact": "Plant death.",
+          "prevention": [
+            "Drainage",
+            "Fungicide dip"
+          ]
+        }
+      }
+    },
+    "orange": {
+      "name": "Orange",
+      "diseases": {
+        "citrus-canker": {
+          "name": "Citrus Canker",
+          "description": "Bacterial spots on fruit and leaves.",
+          "symptoms": [
+            "Raised brown lesions",
+            "Yellow halos"
+          ],
+          "favorableConditions": "Wind-driven rain.",
+          "impact": "Reduces yield and quality.",
+          "prevention": [
+            "Certification",
+            "Copper sprays"
+          ]
+        }
+      }
+    },
+    "pomegranate": {
+      "name": "Pomegranate",
+      "diseases": {
+        "bacterial-blight-pom": {
+          "name": "Bacterial Blight",
+          "description": "Dark water-soaked lesions.",
+          "symptoms": [
+            "Spots on fruits",
+            "Fruit cracking"
+          ],
+          "favorableConditions": "Rainy weather.",
+          "impact": "Severe market loss.",
+          "prevention": [
+            "Pruning",
+            "Antibiotics"
+          ]
+        }
+      }
+    },
+    "plum": {
+      "name": "Plum",
+      "diseases": {
+        "black-knot": {
+          "name": "Black Knot",
+          "description": "Fungal swellings on branches.",
+          "symptoms": [
+            "Warty black galls",
+            "Dieback"
+          ],
+          "favorableConditions": "Wet springs.",
+          "impact": "Can kill the tree.",
+          "prevention": [
+            "Pruning knots",
+            "Destroy infections"
+          ]
+        }
+      }
+    },
+    "pear": {
+      "name": "Pear",
+      "diseases": {
+        "fire-blight-pear": {
+          "name": "Fire Blight",
+          "description": "Bacterial scorching disease.",
+          "symptoms": [
+            "Blackened twigs",
+            "Oozing cankers"
+          ],
+          "favorableConditions": "Warm, wet blooms.",
+          "impact": "Rapid tree death.",
+          "prevention": [
+            "Sanitary pruning",
+            "Bactericides"
+          ]
+        }
+      }
+    },
+    "peach": {
+      "name": "Peach",
+      "diseases": {
+        "leaf-curl-peach": {
+          "name": "Peach Leaf Curl",
+          "description": "Fungal distortion of leaves.",
+          "symptoms": [
+            "Puckered reddish leaves",
+            "Premature drop"
+          ],
+          "favorableConditions": "Cool, wet spring.",
+          "impact": "Weakens tree vitality.",
+          "prevention": [
+            "Copper sprays in dormancy"
+          ]
+        }
+      }
+    },
+    "strawberry": {
+      "name": "Strawberry",
+      "diseases": {
+        "gray-mold-strawberry": {
+          "name": "Gray Mold",
+          "description": "Common berry fungus.",
+          "symptoms": [
+            "Fuzzy gray mold",
+            "Soft rot"
+          ],
+          "favorableConditions": "High humidity.",
+          "impact": "Post-harvest decay.",
+          "prevention": [
+            "Mulching",
+            "Airflow",
+            "Early picking"
+          ]
+        }
+      }
+    },
+    "papaya": {
+      "name": "Papaya",
+      "diseases": {
+        "ringspot-papaya": {
+          "name": "Papaya Ringspot",
+          "description": "Viral rings on fruit leaves.",
+          "symptoms": [
+            "Rings on fruit",
+            "Reduced leaf size"
+          ],
+          "favorableConditions": "Aphid activity.",
+          "impact": "Stunts plant growth.",
+          "prevention": [
+            "Resistant seeds",
+            "Vector control"
+          ]
+        }
+      }
+    },
+    "watermelon": {
+      "name": "Watermelon",
+      "diseases": {
+        "fusarium-wilt-wm": {
+          "name": "Fusarium Wilt",
+          "description": "Soil-borne pathogen.",
+          "symptoms": [
+            "Wilting vines",
+            "Stem browning"
+          ],
+          "favorableConditions": "Warm soil.",
+          "impact": "Total crop failure.",
+          "prevention": [
+            "Crop rotation",
+            "Grafting"
+          ]
+        }
+      }
+    },
+    "apple": {
+      "name": "Apple",
+      "diseases": {
+        "apple-scab": {
+          "name": "Apple Scab",
+          "description": "Velvety spots on fruit.",
+          "symptoms": [
+            "Scabby fruit lesions",
+            "Leaf drop"
+          ],
+          "favorableConditions": "Rainy spring.",
+          "impact": "Market loss.",
+          "prevention": [
+            "Resistant varieties",
+            "Scheduled sprays"
+          ]
+        }
+      }
+    },
+    "soyabean": {
+      "name": "Soyabean",
+      "diseases": {
+        "soybean-rust": {
+          "name": "Soybean Rust",
+          "description": "Aggressive foliar fungus.",
+          "symptoms": [
+            "Tan leaf spots",
+            "Early defoliation"
+          ],
+          "favorableConditions": "High moisture.",
+          "impact": "Up to 80% loss.",
+          "prevention": [
+            "Early monitoring",
+            "Fungicides"
+          ]
+        }
+      }
+    },
+    "carrot": {
+      "name": "Carrot",
+      "diseases": {
+        "carrot-leaf-blight": {
+          "name": "Alternaria Blight",
+          "description": "Common carrot leaf rot.",
+          "symptoms": [
+            "Dark spots",
+            "Yellow edges"
+          ],
+          "favorableConditions": "Humid heat.",
+          "impact": "Reduces root size.",
+          "prevention": [
+            "Seed treatment",
+            "Rotation"
+          ]
+        }
+      }
+    },
+    "pepper": {
+      "name": "Pepper",
+      "diseases": {
+        "bacterial-spot-pepper": {
+          "name": "Bacterial Spot",
+          "description": "Damaging bacterial infection.",
+          "symptoms": [
+            "Foliar spots",
+            "Fruit cankers"
+          ],
+          "favorableConditions": "Rain and heat.",
+          "impact": "Sunscald and yield drop.",
+          "prevention": [
+            "Pathogen-free seed",
+            "Copper sprays"
+          ]
+        }
+      }
+    },
+    "potato": {
+      "name": "Potato",
+      "diseases": {
+        "late-blight-potato": {
+          "name": "Late Blight",
+          "description": "Destructive fungal rot.",
+          "symptoms": [
+            "Dark leaf lesions",
+            "Tuber rot"
+          ],
+          "favorableConditions": "Moist cool weather.",
+          "impact": "Total plant loss.",
+          "prevention": [
+            "Certified seed",
+            "Protective hilling"
+          ]
+        }
+      }
+    },
+    "broccoli": {
+      "name": "Broccoli",
+      "diseases": {
+        "clubroot-broccoli": {
+          "name": "Clubroot",
+          "description": "Soil-borne root distortion.",
+          "symptoms": [
+            "Swollen roots",
+            "Stunting"
+          ],
+          "favorableConditions": "Acidic soil moisture.",
+          "impact": "Small heads, plant death.",
+          "prevention": [
+            "Soil pH management"
+          ]
+        }
+      }
+    },
+    "cucumber": {
+      "name": "Cucumber",
+      "diseases": {
+        "powdery-mildew-cuc": {
+          "name": "Powdery Mildew",
+          "description": "White leaf powder fungus.",
+          "symptoms": [
+            "White powder",
+            "Leaf drying"
+          ],
+          "favorableConditions": "Humidity.",
+          "impact": "Reduced harvest life.",
+          "prevention": [
+            "Resistant varieties",
+            "Sulfur"
+          ]
+        }
+      }
+    },
+    "lettuce": {
+      "name": "Lettuce",
+      "diseases": {
+        "downy-mildew-lettuce": {
+          "name": "Downy Mildew",
+          "description": "Leaf rot of lettuce.",
+          "symptoms": [
+            "Yellow angular spots",
+            "White mold"
+          ],
+          "favorableConditions": "Cool and wet.",
+          "impact": "Destroys marketable heads.",
+          "prevention": [
+            "Rotation",
+            "Evening dry-out"
+          ]
+        }
+      }
+    },
+    "spinach": {
+      "name": "Spinach",
+      "diseases": {
+        "spinach-downy-mildew": {
+          "name": "Downy Mildew",
+          "description": "Critical spinach rot.",
+          "symptoms": [
+            "Yellow patches",
+            "Moldy underside"
+          ],
+          "favorableConditions": "Damp cold weather.",
+          "impact": "Rapid crop destruction.",
+          "prevention": [
+            "Resistant hybrids",
+            "Spacing"
+          ]
+        }
+      }
+    },
+    "cauliflower": {
+      "name": "Cauliflower",
+      "diseases": {
+        "black-rot-cauli": {
+          "name": "Black Rot",
+          "description": "Crucifer bacterial decay.",
+          "symptoms": [
+            "V-shaped yellow margin",
+            "Black veins"
+          ],
+          "favorableConditions": "Warm Rain.",
+          "impact": "Severe head rot.",
+          "prevention": [
+            "Clean seed",
+            "Rotation"
+          ]
+        }
+      }
+    },
+    "cabbage": {
+      "name": "Cabbage",
+      "diseases": {
+        "alternaria-leaf-spot-cab": {
+          "name": "Alternaria Spot",
+          "description": "Unsightly head fungus.",
+          "symptoms": [
+            "Zonate spots",
+            "Browning"
+          ],
+          "favorableConditions": "Hot and humid.",
+          "impact": "Decreases shelf-life and value.",
+          "prevention": [
+            "Drip irrigation",
+            "Sanitation"
+          ]
+        }
+      }
+    },
+    "onion": {
+      "name": "Onion",
+      "diseases": {
+        "purple-blotch-onion": {
+          "name": "Purple Blotch",
+          "description": "Bulb-stunting fungus.",
+          "symptoms": [
+            "Purple spots",
+            "Leaf dry out"
+          ],
+          "favorableConditions": "Humidity.",
+          "impact": "Affects quality and storage.",
+          "prevention": [
+            "Long rotation",
+            "Drainage"
+          ]
+        }
+      }
+    },
+    "tomato": {
+      "name": "Tomato",
+      "diseases": {
+        "early-blight-tom": {
+          "name": "Early Blight",
+          "description": "Common foliar rot.",
+          "symptoms": [
+            "Concentric leaf circles",
+            "Fruit rot"
+          ],
+          "favorableConditions": "Humid days.",
+          "impact": "Reduces yield by damaging foliage.",
+          "prevention": [
+            "Mulching",
+            "Pruning lower leaves"
+          ]
+        }
+      }
+    },
+    "cotton": {
+      "name": "Cotton",
+      "diseases": {
+        "boll-rot-cotton": {
+          "name": "Boll Rot",
+          "description": "Cotton boll decay.",
+          "symptoms": [
+            "Water-soaked boll spots",
+            "Discoloration"
+          ],
+          "favorableConditions": "Rain and density.",
+          "impact": "Reduces lint yield and quality.",
+          "prevention": [
+            "Drainage",
+            "Insects control"
+          ]
+        }
+      }
+    },
+    "sugarcane": {
+      "name": "Sugarcane",
+      "diseases": {
+        "red-rot-sugarcane": {
+          "name": "Red Rot",
+          "description": "Critical sugar rot.",
+          "symptoms": [
+            "Red stalk interior",
+            "Alcoholic smell"
+          ],
+          "favorableConditions": "Rain and waterlogging.",
+          "impact": "Reduces sugar recovery and weight.",
+          "prevention": [
+            "Clean seed",
+            "Red rot resistance"
+          ]
+        }
+      }
+    }
   }
 }

@@ -3,10 +3,10 @@
     "title": "KisanDost માં આપનું સ્વાગત છે",
     "subtitle": "વધુ સારી ખેતી માટે તમારો ડિજિટલ સાથી.",
     "login": "Google સાથે લોગિન કરો",
-    "getStarted": "શરૂઆત કરો"
+    "getStarted": "શરૂ કરો"
   },
   "Dashboard": {
-    "greeting": "નમસ્તે {name}! આજે તમારું ખેતર {health} છે",
+    "greeting": "નમસ્તે {name}! તમારું ખેતર આજે {health} છે",
     "chooseCrop": "તમારો પાક પસંદ કરો",
     "calculateFertilizer": "ખાતરની ગણતરી કરો",
     "healthStatus": {
@@ -17,8 +17,8 @@
   },
   "Navigation": {
     "home": "હોમ",
-    "diseases": "રોગ ઓળખ",
-    "calculator": "ખાતર કેલ્ક્યુલેટર",
+    "diseases": "રોગો",
+    "calculator": "કેલ્ક્યુલેટર",
     "weather": "હવામાન",
     "crops": "પાક",
     "profile": "પ્રોફાઇલ"
@@ -27,13 +27,592 @@
     "title": "ખાતર કેલ્ક્યુલેટર",
     "crop": "પાક પસંદ કરો",
     "area": "ખેતરનો વિસ્તાર (એકર)",
-    "soilType": "માટીનો પ્રકાર",
-    "soilDesc": "ગોરાડુ / રેતાળ / કાંપવાળી",
+    "soilType": "માટીના પ્રકાર",
+    "soilDesc": "લોમી / સેન્ડી / ક્લે",
     "calculate": "ગણતરી કરો",
     "save": "મારા ખેતરમાં સાચવો",
     "recommended": "ભલામણ કરેલ NPK",
-    "totalBags": "કુલ બેગની જરૂર",
+    "totalBags": "કુલ બેગની જરૂર છે",
     "cost": "અંદાજિત ખર્ચ",
-    "profit": "સંભવિત નફો"
+    "profit": "નફો લાભ"
+  },
+  "DiseasesPage": {
+    "title": "પાક રોગ અને જંતુ વ્યવસ્થાપન",
+    "subtitle": "સામાન્ય રોગો, જંતુઓ અને નિવારક પગલાંઓ જોવા માટે 8 જેટલા પાકો પસંદ કરો. નિષ્ણાત માર્ગદર્શન સાથે તમારી લણણીને સુરક્ષિત કરો.",
+    "selected": "તમે 8 માંથી {count} પાક પસંદ કર્યા છે",
+    "filters": {
+      "all": "બધા પાક",
+      "fruits": "ફળો",
+      "vegetables": "શાકભાજી",
+      "cereals": "અનાજ",
+      "cashCrops": "રોકડિયા પાક"
+    },
+    "reset": "પસંદગી રીસેટ કરો",
+    "symptoms": "SYMPTOMS (લક્ષણો)",
+    "favorableConditions": "FAVORABLE CONDITIONS",
+    "impact": "અસર",
+    "prevention": "નિવારણ અને નિયંત્રણ",
+    "pestControl": "PEST CONTROL (ઇલાજ)",
+    "generalPrecaution": "GENERAL PRECAUTION:",
+    "viewStoreProducts": "View Store Products",
+    "care": "{crop} CARE",
+    "bestSeason": "Best Season: Kharif (Monsoon)"
+  },
+  "Crops": {
+    "wheat": {
+      "name": "ઘઉં",
+      "diseases": {
+        "wheat-rust": {
+          "name": "ગેરુ (Rust)",
+          "description": "દાંડીઓ, પાંદડા અને દાણાને અસર કરતો ફૂગનો રોગ.",
+          "symptoms": [
+            "કાટના રંગના ફોલ્લા",
+            "પાંદડા પીળા પડવા",
+            "વૃદ્ધિ અટકવી"
+          ],
+          "favorableConditions": "ઝાકળ સાથે ગરમ દિવસો અને ઠંડી રાતો.",
+          "impact": "ઉપજમાં 20-50% ઘટાડો.",
+          "prevention": [
+            "પ્રતિકારક જાતો",
+            "ફૂગનાશકો",
+            "સમયસર વાવણી"
+          ]
+        }
+      }
+    },
+    "rice": {
+      "name": "ચોખા (ડાંગર)",
+      "diseases": {
+        "rice-blast": {
+          "name": "બ્લાસ્ટ રોગ",
+          "description": "ચોખાના છોડના ઉપરના ભાગોને અસર કરતો ફૂગનો ચેપ.",
+          "symptoms": [
+            "હીરાના આકારના ડાઘ",
+            "ગરદનનો સડો"
+          ],
+          "favorableConditions": "વધારે ભેજ અને સતત વરસાદ.",
+          "impact": "આખા પાકનો નાશ.",
+          "prevention": [
+            "પ્રતિકારક જાતો",
+            "સંતુલિત નાઇટ્રોજન",
+            "યોગ્ય અંતર"
+          ]
+        }
+      }
+    },
+    "corn": {
+      "name": "મકાઈ",
+      "diseases": {
+        "corn-smut": {
+          "name": "સ્મટ",
+          "description": "છોડ પર ગાંઠો ઉત્પન્ન કરતો ફૂગનો રોગ.",
+          "symptoms": [
+            "સફેદ/કાળી ગાંઠો",
+            "વિકૃત ડોડા"
+          ],
+          "favorableConditions": "ગરમ, સૂકું હવામાન પછી વરસાદ.",
+          "impact": "ઉપજ અને અનાજની ગુણવત્તા ઘટાડે છે.",
+          "prevention": [
+            "પાકની ફેરબદલી",
+            "ઈજા ટાળવી",
+            "બીજ માવજત"
+          ]
+        }
+      }
+    },
+    "banana": {
+      "name": "કેળા",
+      "diseases": {
+        "panama-disease": {
+          "name": "પનામા રોગ",
+          "description": "જમીન આધારિત ફૂગનો રોગ.",
+          "symptoms": [
+            "પાંદડાની કિનારીઓ પીળી પડવી",
+            "કરમાવું",
+            "થડ ફાટવું"
+          ],
+          "favorableConditions": "એસિડિક જમીન અને નબળી યોગ્ય ડ્રેનેજ.",
+          "impact": "બગીચાઓનું કાયમી નુકસાન.",
+          "prevention": [
+            "સ્વચ્છ વાવેતર સામગ્રી",
+            "પ્રતિકારક જાતો"
+          ]
+        }
+      }
+    },
+    "grapes": {
+      "name": "દ્રાક્ષ",
+      "diseases": {
+        "downy-mildew-grapes": {
+          "name": "ડાઉની માઇલ્ડ્યુ",
+          "description": "વેલાઓનો આક્રમક ફૂગનો રોગ.",
+          "symptoms": [
+            "તેલના ડાઘ",
+            "નીચેની બાજુ સફેદ મોલ્ડ"
+          ],
+          "favorableConditions": "ભીનું હવામાન, મધ્યમ તાપમાન.",
+          "impact": "ભારે પાંદડા અને ફળ ખરવા.",
+          "prevention": [
+            "છત્ર વ્યવસ્થાપન",
+            "કોપર સ્પ્રે"
+          ]
+        }
+      }
+    },
+    "pineapple": {
+      "name": "અનેનાસ",
+      "diseases": {
+        "heart-rot": {
+          "name": "હાર્ટ રોટ",
+          "description": "અંદરના પાંદડાઓનો રકાબ.",
+          "symptoms": [
+            "કેન્દ્ર પીળો પડવો",
+            "પાંદડા સરળતાથી બહાર આવે છે"
+          ],
+          "favorableConditions": "પાણી ભરાયેલી ભારે જમીન.",
+          "impact": "છોડનું મૃત્યુ.",
+          "prevention": [
+            "યોગ્ય ડ્રેનેજ",
+            "ફૂગનાશક ડૂબકી"
+          ]
+        }
+      }
+    },
+    "orange": {
+      "name": "નારંગી",
+      "diseases": {
+        "citrus-canker": {
+          "name": "સાઇટ્રસ કેન્કર",
+          "description": "ફળો અને પાંદડા પર બેક્ટેરિયલ ફોલ્લીઓ.",
+          "symptoms": [
+            "ઉભરેલા ભૂરા ઘાવ",
+            "પીળી આસપાસ"
+          ],
+          "favorableConditions": "પવન સાથે વરસાદ.",
+          "impact": "પાક અને ગુણવત્તા ઘટાડે છે.",
+          "prevention": [
+            "પ્રમાણપત્ર",
+            "કોપર સ્પ્રે"
+          ]
+        }
+      }
+    },
+    "pomegranate": {
+      "name": "દાડમ",
+      "diseases": {
+        "bacterial-blight-pom": {
+          "name": "બેક્ટેરિયલ બ્લાઇટ",
+          "description": "ઘાટા પાણીયુક્ત ઘાવ.",
+          "symptoms": [
+            "ફળો પર ડાઘ",
+            "ફળો ફાટવા"
+          ],
+          "favorableConditions": "વરસાદી હવામાન.",
+          "impact": "ગંભીર બજાર નુકસાન.",
+          "prevention": [
+            "કાપણી",
+            "એન્ટિબાયોટિક્સ"
+          ]
+        }
+      }
+    },
+    "plum": {
+      "name": "પ્લમ (આલુ)",
+      "diseases": {
+        "black-knot": {
+          "name": "બ્લેક નોટ",
+          "description": "શાખાઓ પર ફૂગની સોજો.",
+          "symptoms": [
+            "અણગમતા કાળા ગાંઠો",
+            "ડાળીઓ મરી જવી"
+          ],
+          "favorableConditions": "ભીની વસંત.",
+          "impact": "ઝાડને મારી શકે છે.",
+          "prevention": [
+            "ગાંઠો કાપવી",
+            "ચેપ નાશ કરવો"
+          ]
+        }
+      }
+    },
+    "pear": {
+      "name": "પિઅર (નાસપતી)",
+      "diseases": {
+        "fire-blight-pear": {
+          "name": "ફાયર બ્લાઇટ",
+          "description": "બેક્ટેરિયલ આકરા રોગ.",
+          "symptoms": [
+            "કાળી ડાળીઓ",
+            "કેન્કર લિકેજ"
+          ],
+          "favorableConditions": "ગરમ, ભીના ફૂલો.",
+          "impact": "વૃક્ષની ઝડપી મૃત્યુ.",
+          "prevention": [
+            "સ્વચ્છ કાપણી",
+            "બેક્ટેરિયાનાશકો"
+          ]
+        }
+      }
+    },
+    "peach": {
+      "name": "આલુ",
+      "diseases": {
+        "leaf-curl-peach": {
+          "name": "પાંદડા વળવા",
+          "description": "પાંદડાની ફૂગની વિકૃતિ.",
+          "symptoms": [
+            "કરચલીવાળા લાલ પાંદડા",
+            "અકાળે પડવું"
+          ],
+          "favorableConditions": "ઠંડી, ભીની વસંત.",
+          "impact": "વૃક્ષની શક્તિ ઘટાડે છે.",
+          "prevention": [
+            "નિષ્ક્રિય સમયગાળામાં કોપર સ્પ્રે"
+          ]
+        }
+      }
+    },
+    "strawberry": {
+      "name": "સ્ટ્રોબેરી",
+      "diseases": {
+        "gray-mold-strawberry": {
+          "name": "ગ્રે માઇલ્ડ્યુ",
+          "description": "સામાન્ય બેરી ફૂગ.",
+          "symptoms": [
+            "ફઝી ગ્રે મોલ્ડ",
+            "નરમ સડો"
+          ],
+          "favorableConditions": "ઉચ્ચ ભેજ.",
+          "impact": "લણણી પછી સડો.",
+          "prevention": [
+            "મલ્ચિંગ",
+            "હવાના પ્રવાહ",
+            "વહેલી લણણી"
+          ]
+        }
+      }
+    },
+    "papaya": {
+      "name": "પપૈયા",
+      "diseases": {
+        "ringspot-papaya": {
+          "name": "રિંગસ્પોટ",
+          "description": "ફળના પાંદડા પર વાયરલ રિંગ્સ.",
+          "symptoms": [
+            "ફળો પર રિંગ્સ",
+            "પાંદડાનું કદ ઘટ્યું"
+          ],
+          "favorableConditions": "એફિડ પ્રવૃત્તિ.",
+          "impact": "છોડની વૃદ્ધિ અટકે છે.",
+          "prevention": [
+            "પ્રતિકારક બીજ",
+            "વેક્ટર નિયંત્રણ"
+          ]
+        }
+      }
+    },
+    "watermelon": {
+      "name": "તરબૂચ",
+      "diseases": {
+        "fusarium-wilt-wm": {
+          "name": "ફ્યુઝેરિયમ વિલ્ટ",
+          "description": "જમીન આધારિત જીવાણુ.",
+          "symptoms": [
+            "વેલાઓ કરમાવી",
+            "થડ બ્રાઉનિંગ"
+          ],
+          "favorableConditions": "ગરમ જમીન.",
+          "impact": "સંપૂર્ણ પાક નિષ્ફળતા.",
+          "prevention": [
+            "પાકની ફેરબદલી",
+            "કલમ કરવી"
+          ]
+        }
+      }
+    },
+    "apple": {
+      "name": "સફરજન",
+      "diseases": {
+        "apple-scab": {
+          "name": "એપલ સ્કેબ",
+          "description": "ફળો પર મખમલી ફોલ્લીઓ.",
+          "symptoms": [
+            "સ્કેબી ઘાવ",
+            "પાંદડા પડવા"
+          ],
+          "favorableConditions": "વરસાદી વસંત.",
+          "impact": "બજાર નુકસાન.",
+          "prevention": [
+            "પ્રતિકારક જાતો",
+            "નિર્ધારિત સ્પ્રે"
+          ]
+        }
+      }
+    },
+    "soyabean": {
+      "name": "સોયાબીન",
+      "diseases": {
+        "soybean-rust": {
+          "name": "સોયાબીન રસ્ટ",
+          "description": "આક્રમક પાંદડાના ફૂગ.",
+          "symptoms": [
+            "ટેન પર્ણ ફોલ્લીઓ",
+            "પ્રારંભિક પાંદડા ખરવા"
+          ],
+          "favorableConditions": "ઉચ્ચ ભેજ.",
+          "impact": "80% સુધી નુકસાન.",
+          "prevention": [
+            "પ્રારંભિક નિરીક્ષણ",
+            "ફૂગનાશકો"
+          ]
+        }
+      }
+    },
+    "carrot": {
+      "name": "ગાજર",
+      "diseases": {
+        "carrot-leaf-blight": {
+          "name": "અલ્ટરનેરિયા બ્લાઇટ",
+          "description": "સામાન્ય ગાજર પાંદડા રોટ.",
+          "symptoms": [
+            "શ્યામ ફોલ્લીઓ",
+            "પીળા કિનારીઓ"
+          ],
+          "favorableConditions": "ભેજયુક્ત ગરમી.",
+          "impact": "મૂળનું કદ ઘટાડે છે.",
+          "prevention": [
+            "બીજ સારવાર",
+            "પરિભ્રમણ"
+          ]
+        }
+      }
+    },
+    "pepper": {
+      "name": "મરી",
+      "diseases": {
+        "bacterial-spot-pepper": {
+          "name": "બેક્ટેરિયલ સ્પોટ",
+          "description": "નુકસાનકારક બેક્ટેરિયલ ચેપ.",
+          "symptoms": [
+            "પાંદડા પર ફોલ્લીઓ",
+            "ફળોના કેન્કર"
+          ],
+          "favorableConditions": "વરસાદ અને ગરમી.",
+          "impact": "સનસ્કેલ્ડ અને ઉપજમાં ઘટાડો.",
+          "prevention": [
+            "પેથોજેન મુક્ત બીજ",
+            "કોપર સ્પ્રે"
+          ]
+        }
+      }
+    },
+    "potato": {
+      "name": "બટાકા",
+      "diseases": {
+        "late-blight-potato": {
+          "name": "લેટ બ્લાઇટ રોગ",
+          "description": "વિનાશક ફૂગનો સડો.",
+          "symptoms": [
+            "ઘેરા પાંદડાના ઘાવ",
+            "કંદ રોટ"
+          ],
+          "favorableConditions": "ભેજવાળું ઠંડું હવામાન.",
+          "impact": "કુલ પાકનું નુકસાન.",
+          "prevention": [
+            "પ્રમાણિત બીજ",
+            "રક્ષણાત્મક હિલિંગ"
+          ]
+        }
+      }
+    },
+    "broccoli": {
+      "name": "બ્રોકોલી",
+      "diseases": {
+        "clubroot-broccoli": {
+          "name": "ક્લબરૂટ",
+          "description": "જમીન આધારિત મૂળની વિકૃતિ.",
+          "symptoms": [
+            "સુજેલા મૂળ",
+            "સ્ટંટિંગ"
+          ],
+          "favorableConditions": "એસિડિક માટીનો ભેજ.",
+          "impact": "નાના માથા, છોડનું મૃત્યુ.",
+          "prevention": [
+            "માટી પીએચ મેનેજમેન્ટ"
+          ]
+        }
+      }
+    },
+    "cucumber": {
+      "name": "કાકડી",
+      "diseases": {
+        "powdery-mildew-cuc": {
+          "name": "પાઉડરી માઇલ્ડ્યુ",
+          "description": "સફેદ પાંદડા પાવડર ફૂગ.",
+          "symptoms": [
+            "સફેદ પાવડર",
+            "પાંદડા સૂકવવા"
+          ],
+          "favorableConditions": "ભેજ.",
+          "impact": "કાપણીનું જીવન ઘટ્યું.",
+          "prevention": [
+            "પ્રતિકારક જાતો",
+            "સલ્ફર"
+          ]
+        }
+      }
+    },
+    "lettuce": {
+      "name": "લેટીસ",
+      "diseases": {
+        "downy-mildew-lettuce": {
+          "name": "ડાઉની માઇલ્ડ્યુ",
+          "description": "લેટીસના પાનનો સડો.",
+          "symptoms": [
+            "પીળા કોણીય ફોલ્લીઓ",
+            "સફેદ ઘાટ"
+          ],
+          "favorableConditions": "ઠંડી અને ભીની.",
+          "impact": "માર્કેટેબલ માથાનો નાશ કરે છે.",
+          "prevention": [
+            "ફેરબદલી",
+            "સાંજનું ડ્રાય-આઉટ"
+          ]
+        }
+      }
+    },
+    "spinach": {
+      "name": "પાલક",
+      "diseases": {
+        "spinach-downy-mildew": {
+          "name": "ડાઉની માઇલ્ડ્યુ",
+          "description": "નિર્ણાયક પાલક સડો.",
+          "symptoms": [
+            "પીળા પેચો",
+            "મોલ્ડી અન્ડરસાઇડ"
+          ],
+          "favorableConditions": "ભીનું ઠંડુ હવામાન.",
+          "impact": "ઝડપી પાક વિનાશ.",
+          "prevention": [
+            "પ્રતિકારક વર્ણશંકર",
+            "સ્પેસિંગ"
+          ]
+        }
+      }
+    },
+    "cauliflower": {
+      "name": "ફૂલકોબી",
+      "diseases": {
+        "black-rot-cauli": {
+          "name": "બ્લેક રોટ",
+          "description": "ક્રુસિફર બેક્ટેરિયલ સડો.",
+          "symptoms": [
+            "વી-આકારની પીળી માર્જિન",
+            "કાળી નસો"
+          ],
+          "favorableConditions": "ગરમ વરસાદ.",
+          "impact": "ગંભીર માથાનો સડો.",
+          "prevention": [
+            "સ્વચ્છ બીજ",
+            "ફેરવિલો"
+          ]
+        }
+      }
+    },
+    "cabbage": {
+      "name": "કોબીજ",
+      "diseases": {
+        "alternaria-leaf-spot-cab": {
+          "name": "અલ્ટરનેરિયા સ્પોટ",
+          "description": "અણગમતી માથાની ફૂગ.",
+          "symptoms": [
+            "ઝોનેટ ફોલ્લીઓ",
+            "બ્રાઉનિંગ"
+          ],
+          "favorableConditions": "ગરમ અને ભેજવાળી.",
+          "impact": "શેલ્ફ-લાઇફ અને મૂલ્ય ઘટાડે છે.",
+          "prevention": [
+            "ટીપાં પિયત પદ્ધતિ",
+            "સ્વચ્છતા"
+          ]
+        }
+      }
+    },
+    "onion": {
+      "name": "ડુંગળી",
+      "diseases": {
+        "purple-blotch-onion": {
+          "name": "પર્પલ બ્લોચ",
+          "description": "બલ્બ-સ્ટંટિંગ ફૂગ.",
+          "symptoms": [
+            "જાંબલી ફોલ્લીઓ",
+            "પાંદડા સુકાઈ જાય છે"
+          ],
+          "favorableConditions": "ભેજ.",
+          "impact": "ગુણવત્તા અને સંગ્રહને અસર કરે છે.",
+          "prevention": [
+            "લાંબા પરિભ્રમણ",
+            "ડ્રેનેજ"
+          ]
+        }
+      }
+    },
+    "tomato": {
+      "name": "ટામેટા",
+      "diseases": {
+        "early-blight-tom": {
+          "name": "અર્લી બ્લાઇટ (રોગ)",
+          "description": "સામાન્ય પર્ણ સડો.",
+          "symptoms": [
+            "કેન્દ્રિત પર્ણ વર્તુળો",
+            "ફળ સડો"
+          ],
+          "favorableConditions": "ભેજવાળા દિવસો.",
+          "impact": "પર્ણને નુકસાન પહોંચાડીને ઉપજ ઘટાડે છે.",
+          "prevention": [
+            "મલ્ચિંગ",
+            "નીચલા પાંદડા કાપવા"
+          ]
+        }
+      }
+    },
+    "cotton": {
+      "name": "કપાસ",
+      "diseases": {
+        "boll-rot-cotton": {
+          "name": "બોલ સડો",
+          "description": "કપાસના બોલનો સડો.",
+          "symptoms": [
+            "પાણીયુક્ત બોલના ફોલ્લીઓ",
+            "વિકૃતિકરણ"
+          ],
+          "favorableConditions": "વરસાદ અને ઘનતા.",
+          "impact": "લિન્ટની ઉપજ અને ગુણવત્તા ઘટાડે છે.",
+          "prevention": [
+            "ડ્રેનેજ",
+            "જંતુ નિયંત્રણ"
+          ]
+        }
+      }
+    },
+    "sugarcane": {
+      "name": "શેરડી",
+      "diseases": {
+        "red-rot-sugarcane": {
+          "name": "રેડ રોટ",
+          "description": "નિર્ણાયક શેરડી રોગ.",
+          "symptoms": [
+            "લાલ આંતરિક દાંડી",
+            "આલ્કોહોલિક ગંધ"
+          ],
+          "favorableConditions": "વરસાદ અને જળ ભરાવ.",
+          "impact": "ખાંડની પુનઃપ્રાપ્તિ અને વજન ઘટાડે છે.",
+          "prevention": [
+            "સ્વચ્છ બીજ",
+            "લાલ સડો પ્રતિકાર"
+          ]
+        }
+      }
+    }
   }
 }
