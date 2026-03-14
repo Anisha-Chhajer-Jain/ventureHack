@@ -18,6 +18,7 @@ export const config = {
   matcher: [
     '/',
     '/(hi|en|gu)/:path*',
-    '/((?!_next|_vercel|manifest.json|favicon.ico|.*\\..*).*)'
+    // Exclude /api, _next, _vercel, static files so API routes work
+    '/((?!api|_next|_vercel|manifest.json|favicon.ico|.*\\..*).*)'
   ]
 };

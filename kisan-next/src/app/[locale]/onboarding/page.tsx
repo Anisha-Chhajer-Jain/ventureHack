@@ -118,7 +118,7 @@ export default function OnboardingPage() {
 
             <div className="space-y-2">
               <Label htmlFor="crop">Main Crop</Label>
-              <Select value={formData.mainCrop} onValueChange={(val) => setFormData({...formData, mainCrop: val})}>
+              <Select value={formData.mainCrop} onValueChange={(val) => setFormData({...formData, mainCrop: val || ""})}>
                 <SelectTrigger>
                   <SelectValue placeholder="Select Crop" />
                 </SelectTrigger>

@@ -614,5 +614,49 @@
         }
       }
     }
-  }
+  },
+  "WeatherTips": {
+    "storm": "⚡ Storm alert — avoid fieldwork, secure crops & equipment now.",
+    "heavyRainWind": "🌧️ Heavy rain + strong winds — postpone spraying & harvesting.",
+    "rain": "🌧️ Rain today — skip irrigation, ideal to transplant seedlings.",
+    "foggy": "🌫️ Foggy morning — delay pesticide spraying until fog clears.",
+    "extremeHeat": "🔥 Extreme heat — water crops early morning, shade young plants.",
+    "highHeatUV": "☀️ High heat & UV — irrigate at dawn/dusk, protect workers too.",
+    "frost": "❄️ Near-frost — cover sensitive crops overnight to prevent damage.",
+    "strongWind": "💨 Strong winds — avoid spraying, secure mulch & shade nets.",
+    "highHumidity": "💧 High humidity — watch for fungal disease, ensure good airflow.",
+    "sunnyClear": "🌤️ Good sunny day — great for harvesting & drying grains.",
+    "clear": "✅ Clear skies — good conditions for field work & spraying fertilizers.",
+    "moderate": "🌱 Moderate conditions — suitable for routine farm activities today."
+  },
+  "WeatherPage": {
+      "title": "Weather",
+      "subtitle": "Real-time conditions for any location",
+      "searchPlaceholder": "City, region or country…",
+      "searchBtn": "Search",
+      "useMyLocation": "Use My Location",
+      "useMyLocationTitle": "Use my location",
+      "locationDeniedTitle": "Location access denied",
+      "locationDeniedDesc": "Enable location in your browser settings, or search for a city below.",
+      "detectingLocation": "Detecting your location…",
+      "allowLocation": "Allow location access when prompted",
+      "searchManually": "Search manually instead",
+      "fetchingWeather": "Fetching weather…",
+      "gettingConditions": "Getting the latest conditions",
+      "feelsLike": "Feels like",
+      "humidity": "Humidity",
+      "wind": "Wind",
+      "pressure": "Pressure",
+      "visibility": "Visibility",
+      "uvIndex": "UV Index",
+      "uvLow": "Low",
+      "uvModerate": "Moderate",
+      "uvHigh": "High",
+      "uvVeryHigh": "Very High",
+      "gustSpeed": "Gust Speed",
+      "cloudCover": "Cloud Cover",
+      "noLocationTitle": "No location selected",
+      "noLocationDesc": "Click the locate button to use your current location, or search for any city above.",
+      "failedFetch": "Failed to fetch weather"
+    }
 }

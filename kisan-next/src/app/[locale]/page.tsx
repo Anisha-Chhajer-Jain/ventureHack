@@ -19,7 +19,7 @@ import {
   Newspaper
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { CROPS, CropData, CropDisease } from "@/data/crops";
+import { CROPS, CropData, CropDisease, TranslationMap } from "@/data/crops";
 import { cn } from "@/lib/utils";
 
 export default function Home() {

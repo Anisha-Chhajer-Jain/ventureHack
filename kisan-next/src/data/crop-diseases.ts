@@ -444,6 +444,7 @@ export const CROP_DATA: Crop[] = [
         description: "Unsightly head fungus.",
         symptoms: ["Zonate spots", "Browning"],
         favorableConditions: "Hot and humid.",
+        impact: "Decreases shelf-life and value.",
         prevention: ["Drip irrigation", "Sanitation"]
       }
     ]
@@ -460,6 +461,7 @@ export const CROP_DATA: Crop[] = [
         description: "Bulb-stunting fungus.",
         symptoms: ["Purple spots", "Leaf dry out"],
         favorableConditions: "Humidity.",
+        impact: "Affects quality and storage.",
         prevention: ["Long rotation", "Drainage"]
       }
     ]
@@ -476,6 +478,7 @@ export const CROP_DATA: Crop[] = [
         description: "Common foliar rot.",
         symptoms: ["Concentric leaf circles", "Fruit rot"],
         favorableConditions: "Humid days.",
+        impact: "Reduces yield by damaging foliage.",
         prevention: ["Mulching", "Pruning lower leaves"]
       }
     ]
@@ -494,6 +497,7 @@ export const CROP_DATA: Crop[] = [
         description: "Cotton boll decay.",
         symptoms: ["Water-soaked boll spots", "Discoloration"],
         favorableConditions: "Rain and density.",
+        impact: "Reduces lint yield and quality.",
         prevention: ["Drainage", "Insects control"]
       }
     ]
@@ -510,6 +514,7 @@ export const CROP_DATA: Crop[] = [
         description: "Critical sugar rot.",
         symptoms: ["Red stalk interior", "Alcoholic smell"],
         favorableConditions: "Rain and waterlogging.",
+        impact: "Reduces sugar recovery and weight.",
         prevention: ["Clean seed", "Red rot resistance"]
       }
     ]

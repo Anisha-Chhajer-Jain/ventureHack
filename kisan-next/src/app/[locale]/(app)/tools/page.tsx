@@ -7,7 +7,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { CloudRain, ScanEye, TrendingUp, Sprout, Bot, Send, Loader2 } from "lucide-react";
+import { CloudRain, ScanEye, TrendingUp, Sprout, Bot, Send, Loader2, ArrowRight } from "lucide-react";
+import { Link } from "@/i18n/routing";
 
 export default function ToolsPage() {
   const { isLoaded, isSignedIn } = useUser();
@@ -15,6 +16,36 @@ export default function ToolsPage() {
   const [diseaseQuery, setDiseaseQuery] = useState("");
   const [aiResponse, setAiResponse] = useState<string | null>(null);
   const [isScanning, setIsScanning] = useState(false);
+  const [weather, setWeather] = useState<{
+    location: string;
+    temp: number;
+    condition: string;
+    humidity: number;
+    wind: number;
+    isDay: boolean;
+    icon: string;
+  } | null>(null);
+  const [weatherLoading, setWeatherLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/weather?q=Ahmedabad,India")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.location && data.current) {
+          setWeather({
+            location: `${data.location.name}${data.location.region ? ", " + data.location.region : ""}`,
+            temp: Math.round(data.current.temp_c),
+            condition: data.current.condition?.text || "—",
+            humidity: data.current.humidity,
+            wind: data.current.wind_kph,
+            isDay: data.current.is_day === 1,
+            icon: data.current.condition?.icon || "",
+          });
+        }
+      })
+      .catch(() => setWeather(null))
+      .finally(() => setWeatherLoading(false));
+  }, []);
 
   useEffect(() => {
     if (isLoaded && !isSignedIn) {
@@ -47,28 +78,55 @@ export default function ToolsPage() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
-        {/* Weather Widget (Placeholder) */}
-        <Card className="bg-gradient-to-br from-[#2196F3] to-[#1976D2] text-white border-none shadow-md overflow-hidden relative">
-          <CloudRain className="absolute -right-4 -top-4 w-32 h-32 opacity-20 text-white" />
-          <CardHeader>
-            <CardTitle className="text-xl flex items-center gap-2">
-              <CloudRain className="w-6 h-6" /> Local Weather
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium opacity-90">Ahmedabad, Gujarat</p>
-                <h2 className="text-4xl font-black mt-1">28°C</h2>
-                <p className="text-lg font-medium opacity-90 mt-1 capitalize">Light Rain</p>
-              </div>
-              <div className="text-right space-y-1 opacity-90 text-sm">
-                <p>Humidity: 65%</p>
-                <p>Wind: 12 km/h</p>
-                <p>Monsoon: Active</p>
+        {/* Weather Widget — day/night aware, matches /weather style */}
+        <Card className="overflow-hidden border-0 shadow-lg">
+          {weatherLoading ? (
+            <div className="flex items-center gap-3 p-6 bg-muted/50 rounded-xl">
+              <Loader2 className="w-6 h-6 animate-spin text-muted-foreground" />
+              <span className="text-sm text-muted-foreground">Loading weather…</span>
+            </div>
+          ) : weather ? (
+            <div
+              className={`relative overflow-hidden rounded-xl border border-white/10 ${
+                weather.isDay
+                  ? "bg-gradient-to-b from-amber-100 via-sky-100 to-sky-200 text-slate-800"
+                  : "bg-gradient-to-b from-slate-800 via-slate-900 to-indigo-950 text-white"
+              }`}
+            >
+              <div className="p-5">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <p className="text-xs font-medium opacity-80">{weather.location}</p>
+                    <p className="text-3xl font-light tabular-nums mt-0.5">{weather.temp}°C</p>
+                    <p className="text-sm capitalize opacity-90 mt-0.5">{weather.condition}</p>
+                  </div>
+                  {weather.icon && (
+                    <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                      <img src={`https:${weather.icon}`} alt="" className="w-9 h-9 object-contain" />
+                    </div>
+                  )}
+                </div>
+                <div className="flex gap-3 mt-4 text-xs opacity-90">
+                  <span>Humidity {weather.humidity}%</span>
+                  <span>·</span>
+                  <span>Wind {weather.wind} km/h</span>
+                </div>
+                <Link
+                  href="/weather"
+                  className="inline-flex items-center gap-1 mt-3 text-xs font-medium opacity-90 hover:underline"
+                >
+                  Search any location <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
             </div>
-          </CardContent>
+          ) : (
+            <div className="p-6 rounded-xl border border-dashed bg-muted/30 text-center">
+              <p className="text-sm text-muted-foreground">Weather unavailable.</p>
+              <Link href="/weather" className="inline-flex items-center gap-1 text-sm font-medium text-primary mt-2 hover:underline">
+                Open Weather <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          )}
         </Card>
 
         {/* AI Disease Identifier */}

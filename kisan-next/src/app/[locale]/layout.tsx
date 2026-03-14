@@ -28,7 +28,7 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-import { Navbar } from "@/components/layout/Navbar";
+import { ClientProviders } from "@/components/layout/ClientProviders";
 
 export default async function RootLayout({
   children,
@@ -59,8 +59,9 @@ export default async function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <NextIntlClientProvider messages={messages} locale={locale}>
-            <Navbar />
-            <main>{children}</main>
+            <ClientProviders>
+              <main>{children}</main>
+            </ClientProviders>
             <Toaster />
           </NextIntlClientProvider>
         </body>
