@@ -90,7 +90,7 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5 pt-4">
-              <Link href="/auth">
+              <Link href="/dashboard">
                 <Button className="h-16 px-10 rounded-2xl bg-[#2e6b3b] hover:bg-[#1b4332] text-white shadow-2xl shadow-green-900/20 text-xl font-bold transition-all hover:scale-105 active:scale-95 group">
                   Download Now <ArrowRight className="w-6 h-6 ml-2 transition-transform group-hover:translate-x-1" />
                 </Button>
