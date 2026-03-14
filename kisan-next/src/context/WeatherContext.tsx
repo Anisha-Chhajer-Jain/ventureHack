@@ -39,6 +39,7 @@ export interface WeatherData {
     vis_km: number;
     uv: number;
     gust_kph: number;
+    precip_mm: number;
   };
 }
 

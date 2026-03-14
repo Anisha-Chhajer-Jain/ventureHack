@@ -22,6 +22,7 @@
     "weather": "Weather",
     "crops": "Crops",
     "ai": "AI Profit",
+    "yieldAi": "Yield AI",
     "profile": "Profile"
   },
   "Fertilizer": {
@@ -688,5 +689,31 @@
       "goodPrice": "Current mandi price is favorable for selling.",
       "optimize": "Reducing fertilizer by 10% may increase profitability."
     }
+  },
+  "YieldPredictor": {
+    "pageTitle": "Kisan AI Auto-Pilot",
+    "pageDescription": "Click any farm location on the map. Our Auto-Pilot will instantly fetch live weather, run satellite parameters, and use TensorFlow.js to predict your harvest yield.",
+    "mapInstruction": "Click on your farm to auto-fetch weather & predict yield",
+    "title": "Yield Predictor",
+    "description": "Enter environmental data to predict expected crop yield.",
+    "ndvi": "NDVI (Vegetation Index)",
+    "ndviLow": "Bare soil",
+    "ndviHigh": "Dense vegetation",
+    "soilMoisture": "Soil Moisture (%)",
+    "dry": "Dry",
+    "wet": "Wet",
+    "rainfall": "Rainfall (mm)",
+    "predicting": "AI is predicting...",
+    "predictButton": "Predict Yield",
+    "predictionSuccess": "Yield prediction complete!",
+    "predictionError": "Failed to predict. Try again.",
+    "predictedYield": "Predicted Yield",
+    "tonsPerHectare": "tons per hectare",
+    "vsAverage": "vs regional avg",
+    "averageRegional": "Regional Average",
+    "regionBaseline": "Baseline",
+    "comparisonChart": "Yield Comparison",
+    "readyTitle": "Ready to predict yield?",
+    "readyDescription": "Enter your NDVI, soil moisture, and rainfall data to get an AI-powered yield prediction."
   }
 }
