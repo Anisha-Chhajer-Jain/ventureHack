@@ -29,7 +29,7 @@ export default function OnboardingPage() {
       if (isLoaded && user) {
         const exists = await checkUserExists(user.id);
         if (exists) {
-          router.push("/dashboard");
+          router.push("/");
         } else {
           setLoading(false);
         }
@@ -55,7 +55,7 @@ export default function OnboardingPage() {
         ...formData
       });
       toast.success("Profile saved!");
-      router.push("/dashboard");
+      router.push("/");
     } catch (e) {
       toast.error("Error saving profile");
       setSaving(false);

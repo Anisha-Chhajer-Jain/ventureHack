@@ -53,7 +53,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <ClerkProvider signInFallbackRedirectUrl={`/${locale}/dashboard`} signUpFallbackRedirectUrl={`/${locale}/dashboard`}>
+    <ClerkProvider signInFallbackRedirectUrl={`/${locale}/`} signUpFallbackRedirectUrl={`/${locale}/`}>
       <html lang={locale} suppressHydrationWarning>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
