@@ -6,8 +6,8 @@ export async function GET(req: NextRequest) {
   const key = process.env.WEATHER_API_KEY;
   if (!key) {
     return NextResponse.json(
-      { error: "Weather API key not configured" },
-      { status: 500 }
+      { error: "Weather API key not configured", configured: false },
+      { status: 200 }
     );
   }
 

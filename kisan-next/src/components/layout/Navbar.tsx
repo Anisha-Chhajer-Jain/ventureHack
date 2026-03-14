@@ -4,11 +4,8 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
 import { UserButton, useUser } from "@clerk/nextjs";
 import {
-  Home,
   Leaf,
-  Calculator,
   CloudRain,
-  ScanEye,
   Menu,
   X,
   Bell,
@@ -17,7 +14,7 @@ import {
   ExternalLink,
   Sprout,
   Sparkles,
-  User as UserIcon,
+  Users,
 } from "lucide-react";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { cn } from "@/lib/utils";
@@ -90,10 +87,10 @@ export function Navbar() {
   }, []);
 
   const navItems = [
-    { name: t("ai"), href: "/profit-predictor", icon: <Sparkles className="w-5 h-5 text-amber-500" /> },
+    { name: t("ai"), href: "/dashboard/profit-predictor", icon: <Sparkles className="w-5 h-5 text-amber-500" /> },
     { name: t("yieldAi"), href: "/dashboard/yield-predictor", icon: <Sprout className="w-5 h-5 text-emerald-500" /> },
-    { name: t("diseases"), href: "/diseases", icon: <ScanEye className="w-5 h-5" /> },
-    { name: t("calculator"), href: "/fertilizer-calculator", icon: <Calculator className="w-5 h-5" /> },
+    { name: t("products"), href: "/products", icon: <Sprout className="w-5 h-5" /> },
+    { name: t("communities"), href: "/communities", icon: <Users className="w-5 h-5" /> },
     { name: t("weather"), href: "/weather", icon: <CloudRain className="w-5 h-5" /> },
   ];
 

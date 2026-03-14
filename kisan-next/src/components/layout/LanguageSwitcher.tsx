@@ -3,19 +3,20 @@
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useSyncExternalStore } from "react";
 import { Languages, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const emptySubscribe = () => () => {};
+function useHasMounted() {
+  return useSyncExternalStore(emptySubscribe, () => true, () => false);
+}
+
 export function LanguageSwitcher() {
-  const [mounted, setMounted] = useState(false);
+  const hasMounted = useHasMounted();
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const handleLanguageChange = (newLocale: string | null) => {
     if (newLocale) {
@@ -23,7 +24,7 @@ export function LanguageSwitcher() {
     }
   };
 
-  if (!mounted) {
+  if (!hasMounted) {
     return <div className="w-[100px] h-8 bg-background/50 border border-primary/20 rounded-lg animate-pulse" />;
   }
 

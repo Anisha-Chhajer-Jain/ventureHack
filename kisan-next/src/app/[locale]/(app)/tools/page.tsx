@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { CloudRain, ScanEye, TrendingUp, Sprout, Bot, Send, Loader2, ArrowRight } from "lucide-react";
+import { CloudRain, ScanEye, TrendingUp, Sprout, Bot, Loader2, ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/routing";
 
 export default function ToolsPage() {
@@ -135,7 +135,7 @@ export default function ToolsPage() {
             <CardTitle className="text-xl flex items-center gap-2 text-primary">
               <ScanEye className="w-6 h-6 text-primary" /> AI Disease Identifier
             </CardTitle>
-            <CardDescription>Describe your plant's symptoms or upload a picture (mock)</CardDescription>
+            <CardDescription>Describe your plant&apos;s symptoms or upload a picture (mock)</CardDescription>
           </CardHeader>
           <CardContent className="pt-4 flex-1 flex flex-col gap-4">
              {!aiResponse ? (

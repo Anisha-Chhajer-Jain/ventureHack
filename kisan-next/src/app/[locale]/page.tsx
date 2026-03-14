@@ -24,7 +24,7 @@ import { cn } from "@/lib/utils";
 import { ChatWidget } from "@/components/chat/ChatWidget";
 
 export default function Home() {
-  const t = useTranslations("Index");
+
   const navT = useTranslations("Navigation");
   const locale = useLocale();
   const [selectedCrop, setSelectedCrop] = useState<CropData | null>(null);
@@ -150,7 +150,7 @@ export default function Home() {
                   {service.icon}
                 </div>
                 <h3 className="text-2xl font-black text-foreground mb-4 leading-tight">{service.title}</h3>
-                <p className="text-muted-foreground font-medium mb-8 leading-relaxed italic">"{service.desc}"</p>
+                <p className="text-muted-foreground font-medium mb-8 leading-relaxed italic">&quot;{service.desc}&quot;</p>
                 <div className="flex items-center text-[#2e6b3b] font-bold text-sm">
                   Explore Service <ChevronRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-2" />
                 </div>
@@ -194,7 +194,7 @@ export default function Home() {
                 <div className="relative z-10 w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg mb-3">
                   <img src={crop.image} alt={crop.id} className="w-full h-full object-cover" />
                 </div>
-                <span className="relative z-10 font-black tracking-tight text-lg uppercase">{crop.name[locale as keyof TranslationMap]}</span>
+                <span className="relative z-10 font-black tracking-tight text-lg uppercase">{crop.name[locale as "en" | "hi" | "gu"]}</span>
                 {selectedCrop?.id === crop.id && (
                   <div className="absolute bottom-2 right-2">
                     <ShieldCheck className="w-6 h-6 text-[#8bc34a]" />
@@ -244,7 +244,7 @@ export default function Home() {
                           <Info className="w-6 h-6" /> SYMPTOMS (लक्षण)
                         </h4>
                         <p className="text-lg font-medium text-amber-900/80 leading-relaxed italic">
-                          "{selectedDisease.symptoms[locale as keyof TranslationMap]}"
+                          &quot;{selectedDisease.symptoms[locale as keyof TranslationMap]}&quot;
                         </p>
                       </div>
 

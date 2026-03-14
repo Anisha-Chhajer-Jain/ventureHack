@@ -70,11 +70,14 @@ export function WeatherProvider({ children }: { children: React.ReactNode }) {
       setLoading(true);
       const res = await fetch(`/api/weather?q=${encodeURIComponent(q)}`);
       const json = await res.json();
-      if (res.ok) {
+      if (res.ok && json.current) {
         setWeatherData(json);
         setLastUpdated(new Date());
         setLocationError(null);
         queryRef.current = q;
+      } else if (json.error) {
+        console.warn("Weather API message:", json.error);
+        setWeatherData(null);
       }
     } catch {
       // silently fail on background refresh
@@ -88,7 +91,7 @@ export function WeatherProvider({ children }: { children: React.ReactNode }) {
       try {
         const res = await fetch(`/api/weather?q=${encodeURIComponent(q)}`);
         const json = await res.json();
-        if (res.ok) {
+        if (res.ok && json.current) {
           setWeatherData(json);
           setLastUpdated(new Date());
           queryRef.current = q;
@@ -107,7 +110,7 @@ export function WeatherProvider({ children }: { children: React.ReactNode }) {
     try {
       const res = await fetch(`/api/weather?q=auto:ip`);
       const json = await res.json();
-      if (res.ok) {
+      if (res.ok && json.current) {
         setWeatherData(json);
         setLastUpdated(new Date());
         setLocationError(null);

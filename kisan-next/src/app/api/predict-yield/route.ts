@@ -14,11 +14,12 @@ export async function POST(req: Request) {
     try {
       authData = await auth();
       console.log("Auth check passed:", !!authData.userId);
-    } catch (authErr: any) {
-      console.error("Clerk Auth Error:", authErr);
+    } catch (authErr) {
+      const err = authErr as Error;
+      console.error("Clerk Auth Error:", err);
       return NextResponse.json({ 
         error: "Authentication service error", 
-        details: authErr.message 
+        details: err.message 
       }, { status: 401 });
     }
 
@@ -32,11 +33,12 @@ export async function POST(req: Request) {
     try {
       body = await req.json();
       console.log("Body parsed successfully");
-    } catch (parseErr: any) {
-      console.error("JSON Parse Error:", parseErr);
+    } catch (parseErr) {
+      const err = parseErr as Error;
+      console.error("JSON Parse Error:", err);
       return NextResponse.json({ 
         error: "Invalid JSON input", 
-        details: parseErr.message 
+        details: err.message 
       }, { status: 400 });
     }
 
@@ -138,12 +140,13 @@ export async function POST(req: Request) {
       netProfit,
       historyId: predictionRecord._id,
     });
-  } catch (error: any) {
-    console.error("GLOBAL API ERROR:", error);
+  } catch (error) {
+    const err = error as Error;
+    console.error("GLOBAL API ERROR:", err);
     return NextResponse.json({ 
       error: "Internal Server Error", 
-      details: error.message,
-      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+      details: err.message,
+      stack: process.env.NODE_ENV === 'development' ? err.stack : undefined
     }, { status: 500 });
   }
 }

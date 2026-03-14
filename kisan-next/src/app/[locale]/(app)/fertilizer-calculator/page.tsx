@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Calculator, Sprout, Coins, TrendingUp, AlertTriangle } from "lucide-react";
+import { Calculator, Sprout, Coins, TrendingUp, AlertTriangle, Loader2 } from "lucide-react";
 import { saveCalculation } from "./actions";
 import { toast } from "sonner";
 import { useUser } from "@clerk/nextjs";
@@ -208,7 +208,7 @@ function FertilizerCalculatorContent() {
                 <AlertTriangle className="w-6 h-6 text-warning-foreground shrink-0 mt-0.5" />
                 <div>
                   <h4 className="font-bold text-warning-foreground">High Existing Nutrients</h4>
-                  <p className="text-sm text-warning-foreground/80 mt-1">Your soil already has high levels of certain nutrients. We've reduced the dosage to prevent toxicities and save costs.</p>
+                  <p className="text-sm text-warning-foreground/80 mt-1">Your soil already has high levels of certain nutrients. We&apos;ve reduced the dosage to prevent toxicities and save costs.</p>
                 </div>
               </div>
             )}
@@ -287,7 +287,12 @@ function FertilizerCalculatorContent() {
 
 export default function FertilizerCalculatorPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center pt-20"><div className="w-10 h-10 border-4 border-primary border-t-transparent flex items-center justify-center rounded-full animate-spin"></div></div>}>
+    <Suspense fallback={
+      <div className="flex flex-col items-center justify-center min-h-[400px] gap-4">
+        <Loader2 className="w-10 h-10 animate-spin text-primary" />
+        <p className="text-muted-foreground animate-pulse">Loading calculator...</p>
+      </div>
+    }>
       <FertilizerCalculatorContent />
     </Suspense>
   );

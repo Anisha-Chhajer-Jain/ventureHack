@@ -1,5 +1,5 @@
 import MarketPrice from "@/models/MarketPrice";
-import dbConnect from "@/lib/mongodb";
+
 
 const SEED_DATA = [
   { crop: "Wheat", mandi: "Chittorgarh", pricePerQuintal: 2350 },
@@ -11,7 +11,7 @@ const SEED_DATA = [
 
 export async function getMarketPrice(crop: string, mandi: string) {
   // Try to find in DB
-  let priceData = await MarketPrice.findOne({ crop, mandi });
+  const priceData = await MarketPrice.findOne({ crop, mandi });
   
   // If not found, use a fallback from seed or simulate
   if (!priceData) {
