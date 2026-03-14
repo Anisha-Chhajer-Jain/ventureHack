@@ -10,6 +10,7 @@ import { Leaf, Info, ShieldAlert, AlertTriangle, ShieldCheck } from "lucide-reac
 
 export default function DiseasesPage() {
   const t = useTranslations("DiseasesPage");
+  const tCrop = useTranslations("Crops");
   const [selectedCrops, setSelectedCrops] = useState<string[]>([]);
   const [activeFilter, setActiveFilter] = useState<"all" | Category>("all");
   const [activeTabId, setActiveTabId] = useState<string | null>(null);
@@ -133,11 +134,11 @@ export default function DiseasesPage() {
                   const cropKey = activeCropData.id;
                   
                   // Use translated text if available, fallback to the hardcoded ones to prevent crashing if a key is missed
-                  const tDiseaseName = t(`Crops.${cropKey}.diseases.${diseaseKey}.name`) !== `Crops.${cropKey}.diseases.${diseaseKey}.name` ? t(`Crops.${cropKey}.diseases.${diseaseKey}.name`) : disease.name;
-                  const tSymptoms = t.raw(`Crops.${cropKey}.diseases.${diseaseKey}.symptoms`) || disease.symptoms;
-                  const tFavorable = t(`Crops.${cropKey}.diseases.${diseaseKey}.favorableConditions`) !== `Crops.${cropKey}.diseases.${diseaseKey}.favorableConditions` ? t(`Crops.${cropKey}.diseases.${diseaseKey}.favorableConditions`) : disease.favorableConditions;
-                  const tImpact = t(`Crops.${cropKey}.diseases.${diseaseKey}.impact`) !== `Crops.${cropKey}.diseases.${diseaseKey}.impact` ? t(`Crops.${cropKey}.diseases.${diseaseKey}.impact`) : disease.impact;
-                  const tPrevention = t.raw(`Crops.${cropKey}.diseases.${diseaseKey}.prevention`) || disease.prevention;
+                  const tDiseaseName = tCrop(`${cropKey}.diseases.${diseaseKey}.name`) !== `${cropKey}.diseases.${diseaseKey}.name` ? tCrop(`${cropKey}.diseases.${diseaseKey}.name`) : disease.name;
+                  const tSymptoms = tCrop.raw(`${cropKey}.diseases.${diseaseKey}.symptoms`) || disease.symptoms;
+                  const tFavorable = tCrop(`${cropKey}.diseases.${diseaseKey}.favorableConditions`) !== `${cropKey}.diseases.${diseaseKey}.favorableConditions` ? tCrop(`${cropKey}.diseases.${diseaseKey}.favorableConditions`) : disease.favorableConditions;
+                  const tImpact = tCrop(`${cropKey}.diseases.${diseaseKey}.impact`) !== `${cropKey}.diseases.${diseaseKey}.impact` ? tCrop(`${cropKey}.diseases.${diseaseKey}.impact`) : disease.impact;
+                  const tPrevention = tCrop.raw(`${cropKey}.diseases.${diseaseKey}.prevention`) || disease.prevention;
 
                   const symptomsText = Array.isArray(tSymptoms) ? tSymptoms.join(', ') : tSymptoms;
                   const preventionFirst = Array.isArray(tPrevention) && tPrevention.length > 0 ? tPrevention[0] : (typeof tPrevention === 'string' ? tPrevention : "Apply recommended treatment.");
@@ -148,7 +149,7 @@ export default function DiseasesPage() {
                      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                        <div>
                          <h3 className="text-3xl md:text-4xl font-extrabold text-[#2e6b3b] uppercase tracking-wider">
-                           {t("care", { crop: t(`Crops.${cropKey}.name`) !== `Crops.${cropKey}.name` ? t(`Crops.${cropKey}.name`).toUpperCase() : activeCropData.name.toUpperCase() })}
+                           {t("care", { crop: tCrop(`${cropKey}.name`) !== `${cropKey}.name` ? tCrop(`${cropKey}.name`).toUpperCase() : activeCropData.name.toUpperCase() })}
                          </h3>
                          <div className="flex items-center gap-2 text-[#7cb342] font-semibold mt-2 text-sm">
                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
