@@ -1,27 +1,31 @@
-import { clerkMiddleware } from '@clerk/nextjs/server';
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 import createMiddleware from 'next-intl/middleware';
 import { routing } from './i18n/routing';
-import { NextResponse } from 'next/server';
 
 const intlMiddleware = createMiddleware(routing);
 
-export default clerkMiddleware((auth, req) => {
-  const { pathname } = req.nextUrl;
+const isPublicRoute = createRouteMatcher([
+  '/',
+  '/:locale',
+  '/:locale/auth(.*)',
+  '/api/webhooks(.*)',
+]);
 
-  // 1. Let API routes pass through to handle their own auth or be public
+export default clerkMiddleware(async (auth, req) => {
+  const pathname = req.nextUrl.pathname;
+
+  // Always pass API routes through
   if (pathname.startsWith('/api')) {
-    return NextResponse.next();
+    return;
   }
 
-  // 2. Handle internationalization for pages
+  // Apply intl middleware for all page routes
   return intlMiddleware(req);
 });
 
 export const config = {
   matcher: [
-    // Skip Next.js internals and all static files, unless found in search params
-    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    // Always run for API routes
-    '/(api|trpc)(.*)',
+    // Match all paths except Next.js internals and static files
+    '/((?!_next/static|_next/image|favicon.ico).*)',
   ],
 };

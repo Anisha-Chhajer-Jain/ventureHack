@@ -25,7 +25,8 @@
     "ai": "AI Profit",
     "yieldAi": "Yield AI",
     "expenses": "Expense Manager",
-    "profile": "Profile"
+    "profile": "Profile",
+    "myCrops": "My Crops"
   },
   "Fertilizer": {
     "title": "Fertilizer Calculator",

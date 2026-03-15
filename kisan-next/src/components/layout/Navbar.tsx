@@ -14,6 +14,7 @@ import {
   Sprout,
   Sparkles,
   Users,
+  ScanLine,
 } from "lucide-react";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { cn } from "@/lib/utils";
@@ -89,6 +90,7 @@ export function Navbar() {
   const navItems = [
     { name: t("ai"), en: "AI Profit", href: "/dashboard/profit-predictor", icon: <Sparkles className="w-5 h-5 text-amber-500" /> },
     { name: t("yieldAi"), en: "Yield AI", href: "/dashboard/yield-predictor", icon: <Sprout className="w-5 h-5 text-emerald-500" /> },
+    { name: t("myCrops") || "My Crops", en: "My Crops", href: "/dashboard/my-crops", icon: <Leaf className="w-5 h-5 text-emerald-600" /> },
     { name: t("products"), en: "Products", href: "/products", icon: <Sprout className="w-5 h-5" /> },
     { name: t("communities"), en: "Communities", href: "/communities", icon: <Users className="w-5 h-5" /> },
   ];
