@@ -25,18 +25,12 @@ const VIDEOS = [
   { id: "fuE750JhA2U", title: "PM Kisan Scheme - Farmer Benefits", date: "2 days ago" },
   { id: "0ZTcuWp0eXA", title: "How to Check PM Kisan Status Online", date: "1 week ago" },
   { id: "flBkER1gsQI", title: "PM Kisan 12th Installment Release", date: "2 weeks ago" },
-  { id: "fuE750JhA2U", title: "PM Kisan Scheme - Complete Guide", date: "3 weeks ago" },
-  { id: "0ZTcuWp0eXA", title: "Farmers Welfare Schemes 2024", date: "1 month ago" },
-  { id: "flBkER1gsQI", title: "PM Kisan Helpline Numbers", date: "1 month ago" },
-  { id: "fuE750JhA2U", title: "Direct Benefit Transfer (DBT) Explained", date: "2 months ago" },
-  { id: "0ZTcuWp0eXA", title: "E-KYC Registration Tutorial", date: "2 months ago" },
+  { id: "wSW9PKMNt9A", title: "PM Kisan Scheme - Complete Guide", date: "3 weeks ago" },
+  { id: "-Q3hqgNmQ1w", title: "Farmers Welfare Schemes 2024", date: "1 month ago" },
+  // { id: "wSW9PKMNt9A", title: "PM Kisan Helpline Numbers", date: "1 month ago" },
+  { id: "0kbEZy_k1ts", title: "Direct Benefit Transfer (DBT) Explained", date: "2 months ago" },
+  { id: "hbVMJ0gAoso", title: "E-KYC Registration Tutorial", date: "2 months ago" },
   { id: "flBkER1gsQI", title: "PMAY and PM Kisan Synergy", date: "3 months ago" },
-  { id: "fuE750JhA2U", title: "Annual Farmer Convention Highlights", date: "3 months ago" },
-  { id: "0ZTcuWp0eXA", title: "New Crop Insurance via PM Kisan", date: "4 months ago" },
-  { id: "flBkER1gsQI", title: "Fertilizer Subsidy Updates", date: "4 months ago" },
-  { id: "fuE750JhA2U", title: "Organic Farming Initiative 2024", date: "5 months ago" },
-  { id: "0ZTcuWp0eXA", title: "Success Stories: Small Scale Farmers", date: "5 months ago" },
-  { id: "flBkER1gsQI", title: "Technology in Indian Agriculture", date: "6 months ago" },
 ];
 
 
@@ -182,8 +176,8 @@ export default function CommunitiesPage() {
             ))}
           </div>
 
-          {!showAllVideos && (
-            <div className="text-center pt-8">
+          {!showAllVideos ? (
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
               <Button
                 onClick={() => setShowAllVideos(true)}
                 className="h-14 px-12 rounded-full bg-white border-2 border-[#2e6b3b] text-[#2e6b3b] hover:bg-[#2e6b3b] hover:text-white font-black transition-all group shadow-lg active:scale-95"
@@ -191,6 +185,29 @@ export default function CommunitiesPage() {
                 Load More Videos
                 <ChevronDown className="ml-2 w-5 h-5 transition-transform group-hover:translate-y-1" />
               </Button>
+              <a
+                href="https://www.youtube.com/@pmkisanofficial"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-14 px-12 inline-flex items-center justify-center rounded-full bg-[#ff0000] text-white font-black transition-all hover:bg-[#cc0000] shadow-lg active:scale-95 group"
+              >
+                <Play className="mr-2 w-5 h-5 fill-current" />
+                Visit YouTube Channel
+                <ExternalLink className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+            </div>
+          ) : (
+            <div className="text-center pt-8">
+              <a
+                href="https://www.youtube.com/@pmkisanofficial"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-14 px-12 inline-flex items-center justify-center rounded-full bg-[#ff0000] text-white font-black transition-all hover:bg-[#cc0000] shadow-lg active:scale-95 group"
+              >
+                <Play className="mr-2 w-5 h-5 fill-current" />
+                Watch More on YouTube
+                <ExternalLink className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
             </div>
           )}
         </div>
@@ -323,99 +340,124 @@ export default function CommunitiesPage() {
         <div className="bg-white rounded-[40px] border border-slate-100 shadow-2xl overflow-hidden">
           <div className="p-8 md:p-12">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            {
-              icon: "🪪",
-              title: "Complete e-KYC for PM-Kisan",
-              maturity: "Fully Online",
-              maturityColor: "emerald",
-              description:
-                "The e-KYC service is essential for verifying the identity of beneficiaries under the PM-Kisan scheme. Farmers can complete their KYC process online, ensuring they meet eligibility criteria and receive timely disbursements.",
-              link: "https://pmkisan.gov.in/",
-            },
-            {
-              icon: "🗺️",
-              title: "Check Land Records in Gujarat Online",
-              maturity: "Fully Online",
-              maturityColor: "emerald",
-              description:
-                "Get the Record of Rights (RoR) online for various villages of Gujarat. Provided by the Department of Revenue, Gujarat. Users can get RoR details by selecting district, taluka, village, and survey number.",
-              link: "https://anyror.gujarat.gov.in/",
-            },
-            {
-              icon: "🔍",
-              title: "Check PM-Kisan Application Status",
-              maturity: "Fully Online",
-              maturityColor: "emerald",
-              description:
-                "This service enables farmers to check the status of their PM-Kisan applications. By entering registration details, applicants can track submissions and verify if they have been approved to receive financial benefits.",
-              link: "https://pmkisan.gov.in/",
-            },
-            {
-              icon: "🏠",
-              title: "PM Awaas Yojana-Gramin Dashboard",
-              maturity: "Fully Online",
-              maturityColor: "emerald",
-              description:
-                "This digital dashboard enables officials from states and banks to track the performance of PMAY-Gramin. It provides real-time data and performance metrics to monitor implementation of affordable rural housing.",
-              link: "https://pmayg.nic.in/",
-            },
-            {
-              icon: "🌾",
-              title: "National Food Security Portal",
-              maturity: "Partially Online",
-              maturityColor: "amber",
-              description:
-                "Ensures all people at all times have access to basic food for an active and healthy life. Characterized by availability, access, utilization and stability of food across the country.",
-              link: "https://nfsa.gov.in/",
-            },
-            {
-              icon: "📝",
-              title: "Register as New Farmer for PM-Kisan",
-              maturity: "Fully Online",
-              maturityColor: "emerald",
-              description:
-                "Farmers may register for the PM-Kisan Samman Nidhi scheme. By providing necessary details, farmers can apply to receive financial support from the government to ensure economic stability and agricultural productivity.",
-              link: "https://pmkisan.gov.in/",
-            },
-          ].map((service, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-[32px] p-8 border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 group flex flex-col h-full"
-            >
-              <div className="flex items-start gap-4 mb-5">
-                <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform shrink-0">
-                  {service.icon}
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <h3 className="text-lg font-black text-slate-800 leading-tight">
-                    {service.title}
-                  </h3>
-                  <span
-                    className={`inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full w-fit
-                      ${service.maturityColor === "emerald"
-                        ? "bg-emerald-50 text-emerald-700 border border-emerald-100"
-                        : "bg-amber-50 text-amber-700 border border-amber-100"
-                      }`}
+              {[
+                {
+                  icon: "🪪",
+                  title: "Complete e-KYC for PM-Kisan",
+                  maturity: "Fully Online",
+                  maturityColor: "emerald",
+                  description:
+                    "The e-KYC service is essential for verifying the identity of beneficiaries under the PM-Kisan scheme. Farmers can complete their KYC process online, ensuring they meet eligibility criteria and receive timely disbursements.",
+                  link: "https://pmkisan.gov.in/",
+                },
+                {
+                  icon: "🗺️",
+                  title: "Check Land Records in Gujarat Online",
+                  maturity: "Fully Online",
+                  maturityColor: "emerald",
+                  description:
+                    "Get the Record of Rights (RoR) online for various villages of Gujarat. Provided by the Department of Revenue, Gujarat. Users can get RoR details by selecting district, taluka, village, and survey number.",
+                  link: "https://anyror.gujarat.gov.in/",
+                },
+                {
+                  icon: "🔍",
+                  title: "Check PM-Kisan Application Status",
+                  maturity: "Fully Online",
+                  maturityColor: "emerald",
+                  description:
+                    "This service enables farmers to check the status of their PM-Kisan applications. By entering registration details, applicants can track submissions and verify if they have been approved to receive financial benefits.",
+                  link: "https://pmkisan.gov.in/",
+                },
+                {
+                  icon: "🏠",
+                  title: "PM Awaas Yojana-Gramin Dashboard",
+                  maturity: "Fully Online",
+                  maturityColor: "emerald",
+                  description:
+                    "This digital dashboard enables officials from states and banks to track the performance of PMAY-Gramin. It provides real-time data and performance metrics to monitor implementation of affordable rural housing.",
+                  link: "https://pmayg.nic.in/",
+                },
+                {
+                  icon: "🌾",
+                  title: "National Food Security Portal",
+                  maturity: "Partially Online",
+                  maturityColor: "amber",
+                  description:
+                    "Ensures all people at all times have access to basic food for an active and healthy life. Characterized by availability, access, utilization and stability of food across the country.",
+                  link: "https://nfsa.gov.in/",
+                },
+                {
+                  icon: "📝",
+                  title: "Register as New Farmer for PM-Kisan",
+                  maturity: "Fully Online",
+                  maturityColor: "emerald",
+                  description:
+                    "Farmers may register for the PM-Kisan Samman Nidhi scheme. By providing necessary details, farmers can apply to receive financial support from the government to ensure economic stability and agricultural productivity.",
+                  link: "https://pmkisan.gov.in/",
+                },
+                {
+                  icon: "🖥️",
+                  title: "Extension Reforms Monitoring System (EMS)",
+                  maturity: "Partially Online",
+                  maturityColor: "amber",
+                  description: "The EMS is a web-enabled online monitoring system for Monthly Progress Reports (MPR) under the ATMA Programme. It monitors the physical and financial progress of all scheme components. States and districts can log in using designated credentials to submit and track reports.",
+                  link: "https://extensionreforms.gov.in/"
+                },
+                {
+                  icon: "🌾",
+                  title: "Kisaan Knowledge Management System",
+                  maturity: "Fully Online",
+                  maturityColor: "emerald",
+                  description: "The Kisaan Knowledge Management System is an initiative by the Ministry of Agriculture to assist farmers by providing services such as toll-free numbers to contact the Kisaan Call Center, an online forum for agriculture-related discussions, and access to useful farming-specific information such as timely weather updates and the Farmer Portal.",
+                  link: "https://mkisan.gov.in/"
+                },
+                {
+                  icon: "👨‍🌾",
+                  title: "Pradhan Mantri Kisan Samman Nidhi (PM-Kisan)",
+                  maturity: "Fully Online",
+                  maturityColor: "emerald",
+                  description: "The PM-KISAN scheme aims to supplement the financial needs of Small and Marginal Farmers (SMFs) by providing direct income support of Rs. 6000 per year, transferred in three equal installments of Rs. 2000 each every four months into the Aadhaar-seeded bank accounts of eligible landholding families.",
+                  link: "https://pmkisan.gov.in/"
+                },
+              ].map((service, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white rounded-[32px] p-8 border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 group flex flex-col h-full"
+                >
+                  <div className="flex items-start gap-4 mb-5">
+                    <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform shrink-0">
+                      {service.icon}
+                    </div>
+                    <div className="flex flex-col gap-1.5">
+                      <h3 className="text-lg font-black text-slate-800 leading-tight">
+                        {service.title}
+                      </h3>
+                      <span
+                        className={cn(
+                          "inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full w-fit",
+                          service.maturityColor === "emerald"
+                            ? "bg-emerald-50 text-emerald-700 border border-emerald-100"
+                            : "bg-amber-50 text-amber-700 border border-amber-100"
+                        )}
+                      >
+                        <CheckCircle2 className="w-3 h-3" />
+                        {service.maturity}
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-slate-500 font-medium text-sm leading-relaxed flex-grow mb-6">
+                    {service.description}
+                  </p>
+                  <a
+                    href={service.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto inline-flex items-center gap-2 px-5 py-2.5 bg-[#2e6b3b] hover:bg-[#1b5e20] text-white font-bold text-sm rounded-full transition-all hover:scale-105 w-fit"
                   >
-                    <CheckCircle2 className="w-3 h-3" />
-                    {service.maturity}
-                  </span>
+                    <ExternalLink className="w-3.5 h-3.5" /> More
+                  </a>
                 </div>
-              </div>
-              <p className="text-slate-500 font-medium text-sm leading-relaxed flex-grow mb-6">
-                {service.description}
-              </p>
-              <a
-                href={service.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto inline-flex items-center gap-2 px-5 py-2.5 bg-[#2e6b3b] hover:bg-[#1b5e20] text-white font-bold text-sm rounded-full transition-all hover:scale-105 w-fit"
-              >
-                <ExternalLink className="w-3.5 h-3.5" /> More
-              </a>
-            </div>
-          ))}
+              ))}
             </div>
           </div>
         </div>
