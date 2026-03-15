@@ -90,7 +90,7 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5 pt-4">
-              <Link href="/dashboard">
+              <Link href="/dashboard" className="hidden md:flex">
                 <Button className="h-16 px-10 rounded-2xl bg-[#2e6b3b] hover:bg-[#1b4332] text-white shadow-2xl shadow-green-900/20 text-xl font-bold transition-all hover:scale-105 active:scale-95 group">
                   Download Now <ArrowRight className="w-6 h-6 ml-2 transition-transform group-hover:translate-x-1" />
                 </Button>
@@ -101,12 +101,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative animate-in slide-in-from-right duration-1000">
+          <div className="relative animate-in slide-in-from-right duration-1000 mt-12 lg:mt-0">
             <div className="absolute -inset-10 bg-[#8bc34a]/20 rounded-[100px] blur-3xl -z-10 animate-pulse" />
             <img
               src="https://rupiya.app/wp-content/uploads/2025/03/Layer-19-copy.png"
               alt="Farmer using digital tools"
-              className="w-full aspect-[4/5] object-cover rounded-[60px] shadow-2xl border-8 border-white"
+              className="w-full aspect-[4/5] object-cover rounded-[40px] md:rounded-[60px] shadow-2xl border-4 md:border-8 border-white"
             />
             {/* Overlay Badges */}
             <div className="absolute top-10 -left-10 bg-white p-6 rounded-3xl shadow-2xl border border-border/50 max-w-[200px] hidden md:block">

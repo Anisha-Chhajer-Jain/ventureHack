@@ -382,8 +382,21 @@ export function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-border animate-in slide-in-from-top duration-300 p-4 shadow-xl">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-border animate-in slide-in-from-top duration-300 p-4 shadow-xl z-50">
           <div className="flex flex-col gap-2">
+            <Link
+              href="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={cn(
+                "flex items-center gap-3 p-4 rounded-2xl text-lg font-bold transition-all",
+                pathname === "/"
+                  ? "text-[#2e6b3b] bg-[#2e6b3b]/10"
+                  : "text-muted-foreground hover:bg-[#2e6b3b]/5"
+              )}
+            >
+              <Leaf className="w-5 h-5 text-[#2e6b3b]" />
+              Home
+            </Link>
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -420,6 +433,17 @@ export function Navbar() {
                   </p>
                 </div>
               </div>
+            )}
+
+            {!user && (
+              <Link
+                href="/auth"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center gap-3 p-4 rounded-2xl text-lg font-bold text-[#2e6b3b] bg-[#2e6b3b]/5 border border-[#2e6b3b]/10"
+              >
+                <Users className="w-5 h-5" />
+                Farmer Login
+              </Link>
             )}
 
             <div className="pt-4 mt-2 border-t border-border flex items-center justify-between px-2">
