@@ -121,11 +121,11 @@ export function Footer() {
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-slate-600">
                 <Phone className="w-5 h-5 text-[#2e6b3b]" />
-                <span className="font-bold text-sm">+91 1800-11-1552</span>
+                <span className="font-bold text-sm">+91 9512628557</span>
               </div>
               <div className="flex items-center gap-3 text-slate-600">
                 <Mail className="w-5 h-5 text-[#2e6b3b]" />
-                <span className="font-bold text-sm">support@kisandost.gov</span>
+                <span className="font-bold text-sm">support@kisandost.com</span>
               </div>
               <div className="flex items-center gap-3 text-slate-600">
                 <MapPin className="w-5 h-5 text-[#2e6b3b]" />
@@ -149,7 +149,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-10 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-slate-400 text-xs font-bold">
-            © 2024 KisanDost. All rights reserved. Made with ❤️ for Indian Farmers.
+            © 2026 KisanDost. All rights reserved. Made with ❤️ for Indian Farmers.
           </p>
           
           <div className="flex items-center gap-6">
