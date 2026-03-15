@@ -42,12 +42,12 @@ export function LanguageSwitcher() {
         </SelectItem>
         <SelectItem value="hi" className="rounded-xl flex items-center gap-2 focus:bg-[#2e6b3b]/10 focus:text-[#2e6b3b] cursor-pointer">
           <span className="flex items-center gap-2">
-            <span className="text-base">🇮🇳</span> हिंदी
+            <span className="text-base">🇮🇳</span> हिंदी (Hindi)
           </span>
         </SelectItem>
         <SelectItem value="gu" className="rounded-xl flex items-center gap-2 focus:bg-[#2e6b3b]/10 focus:text-[#2e6b3b] cursor-pointer">
           <span className="flex items-center gap-2">
-            <span className="text-base">🇮🇳</span> ગુજરાતી
+            <span className="text-base">🇮🇳</span> ગુજરાતી (Gujarati)
           </span>
         </SelectItem>
       </SelectContent>

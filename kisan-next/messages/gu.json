@@ -21,9 +21,10 @@
     "diseases": "રોગો",
     "calculator": "કેલ્ક્યુલેટર",
     "weather": "હવામાન",
-    "communities": "સમુદાયો",
+    "communities": "કમ્યુનિટી",
     "ai": "AI નફો",
-    "yieldAi": "ઉપજ AI",
+    "yieldAi": "Yield AI",
+    "expenses": "ખર્ચ મેનેજર",
     "profile": "પ્રોફાઇલ"
   },
   "Fertilizer": {
@@ -1058,6 +1059,55 @@
     "productNotFound": "ઉત્પાદન મળ્યું નથી",
     "notFoundDesc": "તમે જે ઉત્પાદન શોધી રહ્યા છો તે અસ્તિત્વમાં નથી.",
     "footer": "© 2026 KisanDost · ભારતીય ખેડૂતોનું સશક્તિકરણ"
-
+  },
+  "Expenses": {
+    "title": "ખેડૂત ખર્ચ મેનેજર",
+    "subtitle": "તમારી ખેતીના હિસાબ-કિતાબની નોંધ રાખો.",
+    "addExpense": "'ખર્ચ' ઉમેરો",
+    "addIncome": "'આવક' ઉમેરો",
+    "kharcha": "ખર્ચ",
+    "aamdani": "આવક",
+    "totalExpense": "કુલ ખર્ચ",
+    "totalIncome": "કુલ આવક",
+    "monthlySpend": "આ મહિને",
+    "profit": "નફો",
+    "loss": "નુકસાન",
+    "netResult": "કુલ પરિણામ",
+    "today": "આજે",
+    "history": "હિસાબ બુક",
+    "timeframes": {
+      "monthly": "માસિક",
+      "seasonal": "મોસમી",
+      "yearly": "વાર્ષિક",
+      "allTime": "બધા"
+    },
+    "category": "કેટેગરી",
+    "itemName": "વિગત",
+    "amount": "રકમ",
+    "date": "તારીખ",
+    "paymentMethod": "ચુકવણીની રીત",
+    "notes": "નોંધ (વૈકલ્પિક)",
+    "save": "સેવ કરો",
+    "methods": {
+      "cash": "રોકડ",
+      "digital": "ઓનલાઇન/UPI",
+      "credit": "ઉધાર"
+    },
+    "categories": {
+      "seeds": "બિયારણ",
+      "fertilizer": "ખાતર",
+      "pesticide": "દવા / જંતુનાશક",
+      "irrigation": "સિંચાઈ",
+      "labor": "મજૂરી",
+      "machinery": "મશીનરી",
+      "transport": "પરિવહન",
+      "electricity": "વીજળી",
+      "animal_feed": "પશુ આહાર",
+      "miscellaneous": "અન્ય"
+    },
+    "summary": "સારાંશ",
+    "noEntries": "હજુ કોઈ નોંધ મળી નથી. નોંધ ઉમેરવાનું શરૂ કરો!",
+    "filter": "ફિલ્ટર",
+    "search": "પદાર્થ શોધો..."
   }
 }

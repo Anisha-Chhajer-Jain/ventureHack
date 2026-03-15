@@ -20,6 +20,7 @@ import { cn } from "@/lib/utils";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { useWeather, WeatherData } from "@/context/WeatherContext";
+import { DualText } from "@/components/ui/DualText";
 
 /** Returns the right translation key based on weather conditions. */
 function getTipKey(w: WeatherData): string {
@@ -86,10 +87,10 @@ export function Navbar() {
   }, []);
 
   const navItems = [
-    { name: t("ai"), href: "/dashboard/profit-predictor", icon: <Sparkles className="w-5 h-5 text-amber-500" /> },
-    { name: t("yieldAi"), href: "/dashboard/yield-predictor", icon: <Sprout className="w-5 h-5 text-emerald-500" /> },
-    { name: t("products"), href: "/products", icon: <Sprout className="w-5 h-5" /> },
-    { name: t("communities"), href: "/communities", icon: <Users className="w-5 h-5" /> },
+    { name: t("ai"), en: "AI Profit", href: "/dashboard/profit-predictor", icon: <Sparkles className="w-5 h-5 text-amber-500" /> },
+    { name: t("yieldAi"), en: "Yield AI", href: "/dashboard/yield-predictor", icon: <Sprout className="w-5 h-5 text-emerald-500" /> },
+    { name: t("products"), en: "Products", href: "/products", icon: <Sprout className="w-5 h-5" /> },
+    { name: t("communities"), en: "Communities", href: "/communities", icon: <Users className="w-5 h-5" /> },
   ];
 
   const temp = weatherData ? Math.round(weatherData.current.temp_c) : null;
@@ -129,14 +130,14 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold transition-all duration-200",
+                  "flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-200 h-auto",
                   isActive
                     ? "text-[#2e6b3b] bg-[#2e6b3b]/10"
                     : "text-muted-foreground hover:text-[#2e6b3b] hover:bg-[#2e6b3b]/5"
                 )}
               >
                 {item.icon}
-                {item.name}
+                <DualText native={item.name} english={item.en} />
               </Link>
             );
           })}

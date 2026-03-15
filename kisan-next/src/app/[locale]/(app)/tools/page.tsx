@@ -7,12 +7,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { CloudRain, ScanEye, TrendingUp, Sprout, Bot, Loader2, ArrowRight } from "lucide-react";
+import { CloudRain, ScanEye, TrendingUp, Sprout, Bot, Loader2, ArrowRight, Wallet, ReceiptText } from "lucide-react";
 import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 export default function ToolsPage() {
   const { isLoaded, isSignedIn } = useUser();
   const router = useRouter();
+  const t = useTranslations("Expenses");
   const [diseaseQuery, setDiseaseQuery] = useState("");
   const [aiResponse, setAiResponse] = useState<string | null>(null);
   const [isScanning, setIsScanning] = useState(false);
@@ -63,11 +65,10 @@ export default function ToolsPage() {
     }, 1500);
   };
 
-  const marketPrices = [
-    { crop: "Wheat", price: "₹2,400 / Quintal", trend: "up" },
-    { crop: "Cotton", price: "₹7,200 / Quintal", trend: "down" },
-    { crop: "Groundnut", price: "₹6,500 / Quintal", trend: "up" },
-    { crop: "Onion", price: "₹1,800 / Quintal", trend: "stable" }
+  const recentExpenses = [
+    { item: "Urea Fertilizer", amount: "₹1,200", date: "Today", type: "expense" },
+    { item: "Labour Payment", amount: "₹800", date: "Yesterday", type: "expense" },
+    { item: "Crop Sale (Wheat)", amount: "₹45,000", date: "12 Mar", type: "income" }
   ];
 
   return (
@@ -167,30 +168,35 @@ export default function ToolsPage() {
           </CardContent>
         </Card>
 
-        {/* Market Prices */}
+        {/* Expense Summary */}
         <Card className="border-border shadow-sm">
           <CardHeader>
             <CardTitle className="text-xl flex items-center gap-2">
-              <TrendingUp className="w-6 h-6 text-amber-500" /> Mandi Prices (Gujarat)
+              <Wallet className="w-6 h-6 text-orange-500" /> {t("title")}
             </CardTitle>
-            <CardDescription>Live APMC rates (Mock Data)</CardDescription>
+            <CardDescription>{t("summary")} (Recent)</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {marketPrices.map((item, idx) => (
-                <div key={idx} className="flex justify-between items-center p-3 rounded-xl bg-muted/40 hover:bg-muted/80 transition-colors">
-                  <span className="font-semibold text-foreground">{item.crop}</span>
+              {recentExpenses.map((ex, idx) => (
+                <div key={idx} className="flex justify-between items-center p-4 rounded-2xl bg-muted/40 hover:bg-muted/80 transition-colors">
+                  <div className="flex flex-col">
+                    <span className="font-bold text-foreground">{ex.item}</span>
+                    <span className="text-xs text-muted-foreground">{ex.date}</span>
+                  </div>
                   <div className="flex items-center gap-3">
-                    <span className="font-bold">{item.price}</span>
-                    <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${
-                      item.trend === 'up' ? 'text-green-600 bg-green-100' :
-                      item.trend === 'down' ? 'text-red-500 bg-red-100' : 'text-gray-500 bg-gray-100'
-                    }`}>
-                      {item.trend === 'up' ? '▲' : item.trend === 'down' ? '▼' : '▬'}
+                    <span className={`font-black ${ex.type === 'income' ? 'text-green-600' : 'text-red-500'}`}>
+                      {ex.type === 'income' ? '+' : '-'}{ex.amount}
                     </span>
                   </div>
                 </div>
               ))}
+              <Link
+                href="/expenses"
+                className="inline-flex items-center gap-2 mt-2 text-sm font-bold text-primary hover:underline px-2"
+              >
+                {t("history")} <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </CardContent>
         </Card>

@@ -21,9 +21,10 @@
     "diseases": "बीमारियाँ",
     "calculator": "कैलकुलेटर",
     "weather": "मौसम",
-    "communities": "समुदाय",
-    "ai": "AI लाभ",
-    "yieldAi": "उपज AI",
+    "communities": "कम्युनिटी",
+    "ai": "AI प्रॉफिट",
+    "yieldAi": "Yield AI",
+    "expenses": "खर्च मैनेजर",
     "profile": "प्रोफ़ाइल"
   },
   "Fertilizer": {
@@ -1086,6 +1087,55 @@
     "productNotFound": "उत्पाद नहीं मिला",
     "notFoundDesc": "आप जिस उत्पाद की तलाश कर रहे हैं वह मौजूद नहीं है.",
     "footer": "© 2026 KisanDost · भारतीय किसानों का सशक्तिकरण"
-
+  },
+  "Expenses": {
+    "title": "किसान खर्च मैनेजर",
+    "subtitle": "अपनी खेती का हिसाब-किताब रखें।",
+    "addExpense": "'खर्चा' जोड़ें",
+    "addIncome": "'आमदनी' जोड़ें",
+    "kharcha": "खर्चा",
+    "aamdani": "आमदनी",
+    "totalExpense": "कुल खर्चा",
+    "totalIncome": "कुल आमदनी",
+    "monthlySpend": "इस महीने",
+    "profit": "मुनाफा",
+    "loss": "नुकसान",
+    "netResult": "कुल नतीजा",
+    "today": "आज",
+    "history": "हिसाब बुक",
+    "timeframes": {
+      "monthly": "मासिक",
+      "seasonal": "मौसमी",
+      "yearly": "वार्षिक",
+      "allTime": "सभी"
+    },
+    "category": "केटेगरी",
+    "itemName": "नाम",
+    "amount": "राशि",
+    "date": "तारीख",
+    "paymentMethod": "भुगतान का तरीका",
+    "notes": "नोट (वैकल्पिक)",
+    "save": "सेव करें",
+    "methods": {
+      "cash": "नकद",
+      "digital": "ऑनलाइन/UPI",
+      "credit": "उधार"
+    },
+    "categories": {
+      "seeds": "बीज",
+      "fertilizer": "खाद / उर्वरक",
+      "pesticide": "दवा / कीटनाशक",
+      "irrigation": "सिंचाई",
+      "labor": "मजदूरी",
+      "machinery": "मशीनरी",
+      "transport": "परिवहन",
+      "electricity": "बिजली",
+      "animal_feed": "पशु आहार",
+      "miscellaneous": "अन्य"
+    },
+    "summary": "सारांश",
+    "noEntries": "अभी कोई एंट्री नहीं मिली है। एंट्री जोड़ें!",
+    "filter": "फिल्टर",
+    "search": "सर्च करें..."
   }
 }

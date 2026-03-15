@@ -24,6 +24,7 @@
     "communities": "Communities",
     "ai": "AI Profit",
     "yieldAi": "Yield AI",
+    "expenses": "Expense Manager",
     "profile": "Profile"
   },
   "Fertilizer": {
@@ -1086,6 +1087,55 @@
     "productNotFound": "Product Not Found",
     "notFoundDesc": "The product you are looking for does not exist.",
     "footer": "© 2026 KisanDost · Empowering Indian Farmers"
-
+  },
+  "Expenses": {
+    "title": "Farmer Expense Manager",
+    "subtitle": "Record and track your farming hisab-kitab.",
+    "addExpense": "Add Kharcha (Expense)",
+    "addIncome": "Add Aamdani (Income)",
+    "kharcha": "Kharcha",
+    "aamdani": "Aamdani",
+    "totalExpense": "Total Kharcha",
+    "totalIncome": "Total Aamdani",
+    "monthlySpend": "This Month",
+    "profit": "Profit",
+    "loss": "Loss",
+    "netResult": "Net Result",
+    "today": "Today",
+    "history": "Hisab Book",
+    "timeframes": {
+      "monthly": "Monthly",
+      "seasonal": "Seasonal",
+      "yearly": "Yearly",
+      "allTime": "All Time"
+    },
+    "category": "Category",
+    "itemName": "Item Name",
+    "amount": "Amount",
+    "date": "Date",
+    "paymentMethod": "Payment Method",
+    "notes": "Notes (Optional)",
+    "save": "Save Entry",
+    "methods": {
+      "cash": "Cash",
+      "digital": "Online/UPI",
+      "credit": "Udhaar (Credit)"
+    },
+    "categories": {
+      "seeds": "Seeds",
+      "fertilizer": "Fertilizer",
+      "pesticide": "Pesticide",
+      "irrigation": "Irrigation",
+      "labor": "Labor",
+      "machinery": "Machinery",
+      "transport": "Transport",
+      "electricity": "Electricity",
+      "animal_feed": "Animal Feed",
+      "miscellaneous": "Others"
+    },
+    "summary": "Summary",
+    "noEntries": "No entries found yet. Start by adding one!",
+    "filter": "Filter",
+    "search": "Search items..."
   }
 }

@@ -53,11 +53,11 @@ export default function Home() {
       link: "/weather" 
     },
     { 
-      title: "Mandi Prices", 
-      desc: "Check live crop rates near you", 
-      icon: <LocateFixed className="w-8 h-8" />, 
+      title: navT("expenses"), 
+      desc: "Digital Hisab-Kitab for your farm", 
+      icon: <Info className="w-8 h-8" />, 
       color: "bg-orange-50 text-orange-600", 
-      link: "/mandi" 
+      link: "/expenses" 
     },
   ];
 
