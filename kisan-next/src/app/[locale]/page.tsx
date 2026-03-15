@@ -21,7 +21,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { CROPS, CropData, CropDisease, TranslationMap } from "@/data/crops";
 import { cn } from "@/lib/utils";
-import { ChatWidget } from "@/components/chat/ChatWidget";
 
 export default function Home() {
 
@@ -303,27 +302,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust Section */}
-      <section className="bg-[#2e6b3b] py-24 text-white overflow-hidden relative">
-        <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-           {/* Lattice pattern could go here */}
-        </div>
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
-          <div className="space-y-4">
-            <p className="text-6xl font-black text-[#8bc34a]">20+</p>
-            <p className="text-xl font-bold uppercase tracking-tighter">Districts Covered</p>
-          </div>
-          <div className="space-y-4">
-            <p className="text-6xl font-black text-[#8bc34a]">100%</p>
-            <p className="text-xl font-bold uppercase tracking-tighter">Safe Recommendations</p>
-          </div>
-          <div className="space-y-4">
-            <p className="text-6xl font-black text-[#8bc34a]">24/7</p>
-            <p className="text-xl font-bold uppercase tracking-tighter">Satellite Monitoring</p>
-          </div>
-        </div>
-      </section>
-      <ChatWidget />
     </div>
   );
 }
