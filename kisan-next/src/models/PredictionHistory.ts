@@ -4,14 +4,18 @@ export interface IPredictionHistory extends Document {
   userId: string;
   cropType: string;
   landArea: number;
+  soilNitrogen: number;
+  soilPhosphorus: number;
+  soilPotassium: number;
+  rainfall: number;
+  predictedYield: number;
+  mandiPrice: number;
+  estimatedRevenue: number;
   fertilizerCost: number;
   pesticideCost: number;
   irrigationCost: number;
-  predictedProfit: number;
-  expectedRevenue: number;
-  totalCost: number;
+  netProfit: number;
   recommendation: string;
-  mandiPrice?: number;
   timestamp: Date;
 }
 
@@ -19,14 +23,18 @@ const PredictionHistorySchema: Schema = new Schema({
   userId: { type: String, required: true, index: true },
   cropType: { type: String, required: true },
   landArea: { type: Number, required: true },
+  soilNitrogen: { type: Number, required: true },
+  soilPhosphorus: { type: Number, required: true },
+  soilPotassium: { type: Number, required: true },
+  rainfall: { type: Number, required: true },
+  predictedYield: { type: Number, required: true },
+  mandiPrice: { type: Number, required: true },
+  estimatedRevenue: { type: Number, required: true },
   fertilizerCost: { type: Number, required: true },
   pesticideCost: { type: Number, required: true },
   irrigationCost: { type: Number, default: 0 },
-  predictedProfit: { type: Number, required: true },
-  expectedRevenue: { type: Number, required: true },
-  totalCost: { type: Number, required: true },
+  netProfit: { type: Number, required: true },
   recommendation: { type: String },
-  mandiPrice: { type: Number },
   timestamp: { type: Date, default: Date.now },
 });
 
