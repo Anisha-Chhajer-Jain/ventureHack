@@ -20,6 +20,10 @@ export function ProfitPredictorForm({ onPredict }: ProfitPredictorFormProps) {
   const [formData, setFormData] = useState({
     cropType: "Wheat",
     landArea: 1,
+    soilNitrogen: 50,
+    soilPhosphorus: 25,
+    soilPotassium: 20,
+    rainfall: 120,
     fertilizerCost: 5000,
     pesticideCost: 2000,
     irrigationCost: 1000,
@@ -146,6 +150,46 @@ export function ProfitPredictorForm({ onPredict }: ProfitPredictorFormProps) {
               />
               <IndianRupee className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
             </div>
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="soilNitrogen">Soil Nitrogen (N)</Label>
+            <Input
+              id="soilNitrogen"
+              type="number"
+              value={formData.soilNitrogen}
+              onChange={(e) => setFormData({ ...formData, soilNitrogen: Number(e.target.value) })}
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="soilPhosphorus">Soil Phosphorus (P)</Label>
+            <Input
+              id="soilPhosphorus"
+              type="number"
+              value={formData.soilPhosphorus}
+              onChange={(e) => setFormData({ ...formData, soilPhosphorus: Number(e.target.value) })}
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="soilPotassium">Soil Potassium (K)</Label>
+            <Input
+              id="soilPotassium"
+              type="number"
+              value={formData.soilPotassium}
+              onChange={(e) => setFormData({ ...formData, soilPotassium: Number(e.target.value) })}
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="rainfall">Rainfall (mm)</Label>
+            <Input
+              id="rainfall"
+              type="number"
+              value={formData.rainfall}
+              onChange={(e) => setFormData({ ...formData, rainfall: Number(e.target.value) })}
+            />
           </div>
 
           <Button type="submit" className="md:col-span-2 h-12 text-lg font-bold" disabled={loading}>

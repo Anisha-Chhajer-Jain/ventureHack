@@ -45,15 +45,20 @@ export async function POST(req: Request) {
     const { 
       cropType, 
       landArea, 
-      fertilizerCost, 
-      pesticideCost, 
+      soilNitrogen, 
+      soilPhosphorus, 
+      soilPotassium, 
+      rainfall, 
+      fertilizerCost,
+      pesticideCost,
       irrigationCost = 0,
       mandi = "Chittorgarh"
     } = body;
 
     // 1. Get AI Prediction from FastAPI Microservice
-    console.log("Calling FastAPI Profit Predictor...");
-    let mlData;
+    console.log("Calling FastAPI Yield Predictor...");
+    let predictedYield;
+    let confidenceScore;
     try {
       const backendUrl = process.env.BACKEND_URL || "http://127.0.0.1:8000";
       const mlResponse = await fetch(`${backendUrl}/predict-yield`, {
@@ -61,10 +66,12 @@ export async function POST(req: Request) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           crop: cropType,
-          land_area: Number(landArea),
-          fertilizer_cost: Number(fertilizerCost),
-          pesticide_cost: Number(pesticideCost),
-          irrigation_cost: Number(irrigationCost),
+          nitrogen: Number(soilNitrogen),
+          phosphorus: Number(soilPhosphorus),
+          potassium: Number(soilPotassium),
+          rainfall: Number(rainfall),
+          temperature: 28.0, // Optimized default for prediction
+          soil_ph: 6.8,      // Optimized default
           state: "Rajasthan" 
         })
       });
@@ -73,8 +80,11 @@ export async function POST(req: Request) {
         throw new Error(`ML API Error: ${mlResponse.statusText}`);
       }
       
-      mlData = await mlResponse.json();
-      console.log(`ML Prediction Success: Profit ₹${mlData.predicted_profit}`);
+      const mlData = await mlResponse.json();
+      
+      predictedYield = mlData.predicted_yield * Number(landArea);
+      confidenceScore = mlData.confidence;
+      console.log(`ML Prediction Success: Predicted Yield ${predictedYield} quintals`);
       
     } catch (mlErr: any) {
       console.error("FastAPI Prediction Error:", mlErr);
@@ -84,41 +94,49 @@ export async function POST(req: Request) {
       }, { status: 503 });
     }
 
-    // 2. Get Market Price (Optional/Fallback info)
+    // 2. Get Market Price
     console.log("Connecting to DB...");
     await dbConnect();
-    
-    let pricePerQuintal = 0;
-    try {
-      const { getMarketPrice } = await import("@/lib/apmc/marketData");
-      pricePerQuintal = await getMarketPrice(cropType, mandi);
-    } catch (e) {
-      console.warn("Could not fetch market price, continuing...");
-    }
+    const pricePerQuintal = await getMarketPrice(cropType, mandi);
+    console.log(`Market Price for ${cropType} in ${mandi}: ₹${pricePerQuintal}/quintal`);
 
-    // 3. Store in DB
+    // 3. Calculate Profit Estimation
+    const expectedRevenue = predictedYield * pricePerQuintal;
+    const totalCost = Number(fertilizerCost) + Number(pesticideCost) + Number(irrigationCost);
+    const predictedProfit = expectedRevenue - totalCost;
+
+    const recommendation = predictedProfit > 0 
+      ? `Based on current market trends and your input data, you are likely to make a profit of ₹${Math.round(predictedProfit).toLocaleString()}. We recommend proceeding with the current soil management plan.`
+      : `Warning: Projected costs exceed expected revenue. Consider optimizing fertilizer usage or switching to a more cost-effective crop for this season.`;
+
+    // 4. Store in DB
     console.log("Creating DB record...");
     const predictionRecord = await PredictionHistory.create({
       userId,
       cropType,
       landArea: Number(landArea),
+      soilNitrogen: Number(soilNitrogen),
+      soilPhosphorus: Number(soilPhosphorus),
+      soilPotassium: Number(soilPotassium),
+      rainfall: Number(rainfall),
+      predictedYield,
+      mandiPrice: pricePerQuintal,
+      estimatedRevenue: expectedRevenue,
       fertilizerCost: Number(fertilizerCost),
       pesticideCost: Number(pesticideCost),
       irrigationCost: Number(irrigationCost),
-      predictedProfit: mlData.predicted_profit,
-      expectedRevenue: mlData.expected_revenue,
-      totalCost: mlData.total_cost,
-      recommendation: mlData.recommendation,
-      mandiPrice: pricePerQuintal,
+      netProfit: predictedProfit,
+      recommendation,
     });
 
     console.log("POST /api/predict-yield - Success");
     return NextResponse.json({
-      predictedProfit: mlData.predicted_profit,
-      expectedRevenue: mlData.expected_revenue,
-      totalCost: mlData.total_cost,
-      recommendation: mlData.recommendation,
-      confidenceScore: mlData.confidence,
+      predictedProfit,
+      confidenceScore,
+      expectedRevenue,
+      totalCost,
+      recommendation,
+      predictedYield,
       pricePerQuintal,
       historyId: predictionRecord._id,
     });
