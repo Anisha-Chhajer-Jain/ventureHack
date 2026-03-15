@@ -55,7 +55,8 @@ export async function POST(req: Request) {
     console.log("Calling FastAPI Profit Predictor...");
     let mlData;
     try {
-      const mlResponse = await fetch("http://127.0.0.1:8000/predict-yield", {
+      const backendUrl = process.env.BACKEND_URL || "http://127.0.0.1:8000";
+      const mlResponse = await fetch(`${backendUrl}/predict-yield`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
