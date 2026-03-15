@@ -7,9 +7,16 @@ import {
   ExternalLink,
   Play,
   ChevronDown,
+  Wallet,
+  Landmark,
+  UserCheck,
   Calendar,
   Rocket,
-  Users
+  Users,
+  ThumbsUp,
+  ThumbsDown,
+  Share2,
+  CheckCircle2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -32,11 +39,35 @@ const VIDEOS = [
   { id: "flBkER1gsQI", title: "Technology in Indian Agriculture", date: "6 months ago" },
 ];
 
+
 export default function CommunitiesPage() {
   const t = useTranslations("Navigation");
   const [showAllVideos, setShowAllVideos] = useState(false);
+  const [userRating, setUserRating] = useState<"like" | "dislike" | null>(null);
+  const [likes, setLikes] = useState(124);
 
   const visibleVideos = showAllVideos ? VIDEOS : VIDEOS.slice(0, 3);
+
+  const handleRate = (type: "like" | "dislike") => {
+    if (userRating === type) {
+      setUserRating(null);
+      if (type === "like") setLikes(prev => prev - 1);
+    } else {
+      if (userRating === "like") setLikes(prev => prev - 1);
+      if (type === "like") setLikes(prev => prev + 1);
+      setUserRating(type);
+    }
+  };
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: "PM-KISAN Samman Nidhi",
+        text: "PM-KISAN provides ₹6000 annual financial support to farmers. Check your eligibility now!",
+        url: "https://pmkisan.gov.in/",
+      });
+    }
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 space-y-12 animate-in fade-in duration-700">
@@ -162,6 +193,231 @@ export default function CommunitiesPage() {
               </Button>
             </div>
           )}
+        </div>
+      </section>
+
+
+      {/* Farmers' Welfare Portal Section */}
+      <section className="space-y-8 pt-12">
+        <div className="flex items-center gap-3">
+          <span className="text-3xl">🚜</span>
+          <h2 className="text-3xl font-black text-[#2e6b3b] tracking-tight text-center lg:text-left w-full">
+            Farmers&apos; Welfare Schemes
+          </h2>
+        </div>
+
+        <div className="bg-white rounded-[40px] border border-slate-100 shadow-2xl overflow-hidden">
+          <div className="p-8 md:p-12 space-y-8">
+            <div className="flex flex-wrap items-center justify-between gap-6">
+              <div className="flex flex-wrap items-center gap-4">
+                <h3 className="text-3xl md:text-4xl font-black bg-gradient-to-r from-[#2e7d32] to-[#1b5e20] bg-clip-text text-transparent">
+                  PM-KISAN Samman Nidhi
+                </h3>
+                <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-sm font-bold border border-emerald-100">
+                  <CheckCircle2 className="w-4 h-4" />
+                  Fully Online
+                </div>
+              </div>
+              <Button
+                variant="outline"
+                onClick={handleShare}
+                className="rounded-full h-12 px-6 border-slate-200 text-slate-600 font-bold hover:bg-slate-50"
+              >
+                <Share2 className="w-4 h-4 mr-2" />
+                Share This
+              </Button>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+              <div className="lg:col-span-7 space-y-6">
+                <div className="bg-slate-50 p-8 rounded-[32px] border-l-8 border-[#2e7d32]">
+                  <p className="text-lg font-medium text-slate-700 leading-relaxed">
+                    PM-KISAN is a government scheme offering financial support to small and marginal farmers across India. Under this initiative, eligible farmers receive <strong className="text-[#2e7d32]">₹6,000 annually</strong> in three equal installments directly into their bank accounts. Fully funded by the Government of India, PM-KISAN ensures timely financial aid to strengthen farmers&apos; livelihoods and promote agricultural growth.
+                  </p>
+                </div>
+              </div>
+
+              <div className="lg:col-span-5">
+                <div className="grid grid-cols-1 gap-4">
+                  <div className="flex items-center gap-4 p-4 bg-emerald-50 rounded-2xl border border-emerald-100">
+                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-[#2e7d32]">
+                      <Wallet className="w-6 h-6" />
+                    </div>
+                    <span className="font-bold text-emerald-900">₹6,000 per year</span>
+                  </div>
+                  <div className="flex items-center gap-4 p-4 bg-orange-50 rounded-2xl border border-orange-100">
+                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-orange-600">
+                      <Calendar className="w-6 h-6" />
+                    </div>
+                    <span className="font-bold text-orange-900">3 equal installments</span>
+                  </div>
+                  <div className="flex items-center gap-4 p-4 bg-blue-50 rounded-2xl border border-blue-100">
+                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-blue-600">
+                      <Landmark className="w-6 h-6" />
+                    </div>
+                    <span className="font-bold text-blue-900">Direct bank transfer</span>
+                  </div>
+                  <div className="flex items-center gap-4 p-4 bg-purple-50 rounded-2xl border border-purple-100">
+                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-purple-600">
+                      <UserCheck className="w-6 h-6" />
+                    </div>
+                    <span className="font-bold text-purple-900">Small & marginal farmers</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-between gap-8 pt-8 border-t border-slate-100">
+              <div className="flex items-center gap-6 flex-wrap">
+                <span className="text-slate-800 font-black text-lg">Rate this:</span>
+                <div className="flex items-center gap-3">
+                  <Button
+                    onClick={() => handleRate("like")}
+                    variant={userRating === "like" ? "default" : "outline"}
+                    className={cn(
+                      "rounded-full h-11 px-6 font-bold transition-all",
+                      userRating === "like" ? "bg-[#2e7d32] border-[#2e7d32]" : "text-slate-600 border-slate-200"
+                    )}
+                  >
+                    <ThumbsUp className="w-4 h-4 mr-2" />
+                    Like
+                  </Button>
+                  <Button
+                    onClick={() => handleRate("dislike")}
+                    variant={userRating === "dislike" ? "destructive" : "outline"}
+                    className={cn(
+                      "rounded-full h-11 px-6 font-bold transition-all",
+                      userRating === "dislike" ? "" : "text-slate-600 border-slate-200"
+                    )}
+                  >
+                    <ThumbsDown className="w-4 h-4 mr-2" />
+                    Dislike
+                  </Button>
+                </div>
+                <span className="text-sm font-bold text-slate-400">
+                  {likes} people found this helpful
+                </span>
+              </div>
+
+              <a
+                href="https://pmkisan.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#2e7d32] hover:bg-[#1b5e20] text-white font-black rounded-full shadow-lg shadow-emerald-200 transition-all hover:scale-105 active:scale-95"
+              >
+                <span>🌾</span> Visit Official Portal
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Farmer Welfare Services Grid */}
+      <section className="space-y-8 pt-4">
+        <div className="flex items-center gap-3">
+          <span className="text-3xl">🌱</span>
+          <h2 className="text-3xl font-black text-[#2e6b3b] tracking-tight">
+            Farmer e-Services
+          </h2>
+        </div>
+        <div className="bg-white rounded-[40px] border border-slate-100 shadow-2xl overflow-hidden">
+          <div className="p-8 md:p-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            {
+              icon: "🪪",
+              title: "Complete e-KYC for PM-Kisan",
+              maturity: "Fully Online",
+              maturityColor: "emerald",
+              description:
+                "The e-KYC service is essential for verifying the identity of beneficiaries under the PM-Kisan scheme. Farmers can complete their KYC process online, ensuring they meet eligibility criteria and receive timely disbursements.",
+              link: "https://pmkisan.gov.in/",
+            },
+            {
+              icon: "🗺️",
+              title: "Check Land Records in Gujarat Online",
+              maturity: "Fully Online",
+              maturityColor: "emerald",
+              description:
+                "Get the Record of Rights (RoR) online for various villages of Gujarat. Provided by the Department of Revenue, Gujarat. Users can get RoR details by selecting district, taluka, village, and survey number.",
+              link: "https://anyror.gujarat.gov.in/",
+            },
+            {
+              icon: "🔍",
+              title: "Check PM-Kisan Application Status",
+              maturity: "Fully Online",
+              maturityColor: "emerald",
+              description:
+                "This service enables farmers to check the status of their PM-Kisan applications. By entering registration details, applicants can track submissions and verify if they have been approved to receive financial benefits.",
+              link: "https://pmkisan.gov.in/",
+            },
+            {
+              icon: "🏠",
+              title: "PM Awaas Yojana-Gramin Dashboard",
+              maturity: "Fully Online",
+              maturityColor: "emerald",
+              description:
+                "This digital dashboard enables officials from states and banks to track the performance of PMAY-Gramin. It provides real-time data and performance metrics to monitor implementation of affordable rural housing.",
+              link: "https://pmayg.nic.in/",
+            },
+            {
+              icon: "🌾",
+              title: "National Food Security Portal",
+              maturity: "Partially Online",
+              maturityColor: "amber",
+              description:
+                "Ensures all people at all times have access to basic food for an active and healthy life. Characterized by availability, access, utilization and stability of food across the country.",
+              link: "https://nfsa.gov.in/",
+            },
+            {
+              icon: "📝",
+              title: "Register as New Farmer for PM-Kisan",
+              maturity: "Fully Online",
+              maturityColor: "emerald",
+              description:
+                "Farmers may register for the PM-Kisan Samman Nidhi scheme. By providing necessary details, farmers can apply to receive financial support from the government to ensure economic stability and agricultural productivity.",
+              link: "https://pmkisan.gov.in/",
+            },
+          ].map((service, idx) => (
+            <div
+              key={idx}
+              className="bg-white rounded-[32px] p-8 border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 group flex flex-col h-full"
+            >
+              <div className="flex items-start gap-4 mb-5">
+                <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform shrink-0">
+                  {service.icon}
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <h3 className="text-lg font-black text-slate-800 leading-tight">
+                    {service.title}
+                  </h3>
+                  <span
+                    className={`inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full w-fit
+                      ${service.maturityColor === "emerald"
+                        ? "bg-emerald-50 text-emerald-700 border border-emerald-100"
+                        : "bg-amber-50 text-amber-700 border border-amber-100"
+                      }`}
+                  >
+                    <CheckCircle2 className="w-3 h-3" />
+                    {service.maturity}
+                  </span>
+                </div>
+              </div>
+              <p className="text-slate-500 font-medium text-sm leading-relaxed flex-grow mb-6">
+                {service.description}
+              </p>
+              <a
+                href={service.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto inline-flex items-center gap-2 px-5 py-2.5 bg-[#2e6b3b] hover:bg-[#1b5e20] text-white font-bold text-sm rounded-full transition-all hover:scale-105 w-fit"
+              >
+                <ExternalLink className="w-3.5 h-3.5" /> More
+              </a>
+            </div>
+          ))}
+            </div>
+          </div>
         </div>
       </section>
 
