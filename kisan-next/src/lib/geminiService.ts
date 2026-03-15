@@ -33,7 +33,7 @@ export async function analyzeCropDisease(file: Blob): Promise<GeminiDiseaseResul
     throw new Error("GEMINI_API_KEY is missing. Please configure your environment variables.");
   }
 
-  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
 
   const base64Data = await fileToBase64(file);
   // Ensure we send correct mime type. Fallback to jpeg if unknown.

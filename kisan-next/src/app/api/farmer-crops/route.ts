@@ -3,6 +3,8 @@ import { auth } from '@clerk/nextjs/server';
 import connectDB from '@/lib/mongodb';
 import { FarmerCrop } from '@/models/FarmerCrop';
 import { sendSMS } from '@/lib/sendSMS';
+import { calculateDaysAfterSowing, getActiveAdvisory } from '@/lib/cropStage';
+import { SmsLog } from '@/models/SmsLog';
 
 // GET all crops for the logged-in user
 export async function GET() {
@@ -52,9 +54,47 @@ export async function POST(req: Request) {
       phoneNumber,
     });
 
-    // Send a welcome SMS to confirm enrollment
+    // 1. Send a welcome SMS to confirm enrollment
     const welcomeMessage = `Welcome to KisanDost SMS Advisory! You will now receive automated pesticide and fertilizer alerts for your ${landArea}-acre ${cropType} crop.`;
     await sendSMS(phoneNumber, welcomeMessage);
+
+    // 2. NEW: Check for an active advisory for immediate delivery (Testing feature)
+    const daysAfterSowing = calculateDaysAfterSowing(new Date(plantationDate));
+    const advisory = await getActiveAdvisory(cropType, daysAfterSowing);
+
+    if (advisory) {
+      const totalDosage = advisory.dosagePerAcre * Number(landArea);
+      const advisoryMessage = advisory.messageTemplate
+        .replace('{{dosage}}', totalDosage.toString())
+        .replace('{{pesticide}}', advisory.pesticideName)
+        .replace('{{stage}}', advisory.stageName);
+        
+      const smsResult = await sendSMS(phoneNumber, advisoryMessage);
+
+      if (smsResult.success) {
+        // Update lastAdvisorySent to prevent immediate redundancy on next cron run
+        await FarmerCrop.findByIdAndUpdate(newCrop._id, {
+          lastAdvisorySent: advisory.stageName
+        });
+
+        // Log to SmsLog for historical tracking
+        await SmsLog.create({
+          farmerCropId: newCrop._id,
+          advisoryId: advisory._id,
+          phoneNumber: phoneNumber,
+          status: 'success',
+          messageBody: advisoryMessage,
+        });
+      } else {
+        await SmsLog.create({
+          farmerCropId: newCrop._id,
+          advisoryId: advisory._id,
+          phoneNumber: phoneNumber,
+          status: 'failed',
+          messageBody: advisoryMessage,
+        });
+      }
+    }
 
     return NextResponse.json(newCrop, { status: 201 });
   } catch (error: any) {

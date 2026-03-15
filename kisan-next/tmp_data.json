@@ -1,9 +1,0 @@
-{
-  "cropType": "Wheat",
-  "landArea": 1,
-  "soilNitrogen": 80,
-  "soilPhosphorus": 40,
-  "soilPotassium": 40,
-  "rainfall": 800,
-  "fertilizerUsed": 100
-}

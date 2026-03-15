@@ -9,35 +9,32 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface ProfitChartsProps {
   data: {
-    predictedYield: number;
-    pricePerQuintal: number;
-    estimatedRevenue: number;
+    predictedProfit: number;
+    expectedRevenue: number;
+    totalCost: number;
     fertilizerCost: number;
-    netProfit: number;
+    pesticideCost: number;
+    irrigationCost: number;
   };
 }
 
 export function ProfitCharts({ data }: ProfitChartsProps) {
   const t = useTranslations("ProfitPredictor");
 
-  const revenueData = [
-    { name: t("netProfit"), value: data.netProfit, color: "#10b981" },
-    { name: t("fertilizerCost"), value: data.fertilizerCost, color: "#f43f5e" },
+  const costBreakdownData = [
+    { name: t("fertilizerCost"), value: data.fertilizerCost, color: "#3b82f6" },
+    { name: "Pesticide", value: data.pesticideCost, color: "#f43f5e" },
+    { name: "Irrigation", value: data.irrigationCost, color: "#f59e0b" },
   ];
 
   const barData = [
-    { name: t("estimatedRevenue"), amount: data.estimatedRevenue },
-    { name: t("netProfit"), amount: data.netProfit },
+    { name: "Total Cost", amount: data.totalCost },
+    { name: "Net Profit", amount: data.predictedProfit },
   ];
 
-  // Mock regional data for benchmark comparison
-  const regionalAverage = data.predictedYield * 0.85; // Assume user is doing 15% better than state avg
-  const nationalAverage = data.predictedYield * 0.70; // Assume user is doing 30% better than national avg
-
-  const benchmarkData = [
-    { name: "Your Farm", yield: data.predictedYield, color: "#10b981" },
-    { name: "State Avg", yield: regionalAverage, color: "#3b82f6" },
-    { name: "National Avg", yield: nationalAverage, color: "#f59e0b" },
+  const profitvsRevenueData = [
+    { name: "Revenue", value: data.expectedRevenue },
+    { name: "Profit", value: data.predictedProfit },
   ];
 
   return (
@@ -45,13 +42,13 @@ export function ProfitCharts({ data }: ProfitChartsProps) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card className="shadow-md">
           <CardHeader>
-            <CardTitle className="text-lg">{t("profitBreakdown")}</CardTitle>
+            <CardTitle className="text-lg">Input Cost Breakdown</CardTitle>
           </CardHeader>
           <CardContent className="h-[300px]">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
-                  data={revenueData}
+                  data={costBreakdownData}
                   cx="50%"
                   cy="50%"
                   innerRadius={60}
@@ -59,7 +56,7 @@ export function ProfitCharts({ data }: ProfitChartsProps) {
                   paddingAngle={5}
                   dataKey="value"
                 >
-                  {revenueData.map((entry, index) => (
+                  {costBreakdownData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Pie>
@@ -72,7 +69,7 @@ export function ProfitCharts({ data }: ProfitChartsProps) {
 
         <Card className="shadow-md">
           <CardHeader>
-            <CardTitle className="text-lg">{t("revenueVsProfit")}</CardTitle>
+            <CardTitle className="text-lg">Profit vs Cost Analysis</CardTitle>
           </CardHeader>
           <CardContent className="h-[300px]">
             <ResponsiveContainer width="100%" height="100%">
@@ -83,7 +80,7 @@ export function ProfitCharts({ data }: ProfitChartsProps) {
                 <Tooltip formatter={(value: any) => `₹${Number(value).toLocaleString()}`} />
                 <Bar dataKey="amount" radius={[4, 4, 0, 0]}>
                   {barData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={index === 0 ? "#3b82f6" : "#10b981"} />
+                    <Cell key={`cell-${index}`} fill={index === 0 ? "#f43f5e" : "#10b981"} />
                   ))}
                 </Bar>
               </BarChart>
@@ -94,21 +91,31 @@ export function ProfitCharts({ data }: ProfitChartsProps) {
 
       <Card className="shadow-md">
         <CardHeader>
-          <CardTitle className="text-lg">Yield Benchmark Comparison (Quintals)</CardTitle>
+          <CardTitle className="text-lg">Economic Efficiency (ROI Estimates)</CardTitle>
         </CardHeader>
         <CardContent className="h-[300px]">
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={benchmarkData} layout="vertical" margin={{ top: 5, right: 30, left: 40, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-              <XAxis type="number" />
-              <YAxis dataKey="name" type="category" />
-              <Tooltip formatter={(value: any) => `${Number(value).toFixed(2)} quintals`} />
-              <Bar dataKey="yield" radius={[0, 4, 4, 0]}>
-                {benchmarkData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
-                ))}
-              </Bar>
-            </BarChart>
+            <PieChart>
+                <Pie
+                  data={[
+                    { name: "Profit", value: data.predictedProfit, color: "#10b981" },
+                    { name: "Costs", value: data.totalCost, color: "#f43f5e" }
+                  ]}
+                  cx="50%"
+                  cy="50%"
+                  startAngle={180}
+                  endAngle={0}
+                  innerRadius={80}
+                  outerRadius={120}
+                  paddingAngle={2}
+                  dataKey="value"
+                >
+                  <Cell fill="#10b981" />
+                  <Cell fill="#f43f5e" />
+                </Pie>
+                <Tooltip formatter={(value: any) => `₹${Number(value).toLocaleString()}`} />
+                <Legend verticalAlign="bottom" height={36}/>
+              </PieChart>
           </ResponsiveContainer>
         </CardContent>
       </Card>

@@ -20,11 +20,9 @@ export function ProfitPredictorForm({ onPredict }: ProfitPredictorFormProps) {
   const [formData, setFormData] = useState({
     cropType: "Wheat",
     landArea: 1,
-    soilNitrogen: 80,
-    soilPhosphorus: 40,
-    soilPotassium: 40,
-    rainfall: 800,
-    fertilizerUsed: 100,
+    fertilizerCost: 5000,
+    pesticideCost: 2000,
+    irrigationCost: 1000,
   });
 
   const handlePredict = async (e: React.FormEvent) => {
@@ -95,7 +93,7 @@ export function ProfitPredictorForm({ onPredict }: ProfitPredictorFormProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="landArea">{t("landArea")}</Label>
+            <Label htmlFor="landArea">{t("landArea")} (Acres)</Label>
             <div className="relative">
               <Input
                 id="landArea"
@@ -109,51 +107,45 @@ export function ProfitPredictorForm({ onPredict }: ProfitPredictorFormProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="soilNitrogen">{t("soilNitrogen")}</Label>
-            <Input
-              id="soilNitrogen"
-              type="number"
-              value={formData.soilNitrogen}
-              onChange={(e) => setFormData({ ...formData, soilNitrogen: Number(e.target.value) })}
-            />
+            <Label htmlFor="fertilizerCost">Fertilizer Cost (₹)</Label>
+            <div className="relative">
+              <Input
+                id="fertilizerCost"
+                type="number"
+                value={formData.fertilizerCost}
+                onChange={(e) => setFormData({ ...formData, fertilizerCost: Number(e.target.value) })}
+                className="pl-8"
+              />
+              <IndianRupee className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+            </div>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="soilPhosphorus">{t("soilPhosphorus")}</Label>
-            <Input
-              id="soilPhosphorus"
-              type="number"
-              value={formData.soilPhosphorus}
-              onChange={(e) => setFormData({ ...formData, soilPhosphorus: Number(e.target.value) })}
-            />
-          </div>
-
-          <div className="space-y-2 md:col-span-2">
-            <div className="p-4 bg-secondary/30 rounded-xl space-y-4">
-              <div className="flex items-center justify-between">
-                <Label className="text-sm font-medium">{t("rainfall")} (mm)</Label>
-                <span className="text-xs font-bold text-primary">{formData.rainfall} mm</span>
-              </div>
-              <input
-                type="range"
-                min="400"
-                max="1200"
-                step="50"
-                value={formData.rainfall}
-                onChange={(e) => setFormData({ ...formData, rainfall: Number(e.target.value) })}
-                className="w-full h-2 bg-secondary rounded-lg appearance-none cursor-pointer accent-primary"
+            <Label htmlFor="pesticideCost">Pesticide Cost (₹)</Label>
+            <div className="relative">
+              <Input
+                id="pesticideCost"
+                type="number"
+                value={formData.pesticideCost}
+                onChange={(e) => setFormData({ ...formData, pesticideCost: Number(e.target.value) })}
+                className="pl-8"
               />
+              <IndianRupee className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
             </div>
           </div>
 
           <div className="space-y-2 md:col-span-2">
-            <Label htmlFor="fertilizerUsed">{t("fertilizerUsed")} (kg)</Label>
-            <Input
-              id="fertilizerUsed"
-              type="number"
-              value={formData.fertilizerUsed}
-              onChange={(e) => setFormData({ ...formData, fertilizerUsed: Number(e.target.value) })}
-            />
+            <Label htmlFor="irrigationCost">Irrigation Cost (₹)</Label>
+            <div className="relative">
+              <Input
+                id="irrigationCost"
+                type="number"
+                value={formData.irrigationCost}
+                onChange={(e) => setFormData({ ...formData, irrigationCost: Number(e.target.value) })}
+                className="pl-8"
+              />
+              <IndianRupee className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+            </div>
           </div>
 
           <Button type="submit" className="md:col-span-2 h-12 text-lg font-bold" disabled={loading}>

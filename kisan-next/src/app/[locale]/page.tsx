@@ -72,7 +72,7 @@ export default function Home() {
   };
 
   return (
-    <div className="space-y-32 pb-32">
+    <div className="space-y-32 pb-0">
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-36 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ">
@@ -88,7 +88,7 @@ export default function Home() {
             <p className="text-xl md:text-2xl text-muted-foreground max-w-xl font-medium leading-relaxed">
               Empowering Indian farmers with precision technology, satellite monitoring, and expert crop care.
             </p>
-
+            
             <div className="flex flex-col sm:flex-row gap-5 pt-4">
               <a href="https://venturehack.netlify.app/app/kisanDost.apk" download className="hidden md:flex">
                 <Button className="h-16 px-10 rounded-2xl bg-[#2e6b3b] hover:bg-[#1b4332] text-white shadow-2xl shadow-green-900/20 text-xl font-bold transition-all hover:scale-105 active:scale-95 group">
@@ -302,6 +302,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Trust Section */}
+      <section className="bg-[#2e6b3b] py-24 text-white overflow-hidden relative mb-0">
+        <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+           {/* Lattice pattern could go here */}
+        </div>
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
+          <div className="space-y-4">
+            <p className="text-6xl font-black text-[#8bc34a]">20+</p>
+            <p className="text-xl font-bold uppercase tracking-tighter">Districts Covered</p>
+          </div>
+          <div className="space-y-4">
+            <p className="text-6xl font-black text-[#8bc34a]">100%</p>
+            <p className="text-xl font-bold uppercase tracking-tighter">Safe Recommendations</p>
+          </div>
+          <div className="space-y-4">
+            <p className="text-6xl font-black text-[#8bc34a]">24/7</p>
+            <p className="text-xl font-bold uppercase tracking-tighter">Satellite Monitoring</p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

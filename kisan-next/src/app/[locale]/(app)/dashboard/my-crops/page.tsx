@@ -5,10 +5,11 @@ import { useTranslations } from "next-intl";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Tractor, Sprout, AlertCircle, Calendar, Lock, Crown, ShieldCheck, MessageSquare, QrCode } from "lucide-react";
+import { Tractor, Sprout, AlertCircle, Calendar, Lock, Crown, ShieldCheck, MessageSquare, QrCode, RefreshCw, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { format } from "date-fns";
+import { toast } from "sonner";
 
 type Crop = {
   _id: string;
@@ -33,6 +34,7 @@ export default function MyCropsPage() {
   const [stages, setStages] = useState<Record<string, StageData>>({});
   const [loading, setLoading] = useState(true);
   const [hasAccess, setHasAccess] = useState<boolean | null>(null);
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   useEffect(() => {
     // First, check membership access
@@ -47,6 +49,45 @@ export default function MyCropsPage() {
     };
     checkAccess();
   }, []);
+
+  const handleRefreshAdvisories = async () => {
+    setIsRefreshing(true);
+    try {
+      const res = await fetch("/api/cron/process-advisories");
+      const data = await res.json();
+      if (res.ok) {
+        toast.success(`Successfully processed advisories. ${data.smsSent} messages sent (simulated).`);
+        // Force refresh crop data to show new "Last Notified" badges
+        window.location.reload(); 
+      } else {
+        toast.error("Failed to process advisories.");
+      }
+    } catch (error) {
+      console.error("Manual refresh failed", error);
+      toast.error("Internal error occurred during refresh.");
+    } finally {
+      setIsRefreshing(false);
+    }
+  };
+
+  const handleDelete = async (id: string, name: string) => {
+    if (!window.confirm(`Are you sure you want to remove ${name}? This action cannot be undone.`)) {
+      return;
+    }
+
+    try {
+      const res = await fetch(`/api/farmer-crops/${id}`, { method: "DELETE" });
+      if (res.ok) {
+        toast.success(`${name} removed successfully.`);
+        setCrops(prev => prev.filter(c => c._id !== id));
+      } else {
+        toast.error("Failed to delete crop.");
+      }
+    } catch (error) {
+      console.error("Delete failed", error);
+      toast.error("Error deleting crop.");
+    }
+  };
 
   useEffect(() => {
     if (hasAccess !== true) { setLoading(false); return; }
@@ -200,11 +241,22 @@ export default function MyCropsPage() {
           </h1>
           <p className="text-muted-foreground mt-1">Track growth stages and manage pesticide advisories.</p>
         </div>
-        <Link href="/dashboard/add-crop">
-          <Button className="bg-emerald-600 hover:bg-emerald-700">
-            <Sprout className="w-4 h-4 mr-2" /> Add New Crop
+        <div className="flex flex-wrap gap-3">
+          <Button 
+            variant="outline" 
+            onClick={handleRefreshAdvisories} 
+            disabled={isRefreshing}
+            className="border-emerald-200 hover:bg-emerald-50"
+          >
+            <RefreshCw className={`w-4 h-4 mr-2 ${isRefreshing ? "animate-spin" : ""}`} />
+            {isRefreshing ? "Processing SMS..." : "Refresh Advisories"}
           </Button>
-        </Link>
+          <Link href="/dashboard/add-crop">
+            <Button className="bg-emerald-600 hover:bg-emerald-700">
+              <Sprout className="w-4 h-4 mr-2" /> Add New Crop
+            </Button>
+          </Link>
+        </div>
       </div>
 
       {crops.length === 0 ? (
@@ -226,9 +278,19 @@ export default function MyCropsPage() {
                 <CardHeader className="pb-2">
                   <div className="flex justify-between items-start">
                     <CardTitle className="text-xl capitalize">{crop.cropType}</CardTitle>
-                    <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200">
-                      {crop.landArea} Acres
-                    </Badge>
+                    <div className="flex items-center gap-2">
+                      <Button 
+                        variant="ghost" 
+                        size="icon" 
+                        className="h-8 w-8 text-muted-foreground hover:text-destructive transition-colors"
+                        onClick={() => handleDelete(crop._id, crop.cropType)}
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </Button>
+                      <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200">
+                        {crop.landArea} Acres
+                      </Badge>
+                    </div>
                   </div>
                   <div className="flex items-center text-sm text-muted-foreground mt-1">
                     <Calendar className="w-4 h-4 mr-1" /> Planted {format(new Date(crop.plantationDate), "MMM d, yyyy")}

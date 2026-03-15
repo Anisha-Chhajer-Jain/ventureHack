@@ -76,7 +76,7 @@ export const FAQ_DB: FAQEntry[] = [
     answer: {
       en: "Use our free **Fertilizer Calculator** tool!\n\n1. Go to 'Fertilizer Calculator' in the menu\n2. Enter your crop, land size, and soil type\n3. Get the exact Urea, DAP, and MOP quantity\n\n📝 General tips:\n- Sandy soil needs 20% more fertilizer\n- Clay soil retains more, use 10% less\n- Don't over-fertilize — it damages roots!\n- Apply in 2-3 splits for better absorption",
       hi: "हमारे **खाद कैलकुलेटर** का उपयोग करें!\n\n1. मेनू में 'खाद कैलकुलेटर' पर जाएं\n2. फसल, जमीन और मिट्टी का प्रकार लिखें\n3. यूरिया, DAP, MOP की सही मात्रा मिलेगी\n\n📝 सामान्य सुझाव:\n- रेतीली मिट्टी में 20% ज्यादा खाद चाहिए\n- चिकनी मिट्टी में 10% कम\n- ज्यादा खाद न दें — जड़ खराब होती है!\n- 2-3 बार में खाद दें, ज्यादा फायदा होगा",
-      gu: "અ ما ري **ख ात र ક ૅ ル ্ ক ্ u ল ে ট ர ்** ट ूल ว า ด ！\n\n1. メ ニ ュ ー ं म ें '高 ख ात र ك ैल क ्य ु ल ेट र ' ꓐꓣ ज ाए ं\n2. फ स ल , ज म ीन , म ित ्ट ী ব ल ि ख ें\n3. य ूर ि य ा , DAP, MOP ক ी स ही म ात ्र ा ม ि ल ेग ी\n\n📝 ख ेत ी ट ি प :\n- ر ेत ील ी م ि ट ्ट ी → 20% ज ्य ाद ा ख ाद\n- ช ि क न ी → 10% ক م\n- ज ्य ाद ा ख ाद न े ज ड ़ ख र ाब ह ो त ी !"
+      gu: "અ ما રي **ख ात र ક ૅ ル ্ ક ্ u લ ে ટ ર ்** ट ूल ว า ด ！\n\n1. メ ニ ュ ー ं म ें '高 ख ात र ك ैल क ्य ु ल ेट र ' ꓐꓣ ज ाए ं\n2. फ स ल , ज म ीन , म ित ्ट ى ব ल ि ख ें\n3. य ूर ि य ा , DAP, MOP ক ी स ही म ात ्र ा ม ि ल ेग ी\n\n📝 ख ेत ी ट ি প :\n- ر ेत ील ी म ि ट ्ट ी → 20% ज ्य ाद ा ख ात र\n- ช ि क न ी → 10% ক ম\n- ज ्य ाद ा ख ात र न े ज ड ़ ख र ाब ह ो त ी !"
     }
   },
 
@@ -86,7 +86,7 @@ export const FAQ_DB: FAQEntry[] = [
     answer: {
       en: "Check live weather using KisanDost's **Weather** feature!\n\n1. Tap 'Weather' in the menu\n2. Allow your location access\n3. Get real-time temperature, humidity, and rain forecast\n\n🌦️ Weather-based tips:\n- Sow seeds when soil temperature is 15–25°C\n- Avoid spraying pesticides before rain\n- Irrigate 1 day before expected dry spell\n- During heavy rain, check drainage in fields",
       hi: "KisanDost के **मौसम** फीचर से ताजा मौसम देखें!\n\n1. मेनू में 'मौसम' पर क्लिक करें\n2. लोकेशन की अनुमति दें\n3. तापमान, नमी, बारिश का अनुमान मिलेगा\n\n🌦️ मौसम के हिसाब से टिप्स:\n- बीज बोने के लिए 15-25°C तापमान अच्छा\n- बारिश से पहले कीटनाशक न छिड़कें\n- सूखे से पहले एक दिन पहले सिंचाई करें\n- भारी बारिश में खेत की नाली ठीक रखें",
-      gu: "KisanDost ن ੀ **हव ाม ान** স ু ব ि ध ा ব ব ় ह र ।\n\n1. ম ে न ু م ें 'हव ाम ान ' ক ্ ল ि ক ক ্ ও\n2. ल ো क ेश ন অ ন ु م त ি দ িন\n3. त ाप म ान , आ र ्द ্ र ত ा, ब ার ि श আ ন ुм ान\n\n🌦️ হ ভ ামান ট ি প :\n- ए 15-25°C म ें ব ীজ ব োন ো ভ াল ो ह ै\n- ब ार ि श स े प ह ले क ीटন াশ क न ছ ি ড ় क ें"
+      gu: "KisanDost ન ી **હવ ામ ાન** સ ુ બ િ ધ ા વ બ ় હ ર ।\n\n1. મ ে ન ુ મ ें 'હવ ામ ાન ' ક ্ લ િ ક ક ্ ઓ\n2. લ ો ક ેશ ન અ ન ુ મ ત િ દ િન\n3. ત ાપ મ ાન , આ ર ্ દ ্ ર ત ા, બ ાર િ શ આ ન ુમ ાન\n\n🌦️ હ ભ ામ ાન ટ િ પ :\n- એ 15-25°C મ ें બ ીજ બ ોન ો ભ ાલ ો હ ै\n- બ ાર િ શ સ े પ હ લે ક ીટન ાશ ક ન છ િ ડ ় ક ें"
     }
   },
 

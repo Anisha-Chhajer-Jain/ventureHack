@@ -32,15 +32,16 @@ export default function ProfitPredictorPage() {
           {predictionData ? (
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                <Card className="bg-primary/5 border-primary/20">
+                <Card className="bg-emerald-50 border-emerald-200">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-medium text-muted-foreground">
-                      {t("yieldResult")}
+                    <CardTitle className="text-sm font-medium text-emerald-700">
+                      Predicted Profit
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold">
-                      {predictionData.predictedYield} {t("quintals")}
+                    <div className="text-2xl font-bold text-emerald-700 flex items-center">
+                      <IndianRupee className="w-5 h-5 mr-1" />
+                      {predictionData.predictedProfit.toLocaleString()}
                     </div>
                     <Badge variant="secondary" className="mt-1">
                       {Math.round(predictionData.confidenceScore * 100)}% Confidence
@@ -48,30 +49,30 @@ export default function ProfitPredictorPage() {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-emerald-50 border-emerald-200">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-medium text-emerald-700">
-                      {t("netProfit")}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl font-bold text-emerald-700 flex items-center">
-                      <IndianRupee className="w-5 h-5 mr-1" />
-                      {predictionData.netProfit.toLocaleString()}
-                    </div>
-                  </CardContent>
-                </Card>
-
                 <Card className="bg-blue-50 border-blue-200">
                   <CardHeader className="pb-2">
                     <CardTitle className="text-sm font-medium text-blue-700">
-                      {t("marketPrice")}
+                      Expected Revenue
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="text-2xl font-bold text-blue-700 flex items-center">
                       <IndianRupee className="w-5 h-5 mr-1" />
-                      {predictionData.pricePerQuintal.toLocaleString()}
+                      {predictionData.expectedRevenue.toLocaleString()}
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-orange-50 border-orange-200">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-sm font-medium text-orange-700">
+                      Total Cost
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-2xl font-bold text-orange-700 flex items-center">
+                      <IndianRupee className="w-5 h-5 mr-1" />
+                      {predictionData.totalCost.toLocaleString()}
                     </div>
                   </CardContent>
                 </Card>
@@ -80,22 +81,13 @@ export default function ProfitPredictorPage() {
               <div className="bg-secondary/20 rounded-2xl p-6 border-2 border-dashed border-secondary">
                 <div className="flex items-center gap-2 mb-4">
                   <Info className="w-5 h-5 text-primary" />
-                  <h3 className="font-bold text-lg">AI Smart Insights</h3>
+                  <h3 className="font-bold text-lg">Recommendation</h3>
                 </div>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2 text-sm">
-                    <div className="mt-1 h-2 w-2 rounded-full bg-emerald-500" />
-                    <span>{t("insights.goodYield")}</span>
-                  </li>
-                  <li className="flex items-start gap-2 text-sm">
-                    <div className="mt-1 h-2 w-2 rounded-full bg-blue-500" />
-                    <span>{t("insights.goodPrice")}</span>
-                  </li>
-                  <li className="flex items-start gap-2 text-sm">
-                    <div className="mt-1 h-2 w-2 rounded-full bg-orange-500" />
-                    <span>{t("insights.optimize")}</span>
-                  </li>
-                </ul>
+                <div className="p-4 bg-background/50 rounded-xl border border-primary/10">
+                   <p className="text-foreground font-medium leading-relaxed">
+                     {predictionData.recommendation}
+                   </p>
+                </div>
               </div>
 
               <ProfitCharts data={predictionData} />
@@ -109,7 +101,7 @@ export default function ProfitPredictorPage() {
                 Ready to predict your profit?
               </h3>
               <p className="text-muted-foreground max-w-sm">
-                Fill out the form on the left with your crop and soil details to get AI-powered insights.
+                Fill out the form on the left with your land area and input costs to get AI-powered profit insights.
               </p>
             </div>
           )}

@@ -10,20 +10,18 @@ app = FastAPI(
 )
 
 class YieldPredictionRequest(BaseModel):
-    crop: str = Field(..., description="Type of crop constraint (e.g. Wheat, Rice)")
-    nitrogen: float = Field(..., description="Soil Nitrogen content (kg/ha)")
-    phosphorus: float = Field(..., description="Soil Phosphorus content (kg/ha)")
-    potassium: float = Field(..., description="Soil Potassium content (kg/ha)")
-    rainfall: float = Field(..., description="Annual rainfall in mm")
-    temperature: float = Field(..., description="Average temperature in Celsius")
-    soil_ph: float = Field(..., description="Soil pH level (0-14)")
+    crop: str = Field(..., description="Type of crop (e.g. Wheat, Rice)")
+    land_area: float = Field(..., description="Land area in acres")
+    fertilizer_cost: float = Field(..., description="Total fertilizer cost in ₹")
+    pesticide_cost: float = Field(..., description="Total pesticide cost in ₹")
+    irrigation_cost: Optional[float] = Field(0.0, description="Total irrigation cost in ₹")
     state: str = Field(default="Rajasthan", description="State or region for regional context")
-    latitude: Optional[float] = None
-    longitude: Optional[float] = None
 
 class YieldPredictionResponse(BaseModel):
-    predicted_yield: float
-    unit: str
+    predicted_profit: float
+    expected_revenue: float
+    total_cost: float
+    recommendation: str
     confidence: float
     region: str
 
@@ -35,12 +33,10 @@ async def predict_yield_endpoint(request: YieldPredictionRequest):
         # For hackathons, hardcoded regional fallback is standard.
         result = predictor.predict(
             crop=request.crop,
-            nitrogen=request.nitrogen,
-            phosphorus=request.phosphorus,
-            potassium=request.potassium,
-            rainfall=request.rainfall,
-            temperature=request.temperature,
-            soil_ph=request.soil_ph,
+            land_area=request.land_area,
+            fertilizer_cost=request.fertilizer_cost,
+            pesticide_cost=request.pesticide_cost,
+            irrigation_cost=request.irrigation_cost,
             state=request.state
         )
         return result

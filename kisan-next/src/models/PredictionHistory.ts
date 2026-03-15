@@ -4,16 +4,14 @@ export interface IPredictionHistory extends Document {
   userId: string;
   cropType: string;
   landArea: number;
-  soilNitrogen: number;
-  soilPhosphorus: number;
-  soilPotassium: number;
-  rainfall: number;
-  fertilizerUsed: number;
-  predictedYield: number;
-  mandiPrice: number;
-  estimatedRevenue: number;
   fertilizerCost: number;
-  netProfit: number;
+  pesticideCost: number;
+  irrigationCost: number;
+  predictedProfit: number;
+  expectedRevenue: number;
+  totalCost: number;
+  recommendation: string;
+  mandiPrice?: number;
   timestamp: Date;
 }
 
@@ -21,17 +19,21 @@ const PredictionHistorySchema: Schema = new Schema({
   userId: { type: String, required: true, index: true },
   cropType: { type: String, required: true },
   landArea: { type: Number, required: true },
-  soilNitrogen: { type: Number, required: true },
-  soilPhosphorus: { type: Number, required: true },
-  soilPotassium: { type: Number, required: true },
-  rainfall: { type: Number, required: true },
-  fertilizerUsed: { type: Number, required: true },
-  predictedYield: { type: Number, required: true },
-  mandiPrice: { type: Number, required: true },
-  estimatedRevenue: { type: Number, required: true },
   fertilizerCost: { type: Number, required: true },
-  netProfit: { type: Number, required: true },
+  pesticideCost: { type: Number, required: true },
+  irrigationCost: { type: Number, default: 0 },
+  predictedProfit: { type: Number, required: true },
+  expectedRevenue: { type: Number, required: true },
+  totalCost: { type: Number, required: true },
+  recommendation: { type: String },
+  mandiPrice: { type: Number },
   timestamp: { type: Date, default: Date.now },
 });
 
-export default mongoose.models.PredictionHistory || mongoose.model<IPredictionHistory>("PredictionHistory", PredictionHistorySchema);
+// Clear the model from cache to ensure schema updates are applied in development
+if (mongoose.models.PredictionHistory) {
+  delete (mongoose as any).models.PredictionHistory;
+}
+
+export default mongoose.model<IPredictionHistory>("PredictionHistory", PredictionHistorySchema);
+

@@ -8,10 +8,14 @@ import { ChatWidget } from "@/components/chat/ChatWidget";
 export function ClientProviders({ children }: { children: React.ReactNode }) {
   return (
     <WeatherProvider>
-      <Navbar />
-      {children}
-      <Footer />
-      <ChatWidget />
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <div className="flex-1">
+          {children}
+        </div>
+        <Footer />
+        <ChatWidget />
+      </div>
     </WeatherProvider>
   );
 }
