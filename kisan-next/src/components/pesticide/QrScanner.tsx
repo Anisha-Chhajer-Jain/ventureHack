@@ -33,7 +33,7 @@ export default function QrScanner() {
     );
 
     scanner.render(
-      async (decodedText) => {
+      async (decodedText: string) => {
         scanner.clear().catch(console.error);
         setScanning(false);
         setLoading(true);
@@ -52,7 +52,7 @@ export default function QrScanner() {
           setLoading(false);
         }
       },
-      (error) => {
+      (error: any) => {
         // Suppress common scanning errors (no QR found yet)
       }
     );
