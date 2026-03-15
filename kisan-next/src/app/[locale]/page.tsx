@@ -75,7 +75,7 @@ export default function Home() {
     <div className="space-y-32 pb-32">
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-36 ">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ">
           <div className="space-y-10 animate-in slide-in-from-left duration-1000">
           
             
@@ -90,11 +90,11 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5 pt-4">
-              <Link href="/dashboard" className="hidden md:flex">
+              <a href="https://venturehack.netlify.app/app/kisanDost.apk" download className="hidden md:flex">
                 <Button className="h-16 px-10 rounded-2xl bg-[#2e6b3b] hover:bg-[#1b4332] text-white shadow-2xl shadow-green-900/20 text-xl font-bold transition-all hover:scale-105 active:scale-95 group">
                   Download Now <ArrowRight className="w-6 h-6 ml-2 transition-transform group-hover:translate-x-1" />
                 </Button>
-              </Link>
+              </a>
               <div className="flex items-center gap-4 px-6 border-l-4 border-orange-400">
                
               </div>

@@ -42,14 +42,14 @@ export default function DashboardPage() {
   return (
     <div className="space-y-8 animate-in fade-in pt-28 pb-12">
       {/* Hero Banner */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary to-primary/80 shadow-xl p-6 sm:p-10 text-white">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary to-primary/80 shadow-xl p-5 sm:p-10 text-white">
         <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="space-y-4">
-            <h1 className="text-3xl sm:text-4xl font-extrabold flex items-center gap-3">
+            <h1 className="text-2xl sm:text-4xl font-extrabold flex items-center gap-2 sm:gap-3">
               <span className="text-white drop-shadow-sm">
                 {t("greeting", { name: user?.firstName || "Farmer", health: t("healthStatus.healthy") })}
               </span>
-              <img src="https://rupiya.app/wp-content/uploads/2025/03/Asset-16.png" className="w-12 h-12 inline animate-pulse" alt="namaste" />
+              <img src="https://rupiya.app/wp-content/uploads/2025/03/Asset-16.png" className="w-10 h-10 sm:w-12 sm:h-12 inline animate-pulse" alt="namaste" />
             </h1>
             <p className="text-xl opacity-90 font-medium">Your current overall farm NDVI is 0.78 (Excellent).</p>
           </div>
@@ -78,10 +78,10 @@ export default function DashboardPage() {
         {/* AI Profit Intelligence Quick Access */}
         <div className="mb-8">
           <Link href="/dashboard/profit-predictor">
-            <div className="group relative overflow-hidden bg-gradient-to-br from-emerald-600 to-teal-700 rounded-3xl p-8 text-white shadow-lg hover:shadow-2xl transition-all duration-300">
-              <div className="relative z-10 flex flex-col md:flex-row items-center gap-6">
-                <div className="p-4 bg-white/10 rounded-2xl backdrop-blur-md">
-                  <IndianRupee className="w-10 h-10" />
+            <div className="group relative overflow-hidden bg-gradient-to-br from-emerald-600 to-teal-700 rounded-3xl p-6 sm:p-8 text-white shadow-lg hover:shadow-2xl transition-all duration-300">
+              <div className="relative z-10 flex flex-col md:flex-row items-center gap-4 sm:gap-6">
+                <div className="p-3 sm:p-4 bg-white/10 rounded-2xl backdrop-blur-md">
+                  <IndianRupee className="w-8 h-8 sm:w-10 sm:h-10" />
                 </div>
                 <div className="text-center md:text-left space-y-2">
                   <h3 className="text-2xl font-bold">AI Profit Intelligence</h3>

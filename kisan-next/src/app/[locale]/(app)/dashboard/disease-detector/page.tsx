@@ -85,10 +85,10 @@ export default function DiseaseDetectorPage() {
       
       {/* Header */}
       <div>
-        <h1 className="text-4xl font-extrabold tracking-tight text-emerald-950 dark:text-emerald-50 mb-3">
+        <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-emerald-950 dark:text-emerald-50 mb-3">
           AI Crop Disease Detector
         </h1>
-        <p className="text-lg text-emerald-800/70 dark:text-emerald-200/70 max-w-2xl">
+        <p className="text-base sm:text-lg text-emerald-800/70 dark:text-emerald-200/70 max-w-2xl">
           Upload a clear photo of an infected leaf. Our AI model will instantly identify the disease and recommend the best treatment products.
         </p>
       </div>
@@ -132,12 +132,12 @@ export default function DiseaseDetectorPage() {
                 </div>
               ) : (
                 <div className="text-center space-y-4 py-8">
-                  <div className="bg-emerald-100 p-4 rounded-full inline-block dark:bg-emerald-900/50">
-                    <UploadCloud className="w-10 h-10 text-emerald-600" />
+                  <div className="bg-emerald-100 p-3 sm:p-4 rounded-full inline-block dark:bg-emerald-900/50">
+                    <UploadCloud className="w-8 h-8 sm:w-10 sm:h-10 text-emerald-600" />
                   </div>
                   <div>
-                    <p className="text-lg font-semibold text-emerald-900 dark:text-emerald-100">Click or drag & drop</p>
-                    <p className="text-sm text-emerald-600 dark:text-emerald-400 mt-1">PNG, JPG, WEBP up to 10MB</p>
+                    <p className="text-base sm:text-lg font-semibold text-emerald-900 dark:text-emerald-100">Click or drag & drop</p>
+                    <p className="text-xs sm:text-sm text-emerald-600 dark:text-emerald-400 mt-1">PNG, JPG, WEBP up to 10MB</p>
                   </div>
                 </div>
               )}
@@ -190,8 +190,8 @@ export default function DiseaseDetectorPage() {
                 <CardHeader className="pb-4 pt-6">
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <div>
-                      <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest mb-1">Detected Crop</p>
-                      <CardTitle className="text-4xl md:text-5xl font-black text-emerald-950 mb-4">
+                      <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Detected Crop</p>
+                      <CardTitle className="text-3xl sm:text-5xl font-black text-emerald-950 mb-4">
                         {result.cropName || "Unknown Crop"}
                       </CardTitle>
                       

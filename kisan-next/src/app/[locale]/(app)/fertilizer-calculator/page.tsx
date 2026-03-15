@@ -131,13 +131,13 @@ function FertilizerCalculatorContent() {
           <Calculator className="w-8 h-8 text-primary" />
         </div>
         <div>
-          <h1 className="text-3xl font-extrabold text-foreground">{t("title")}</h1>
-          <p className="text-muted-foreground mt-1">AI-powered precision dosing</p>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-foreground">{t("title")}</h1>
+          <p className="text-sm text-muted-foreground mt-1">AI-powered precision dosing</p>
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-12 gap-6">
-        <Card className="lg:col-span-5 border-border shadow-md rounded-3xl overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <Card className="lg:col-span-5 border-border shadow-md rounded-[30px] sm:rounded-3xl overflow-hidden">
           <div className="h-2 w-full bg-gradient-to-r from-[#4CAF50] to-[#FFCA28]" />
           <CardHeader>
             <CardTitle>Farm Details</CardTitle>

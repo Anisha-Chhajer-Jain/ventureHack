@@ -115,31 +115,31 @@ export default function ExpenseManagerPage() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8 space-y-12 pb-32">
+    <div className="max-w-7xl mx-auto px-4 py-8 space-y-8 md:space-y-12 pb-32">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
         <div className="space-y-4">
           <Link href="/dashboard" className="inline-flex items-center gap-2 text-slate-400 font-bold hover:text-[#2e6b3b] transition-colors">
             <ArrowLeft className="w-5 h-5" /> Back to Dashboard
           </Link>
-          <h1 className="text-5xl md:text-7xl font-black text-[#2e6b3b] tracking-tighter leading-none uppercase">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-black text-[#2e6b3b] tracking-tighter leading-none uppercase">
             <DualText native={t("title")} english="Farmer Expense Manager" />
           </h1>
-          <p className="text-xl text-muted-foreground font-medium">{t("subtitle")}</p>
+          <p className="text-lg md:text-xl text-muted-foreground font-medium">{t("subtitle")}</p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-4">
           <Button 
             onClick={handleDownloadCSV}
             variant="outline" 
-            className="h-16 px-8 rounded-2xl border-2 border-slate-100 font-black text-slate-600 hover:bg-slate-50 transition-all hover:border-[#8bc34a] hover:text-[#2e6b3b]"
+            className="h-14 md:h-16 px-6 md:px-8 rounded-2xl border-2 border-slate-100 font-black text-slate-600 hover:bg-slate-50 transition-all hover:border-[#8bc34a] hover:text-[#2e6b3b]"
           >
             <Download className="w-5 h-5 mr-3" /> Report
           </Button>
           <Button 
             onClick={() => setIsFormOpen(true)}
-            className="h-16 px-10 rounded-2xl bg-[#2e6b3b] hover:bg-[#1b4332] text-white shadow-2xl text-xl font-black transition-all hover:scale-105 active:scale-95 flex items-center gap-3"
+            className="h-14 md:h-16 px-8 md:px-10 rounded-2xl bg-[#2e6b3b] hover:bg-[#1b4332] text-white shadow-2xl text-lg md:text-xl font-black transition-all hover:scale-105 active:scale-95 flex items-center gap-3"
           >
-            <Plus className="w-8 h-8" /> {t("save")}
+            <Plus className="w-7 h-7 md:w-8 md:h-8" /> {t("save")}
           </Button>
         </div>
       </div>
@@ -151,16 +151,16 @@ export default function ExpenseManagerPage() {
       <div className="space-y-8">
         <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
           <div className="relative w-full md:max-w-md group">
-            <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400 group-focus-within:text-[#2e6b3b] transition-colors" />
+            <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 sm:w-6 sm:h-6 text-slate-400 group-focus-within:text-[#2e6b3b] transition-colors" />
             <Input 
               placeholder={t("search")}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="h-16 pl-16 pr-6 bg-white rounded-3xl border-2 border-slate-100 text-lg font-bold shadow-sm focus:border-[#8bc34a] focus:ring-4 focus:ring-[#8bc34a]/10"
+              className="h-14 md:h-16 pl-14 md:pl-16 pr-6 bg-white rounded-3xl border-2 border-slate-100 text-base md:text-lg font-bold shadow-sm focus:border-[#8bc34a] focus:ring-4 focus:ring-[#8bc34a]/10"
             />
           </div>
 
-          <div className="flex p-1.5 bg-slate-100 rounded-2xl w-full md:w-auto h-16 self-stretch md:self-auto">
+          <div className="flex p-1 bg-slate-100 rounded-2xl w-full md:w-auto h-14 md:h-16 self-stretch md:self-auto overflow-x-auto no-scrollbar">
             {(["all", "expense", "income"] as const).map((f) => (
               <button
                 key={f}

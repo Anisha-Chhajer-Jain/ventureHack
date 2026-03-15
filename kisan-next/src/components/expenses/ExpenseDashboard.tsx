@@ -92,13 +92,13 @@ export function ExpenseDashboard({ expenses }: DashboardProps) {
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         {/* Timeframe Toggle */}
-        <div className="flex p-1.5 bg-slate-100/80 rounded-2xl w-full md:w-auto overflow-x-auto shadow-inner">
+        <div className="flex p-1 bg-slate-100/80 rounded-2xl w-full md:w-auto overflow-x-auto no-scrollbar shadow-inner">
           {(["monthly", "seasonal", "yearly", "allTime"] as Timeframe[]).map((f) => (
             <button
               key={f}
               onClick={() => setTimeframe(f)}
               className={cn(
-                "flex-1 px-4 py-3 min-w-[100px] rounded-xl text-sm font-black uppercase tracking-widest transition-all",
+                "flex-1 px-4 py-2.5 min-w-[100px] rounded-xl text-[10px] sm:text-xs font-black uppercase tracking-widest transition-all whitespace-nowrap",
                 timeframe === f ? "bg-white text-[#2e6b3b] shadow-md border-b-2 border-[#2e6b3b]" : "text-slate-400 hover:text-slate-600"
               )}
             >
@@ -149,49 +149,49 @@ export function ExpenseDashboard({ expenses }: DashboardProps) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card className="rounded-[40px] border-none bg-red-50/80 shadow-xl overflow-hidden group hover:-translate-y-1 transition-transform">
-          <CardContent className="p-8 relative">
-            <div className="absolute -top-6 -right-6 opacity-10 group-hover:scale-110 transition-transform duration-700">
-              <TrendingDown className="w-32 h-32 text-red-600" />
+        <Card className="rounded-[30px] sm:rounded-[40px] border-none bg-red-50/80 shadow-xl overflow-hidden group hover:-translate-y-1 transition-transform">
+          <CardContent className="p-6 sm:p-8 relative">
+            <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 opacity-10 group-hover:scale-110 transition-transform duration-700">
+              <TrendingDown className="w-24 h-24 sm:w-32 sm:h-32 text-red-600" />
             </div>
-            <p className="text-sm font-black text-red-900/60 uppercase tracking-widest mb-2">{t("totalExpense")}</p>
-            <p className="text-4xl font-black text-red-600">₹{totals.expense.toLocaleString()}</p>
-            <div className="mt-4 flex items-center gap-2 text-red-900/40 font-bold">
-              <span className="text-xs uppercase tracking-wider">{t(`timeframes.${timeframe}`)}</span>
+            <p className="text-[10px] font-black text-red-900/60 uppercase tracking-widest mb-1 sm:mb-2">{t("totalExpense")}</p>
+            <p className="text-3xl sm:text-4xl font-black text-red-600">₹{totals.expense.toLocaleString()}</p>
+            <div className="mt-3 sm:mt-4 flex items-center gap-2 text-red-900/40 font-bold">
+              <span className="text-[10px] uppercase tracking-wider">{t(`timeframes.${timeframe}`)}</span>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="rounded-[40px] border-none bg-emerald-50/80 shadow-xl overflow-hidden group hover:-translate-y-1 transition-transform">
-          <CardContent className="p-8 relative">
-            <div className="absolute -top-6 -right-6 opacity-10 group-hover:scale-110 transition-transform duration-700">
-              <TrendingUp className="w-32 h-32 text-emerald-600" />
+        <Card className="rounded-[30px] sm:rounded-[40px] border-none bg-emerald-50/80 shadow-xl overflow-hidden group hover:-translate-y-1 transition-transform">
+          <CardContent className="p-6 sm:p-8 relative">
+            <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 opacity-10 group-hover:scale-110 transition-transform duration-700">
+              <TrendingUp className="w-24 h-24 sm:w-32 sm:h-32 text-emerald-600" />
             </div>
-            <p className="text-sm font-black text-emerald-900/60 uppercase tracking-widest mb-2">{t("totalIncome")}</p>
-            <p className="text-4xl font-black text-emerald-600">₹{totals.income.toLocaleString()}</p>
-            <div className="mt-4 flex items-center gap-2 text-emerald-900/40 font-bold">
-              <span className="text-xs uppercase tracking-wider">{t(`timeframes.${timeframe}`)}</span>
+            <p className="text-[10px] font-black text-emerald-900/60 uppercase tracking-widest mb-1 sm:mb-2">{t("totalIncome")}</p>
+            <p className="text-3xl sm:text-4xl font-black text-emerald-600">₹{totals.income.toLocaleString()}</p>
+            <div className="mt-3 sm:mt-4 flex items-center gap-2 text-emerald-900/40 font-bold">
+              <span className="text-[10px] uppercase tracking-wider">{t(`timeframes.${timeframe}`)}</span>
             </div>
           </CardContent>
         </Card>
 
         <Card className={cn(
-          "rounded-[40px] border-none shadow-2xl overflow-hidden group hover:-translate-y-1 transition-transform",
+          "rounded-[30px] sm:rounded-[40px] border-none shadow-2xl overflow-hidden group hover:-translate-y-1 transition-transform",
           isProfit ? "bg-green-600" : "bg-red-500"
         )}>
-          <CardContent className="p-8 relative">
-            <div className="absolute -top-6 -right-6 opacity-10 group-hover:rotate-12 transition-transform duration-700">
-              <Wallet className="w-32 h-32 text-white" />
+          <CardContent className="p-6 sm:p-8 relative">
+            <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 opacity-10 group-hover:rotate-12 transition-transform duration-700">
+              <Wallet className="w-24 h-24 sm:w-32 sm:h-32 text-white" />
             </div>
-            <p className="text-sm font-black text-white/80 uppercase tracking-widest mb-2">
+            <p className="text-[10px] font-black text-white/80 uppercase tracking-widest mb-1 sm:mb-2">
               {isProfit ? t("profit") : t("loss")}
             </p>
-            <p className="text-4xl font-black text-white">
+            <p className="text-3xl sm:text-4xl font-black text-white">
               {isProfit ? '+' : '-'}₹{Math.abs(profit).toLocaleString()}
             </p>
-            <div className="mt-4 flex items-center gap-2 text-white/50 font-bold">
+            <div className="mt-3 sm:mt-4 flex items-center gap-2 text-white/50 font-bold">
               <LayoutDashboard className="w-4 h-4" />
-              <span className="text-xs uppercase tracking-wider">{t('netResult')}</span>
+              <span className="text-[10px] uppercase tracking-wider">{t('netResult')}</span>
             </div>
           </CardContent>
         </Card>
